@@ -1,15 +1,14 @@
-# Muthia1919.github.io
 <html>
   <head>
-    <title>Homepage saya</title>
+    <title>Muthia Sari</title>
   </head>
 </body>
-<h1>saya baru belajar tentang cara membuat website ini</h1>
-<h2>Halaman lain 
-https://library.usu.ac.id/</h2>
+<h1>Halaman lain</h1>
+<h2>Halaman lain</h2>
+  https://library.usu.ac.id
 <p>perkenalkan,nama saya muthia sari, Nim 220709002</p>
-<i>homepage</i>
-<b>pertama</b> saya baru belajar tentang cara membuat<b><i>homepage</i></b>.
+<i>homepage ini</i>
+<b>pertama</b> saya buat untuk memenuhi tugas saya<b><i>homepage</i></b>.
 </p>
 </body>
 </html>
