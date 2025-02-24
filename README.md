@@ -3,12 +3,11 @@
     <title>Muthia Sari</title>
   </head>
 </body>
-<h1>Halaman lain</h1>
+<h1>Muthia Sari</h1>
+  Perkenalkan saya Muthia Sari, Nim 220709002, saat ini saya masih belajar cara membuat website
 <h2>Halaman lain</h2>
-  https://library.usu.ac.id
-<p>perkenalkan,nama saya muthia sari, Nim 220709002</p>
-<i>homepage ini</i>
-<b>pertama</b> saya buat untuk memenuhi tugas saya<b><i>homepage</i></b>.
+<p>library.usu.ac.id</p>
+<i>homepage</i>
 </p>
 </body>
 </html>
