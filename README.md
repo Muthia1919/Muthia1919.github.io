@@ -39,7 +39,7 @@
 </head>
 <body>
     <h1>Perpustakaan Muthia Sari</h1>
-    <p>perkenalkan saya muthia sari ini adalah homepage pertama saya .</p>
+    <p>perkenalkan saya muthia ini adalah homepage pertama saya</p>
     
      <p><a href="https://library.usu.ac.id/" target="_blank">Kunjungi Perpustakaan USU</a></p>
 </body>
