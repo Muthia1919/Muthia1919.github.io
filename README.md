@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -40,7 +39,10 @@
 </head>
 <body>
     <h1>Perpustakaan Muthia Sari</h1>
-    <p>Selamat datang di website perpustakaan pribadi Muthia Sari, tempat berbagi ilmu dan informasi.</p>
+    <p>perkenalkan saya muthia sari ini adalah homepage pertama saya .</p>
+    
+     <p><a href="https://library.usu.ac.id/" target="_blank">Kunjungi Perpustakaan USU</a></p>
+</body>
     
     <h2>About Me</h2>
     <table>
@@ -64,6 +66,5 @@
         <button type="submit">Kirim</button>
     </form>
     
-    <p><a href="https://library.usu.ac.id/" target="_blank">Kunjungi Perpustakaan USU</a></p>
 </body>
 </html>
