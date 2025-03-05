@@ -50,6 +50,7 @@
         <tr><th>NIM</th><td>220709002</td></tr>
         <tr><th>Program Studi</th><td>Perpustakaan dan Sains Informasi</td></tr>
         <tr><th>Fakultas</th><td>Ilmu Budaya</td></tr>
+        <tr><th>Universitas</th><td>Universitas Sumatra Utara</td></tr>
     </table>
     
     <h2>Contact Us</h2>
