@@ -8,82 +8,80 @@
 body {
     background-color: #f4f4f4;
     color: #333;
-    line-height: 1.6;
-}
-
-/* Header styling */
-header {
-    background: #2c3e50;
-    color: #fff;
-    padding: 20px;
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
+    padding: 20px;
 }
 
-/* Navigasi */
-nav {
-    display: flex;
-    justify-content: center;
-    background: #34495e;
-    padding: 10px;
+h1, h2 {
+    color: #2c3e50;
 }
 
-nav a {
-    color: white;
+/* Link Styling */
+a {
+    color: #1abc9c;
     text-decoration: none;
-    padding: 10px 20px;
+    font-weight: bold;
     transition: 0.3s;
 }
 
-nav a:hover {
-    background: #1abc9c;
-    border-radius: 5px;
+a:hover {
+    text-decoration: underline;
 }
 
-/* Container utama */
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-    padding: 20px;
-}
-
-/* Kartu buku */
-.book-card {
+/* Tabel Styling */
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 60%;
     background: white;
-    padding: 15px;
-    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+th {
+    background: #34495e;
+    color: white;
+    text-transform: uppercase;
+}
+
+td {
+    background: #ecf0f1;
+}
+
+/* Form Styling */
+form {
+    width: 50%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
 }
 
-.book-card:hover {
-    transform: scale(1.05);
-}
-
-.book-card img {
+input, textarea {
     width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.book-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.book-author {
-    font-size: 14px;
-    color: #777;
-}
-
-/* Footer */
-footer {
-    background: #2c3e50;
+button {
+    padding: 12px;
+    background-color: #2980b9;
     color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #1abc9c;
 }
