@@ -1,0 +1,40 @@
+* {
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    margin: 0px
+    padding:0px;
+    font-family: 'open sans',sans-serif;
+}
+
+.wrapper{
+    width: 1100px;
+    margin:auto;
+    position:relative;
+}
+
+.logo a{
+    font-size: 50px;
+    font-weight: bold;
+    float:left;
+    font-family: 'Courier New;
+    color: #205781;
+}
+
+.menu {
+    fload: right;
+}
+
+nav {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    line-height: 80px;
+    position: sticky;
+    position: -webkit-sticky;
+    top:0;
+    background: #4F959D
+}
