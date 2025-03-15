@@ -24,10 +24,10 @@
         <section id="home">
             <img src= "https://www.freepik.com/free-vector/people-library-flat-vector-illustration_9176169.htm#fromView=search&page=1&position=13&uuid=e163468b-33db-424b-a232-c1790643f0ac&query=perpustakaan"/>
             <div class="kolom">
-               
                 <h2>HELLO! Selamat Datang di Perpsuatakaan Muthia Sari </h2>
                 <p class="deskripsi">  website ini dibuat untuk memenuhi tugas mata kuliah PENGEMBANGAN WEB PERPUSTAKAAN. Website ini memiliki koleksi tugas kuliah dan informasi katalog buku yang menarik</p> 
                 <p><a href="https://library.usu.ac.id/" target="_blank">Kunjungi Perpustakaan USU</a></p>
+                
         </section>
     </div>
 
