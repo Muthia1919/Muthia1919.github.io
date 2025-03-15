@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en"
 <head>
     <meta charset="UTF-8">
@@ -20,10 +20,15 @@
             </div>
         </div>
     </nav>
-    <div class='wrapper">
+    <div> class='wrapper">
         <section id="home">
             <img src="https://www.freepik.com/free-vector/people-library-flat-vector-illustration_9176169.htm#fromView=search&page=1&position=13&uuid=e163468b-33db-424b-a232-c1790643f0ac&query=perpustakaan"/>
+            <div class="kolom">
+                <p class="deskripsi">HELLO! Selamat Datang di Perpsuatakaan Muthia Sari </p> 
+                <h2> website ini dibuat untuk memenuhi tugas mata kuliah PENGEMBANGAN WEB PERPUSTAKAAN. Website ini memiliki koleksi tugas kuliah dan informasi katalog buku yang menarik </h2>
+                <p><a href="https://library.usu.ac.id/" target="_blank">Kunjungi Perpustakaan USU</a></p>
         </section>
     </div>
+
 </body>
 <html>
