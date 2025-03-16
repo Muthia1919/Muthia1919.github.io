@@ -14,15 +14,13 @@
                 <ul>
                     <li><a href="home">home</a></li>
                     <li><a href="about us">about us</a></li>
-                    <li><a href="#contact us">contact us</a></li>
-                    <li><a href=""class="tbl-biru">Daftar</a></li>
+                    <li><a href="contact us">contact us</a></li>
+                    <li><a href="pendaftaran anggota">pendaftaran anggota</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <div> class='wrapper">
-        </section>
-
         <!--untuk home-->
         <section id="home">
             <img src="https://www.freepik.com/free-vector/people-library-flat-vector-illustration_9176169.htm#fromView=search&page=1&position=13&uuid=e163468b-33db-424b-a232-c1790643f0ac&query=perpustakaan"/>
@@ -50,7 +48,6 @@
         <!--untuk contact us-->
         <section id="contact us"
             <div class="kolom">
-                <p class="container"></div></p>
                 <h2>Selamat bergabung!</h2>
                 <form>
                     <table>
@@ -114,5 +111,6 @@
                     </form>
                     
     </div>
+
 </body>
 <html>
