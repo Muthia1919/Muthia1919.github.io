@@ -41,7 +41,7 @@
                     <tr><th>Fakultas</th><td>Ilmu Budaya</td></tr>
                     <tr><th>Universitas</th><td>Universitas Sumatra Utara</td></tr>
                 </table>
-
+            </div>
     </div>
 
 </body>
