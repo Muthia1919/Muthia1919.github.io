@@ -42,6 +42,7 @@
                     <tr><th>Universitas</th><td>Universitas Sumatra Utara</td></tr>
                 </table>
             </div>
+        </section>
     </div>
 
 </body>
