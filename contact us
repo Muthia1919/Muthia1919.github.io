@@ -30,20 +30,35 @@
         </div>
      </header>
 
-     <!--benner-->
-     <section class="benner"
-         <h2>HELLO! SELAMAT DATANG DI PERPUSTAKAAN MUTHIA SARI</h2>
-    </section>
-
     <!--home-->
-    <section class="home"
-        <div class="container"
-            <h3>ABOUT</h3>
-            <p>website ini dibuat untuk memenuhi tugas mata kuliah PENGEMBANGAN WEB PERPUSTAKAAN. Website ini memiliki koleksi tugas kuliah dan informasi katalog buku yang menarik.</p>
-            <p>website ini dikelola dengan dukungan dan kerja sama dari pihak lain. Kolaborasi ini bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
-            <p><a href="https://library.usu.ac.id/" target="_blank"><klik disini ></a></p> 
+    <section id="contact us"
+        <div></section>class="kolom">
+            <h3>kami Sangat Menerima Keritik dan Saran Pengguna, silahkan tinggalkan pesan anda</h3>
+           <form action=""method="POST">
+          <table>
+             <tr>
+                    <td><label for="name">Nama:</label></td>
+                    <td><input type="text" id="name" name="name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="phone">No HP:</label></td>
+                    <td><input type="number" id="phone" name="phone" required></td>
+                </tr>
+                 <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email" name="email" required></td>
+                </tr>
+                <tr>
+                   <td><label for="message">Pesan:</label></td>
+                   <td><textarea id="message" name="message" rows="4" required></textarea></td>
+               </tr>
+                <tr>
+                   <td colspan="2" style="text-align: center;"><button type="submit">Kirim</button></td>
+             </tr>
+         </table>
+         </form>
         </div>
-    </section>
+</section>
 
     <!--footer-->
     <footer>
