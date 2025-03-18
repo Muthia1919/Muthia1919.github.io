@@ -14,7 +14,6 @@
                     <li><a href="home">home</a></li>
                     <li><a href="about us">about us</a></li>
                     <li><a href="contact us">contact us</a></li>
-                    <li><a href="pendaftaran anggota">pendaftaran anggota</a></li>
                 </ul>
             </div>
         </div>
@@ -44,7 +43,7 @@
 
         <section id="contact us"
             <div></section>class="kolom">
-                <h2>Selamat bergabung!</h2>
+                <h2>Silahkan memberi masukan atau mengirim pesan!</h2>
                 <form action=""method="POST">
                     <table>
                         <tr>
