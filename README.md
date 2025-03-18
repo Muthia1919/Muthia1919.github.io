@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-sacale=1.0">
     <title>Perpustakaan Muthia Sari</title>
-    <link rel="stylesheet" href="style.css"
 </head>
 <body>
     <nav>
@@ -31,7 +30,7 @@
                 <p><a href="https://library.usu.ac.id/" target="_blank"><Perpustakaan USU></a></p> 
         </section>
 
-        <!--untuk home-->
+        <!--untuk about us-->
         <section id="about us"
             <div class="kolom">
                 <h2>informasi pribadi</h2>
@@ -47,9 +46,9 @@
 
         <!--untuk contact us-->
         <section id="contact us"
-            <div class="kolom">
+            <div></section>class="kolom">
                 <h2>Selamat bergabung!</h2>
-                <form>
+                <form action=""method="POST">
                     <table>
                         <tr>
                             <td><label for="name">Nama:</label></td>
@@ -57,7 +56,7 @@
                         </tr>
                         <tr>
                             <td><label for="phone">No HP:</label></td>
-                            <td><input type="tel" id="phone" name="phone" required></td>
+                            <td><input type="number" id="phone" name="phone" required></td>
                         </tr>
                         <tr>
                             <td><label for="email">Email:</label></td>
@@ -78,11 +77,11 @@
         <!--untuk pendaftaran anggota-->
         <section id="pendaftaran anggota"
             <div cllas="container"
-                <p>Silakan isi formulir di bawah ini untuk mendaftar sebagai pengguna baru.</p>
+                <p>Silakan isi formulir di bawah ini untuk mendaftar sebagai pengguna baru</p>
                 <h2>Selamat bergabung!</h2>
                 <p>Pastikan data yang Anda masukkan akurat dan lengkap untuk kemudahan verifikasi</p>
                 <form action="/submit" method="post">
-                    <form>
+                    <form action=""method="POST">
                         <table>
                             <tr>
                                 <td><label for="name">Nama:</label></td>
