@@ -69,7 +69,41 @@
                 </form>
             </div>
         </section>
-    </div>
+
+        <section id="pendaftaran anggota"
+            <div cllas="container"
+                <p>Silakan isi formulir di bawah ini untuk mendaftar sebagai pengguna baru</p>
+                <h2>Selamat bergabung!</h2>
+                <p>Pastikan data yang Anda masukkan akurat dan lengkap untuk kemudahan verifikasi</p>
+                <form action="/submit" method="post">
+                    <form action=""method="POST">
+                        <table>
+                            <tr>
+                                <td><label for="name">Nama:</label></td>
+                                <td><input type="text" id="name" name="name" required></td>
+                            </tr>
+                            <tr>
+                                <td><label for="address">Alamat:</label></td>
+                                <td><input type="text" id="address" name="address" required></td>
+                            </tr>
+                            <tr>
+                                <td><label for="email">Email:</label></td>
+                                <td><input type="email" id="email" name="email" required></td>
+                            </tr>
+                            <tr>
+                                <td><label for="phone">No HP:</label></td>
+                                <td><input type="tel" id="phone" name="phone" required></td>
+                            </tr>
+                            <tr>
+                                <td><label for="dob">Tanggal Lahir:</label></td>
+                                <td><input type="date" id="dob" name="dob" required></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: center;"><button type="submit">Daftar</button></td>
+                            </tr>
+                        </table>
+                    </form> 
+        </section>
 
 </body>
 <html>
