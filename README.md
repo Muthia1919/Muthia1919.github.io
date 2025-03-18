@@ -27,7 +27,6 @@
                 <h2> HELLO! Selamat Datang di Perpsuatakaan Muthia Sari </h2>
                 <p class="deskripsi"> website ini dibuat untuk memenuhi tugas mata kuliah PENGEMBANGAN WEB PERPUSTAKAAN. Website ini memiliki koleksi tugas kuliah dan informasi katalog buku yang menarik </p> 
                 <p>website ini dikelola dengan dukungan dan kerja sama dari pihak lain. Kolaborasi ini bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat</p>
-                <p><a href="https://library.usu.ac.id/" target="_blank"><Perpustakaan USU></a></p> 
         </section>
 
         <!--untuk about us-->
