@@ -1,89 +1,87 @@
 *{
-    padding: 0;
+    padding: 3;
     margin: 0;
     font-family: sans-serif;
 }
 a{
-    color: black;
+    color: #4b1818;
     text-decoration: none;
 }
-.medsos {
-    padding: 20px 0;
-    background-color: #85c1e9 ;
+.medsos{
+    padding: 15px 0;
+    background-color: #85c1e9;
 }
 .medsos ul li{
     display: inline-block;
-    color: #fff;
+    color: rgba(103, 27, 27, 0.863);
     margin-right: 10px;
 }
 .container{
     width: 80%;
     margin: auto;
 }
-heder{
+header{
 
-}s
-heder 1{
-    float: : right;
-    padding: 15px 0;
-    color: #58a4de;
+}
+header 1{
+    float: :right;
+    padding: 20px 0;
+    color: #58a4de
 }
 header ul{
     float: right;
 }
 header ul li{
-    display: inline-block;
+    display: inline-flex;
 }
 header ul li a{
     padding: 25px 20px;
-    display: inline-block;
+    display: inline-flex;
 }
-header ul li a:hover{
-    background-color:  #85c1e9 ;
-    color: #fff;
+header ul li a: :hover{
+    background-color: #fdfefd
+    color: #fff
 }
 .active{
-    background-color: #85c1e9 ;
-    color: #fff;
+    background-color: #85c1e9;
+    color: #4b1818
 }
 .benner{
     height: 60vh;
     background-image: url(../img/benner.jpg);
-    beckground-size: cover;
+    background-size: cover;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.benner :after{
-    content: " ";
+.benner: ::after{
+    content: " "
     display: block;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    beckground-color: rgba( 133, 193, 233, .6);
+    background-color: rgba( 133, 193, 233, .6);
 }
 .benner h2{
-    color: #fff;
+    color: #574242;
     z-index: 1;
     padding: 20px 25px;
-    border: 3px solid #fff;
+    border: 3px solid #5d4949;
 }
-saction{
-    padding: 50px 0;
+.saction{
+    padding: 50 0;
 }
 section h3{
     text-align: center;
     padding: 20px 0;
-    color: #85c1e9;
+    margin: 5px;
+    color: #3079aa;
 }
 .about p{
     color: #85c1e9;
-    word-spacing: 2px;
-    line-height: 25px;
 }
 .container{
     background-color: #85c1e9;
@@ -91,5 +89,5 @@ section h3{
 footer{
     padding: 30px 0;
     background-color: #85c1e9;
-    color: rgb(98, 106, 196);
+    color: rgba(103, 27, 27, 0.863);
 }
