@@ -1,3 +1,184 @@
+/* main.css */
+
+/* Reset some default styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+/* Social Media Section */
+.medsos {
+    background-color: #85c1e9;
+    padding: 15px 0;
+}
+.medsos ul {
+    text-align: center;
+}
+.medsos ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+.medsos ul li a {
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Header Section */
+header {
+    background-color: #4b1818;
+    padding: 20px 0;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header h1 a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+header ul {
+    list-style: none;
+}
+header ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+header ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+header ul li a:hover {
+    background-color: #85c1e9;
+    color: #4b1818;
+}
+header ul li.active a {
+    background-color: #85c1e9;
+    color: #4b1818;
+}
+
+/* Banner Section */
+.banner {
+    height: 60vh;
+    background-image: url('../img/benner.jpg');
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(133, 193, 233, 0.6);
+}
+.banner h2 {
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+    z-index: 1;
+    padding: 20px 30px;
+    border: 3px solid #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Home Section */
+.home {
+    padding: 50px 0;
+    background-color: #fff;
+}
+.home h3 {
+    text-align: center;
+    color: #3079aa;
+    margin-bottom: 20px;
+}
+.home p {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+.home a {
+    color: #3079aa;
+    text-decoration: none;
+}
+.home a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Section */
+footer {
+    background-color: #85c1e9;
+    padding: 30px 0;
+    text-align: center;
+    color: #4b1818;
+}
+
+/* About Section Table */
+section#about-us table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+section#about-us th, section#about-us td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+section#about-us th {
+    background-color: #f4f4f4;
+}
+
+/* Contact Form */
+form {
+    width: 80%;
+    margin: 0 auto;
+}
+form table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+form table td {
+    padding: 10px;
+}
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+form button {
+    background-color: #4b1818;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+form button:hover {
+    background-color: #85c1e9;
+    color: #4b1818;
+}
+
 <!DOCTYPE html>
 <html>
 <head>
