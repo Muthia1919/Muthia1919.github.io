@@ -1,0 +1,49 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+.medsos {
+    padding: 20px 0;
+    background-color: #58a4de;
+}
+.medsos ul li{
+    display: inline-block;
+    color: #fff;
+    margin-right: 10px;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+heder{
+    
+}s
+heder 1{
+    float: : right;
+    padding: 15px 0;
+    color: #58a4de;
+}
+header ul{
+    float: right;
+}
+header ul li{
+    display: inline-block;
+}
+header ul li a{
+    padding: 25px 20px;
+    display: inline-block;
+}
+header ul li a:hover{
+    background-color: #58a4de;
+    color: #fff;
+}
+.active{
+    background-color: #58a4de;
+    color: #fff;
+}
+
