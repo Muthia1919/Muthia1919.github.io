@@ -42,17 +42,36 @@
 
         <!-- About Me Slide -->
         <section class="slide" id="about">
-            <h3>ABOUT</h3>
-            <p>Website ini dibuat untuk memenuhi tugas mata kuliah PENGEMBANGAN WEB PERPUSTAKAAN. Website ini memiliki koleksi tugas kuliah dan informasi katalog buku yang menarik.</p>
-            <p>Website ini dikelola dengan dukungan dan kerja sama dari pihak lain. Kolaborasi ini bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
-            <p><a href="https://library.usu.ac.id/" target="_blank">Klik di sini</a></p>
+            <h3>ABOUT ME</h3>
+            <table>
+                <tr>
+                    <th>Nama</th>
+                    <td>Muthia Sari</td>
+                </tr>
+                <tr>
+                    <th>NIM</th>
+                    <td>123456789</td>
+                </tr>
+                <tr>
+                    <th>Kelas</th>
+                    <td>TI-A</td>
+                </tr>
+                <tr>
+                    <th>Prodi</th>
+                    <td>Teknik Informatika</td>
+                </tr>
+                <tr>
+                    <th>Fakultas</th>
+                    <td>Fakultas Teknik</td>
+                </tr>
+            </table>
         </section>
 
         <!-- Contact Us Slide -->
         <section class="slide" id="contact">
             <h3>CONTACT US</h3>
-            <p>Kami sangat menerima kritik dan saran pengunjung, silahkan tinggalkan pesan Anda:</p>
-            <form action="#" method="POST">
+            <p>Silakan isi form di bawah untuk menghubungi kami. Semua pesan akan dikirimkan langsung ke nomor WhatsApp kami.</p>
+            <form action="https://api.whatsapp.com/send?phone=085174147405" method="GET" target="_blank">
                 <table>
                     <tr>
                         <td><label for="name">Nama:</label></td>
@@ -60,19 +79,15 @@
                     </tr>
                     <tr>
                         <td><label for="phone">No HP:</label></td>
-                        <td><input type="number" id="phone" name="phone" required></td>
+                        <td><input type="tel" id="phone" name="phone" required></td>
                     </tr>
                     <tr>
                         <td><label for="email">Email:</label></td>
                         <td><input type="email" id="email" name="email" required></td>
                     </tr>
                     <tr>
-                        <td><label for="message">Pesan:</label></td>
-                        <td><textarea id="message" name="message" rows="4" required></textarea></td>
-                    </tr>
-                    <tr>
                         <td colspan="2" style="text-align: center;">
-                            <button type="submit">Kirim</button>
+                            <button type="submit">Kirim Pesan</button>
                         </td>
                     </tr>
                 </table>
