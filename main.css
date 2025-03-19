@@ -1,20 +1,20 @@
-/* Basic styles */
+/* Basic Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 /* Body */
 body {
-    background-color: #f4f4f4;
+    background-color: #e3f2fd; /* Light Blue */
     color: #333;
 }
 
 /* Header */
 header {
-    background-color: #4b1818;
+    background-color: #1e88e5; /* Blue */
     color: white;
     padding: 20px;
     text-align: center;
@@ -36,7 +36,7 @@ header ul li {
 }
 header ul li.active {
     font-weight: bold;
-    color: #ffcc00;
+    color: #ffcc00; /* Highlight Color */
 }
 
 /* Slides */
@@ -53,20 +53,48 @@ header ul li.active {
 }
 
 .slide#home {
-    background-color: #85c1e9;
+    background-color: #bbdefb; /* Lighter Blue */
 }
 
 .slide#about {
-    background-color: #ffcc00;
+    background-color: #90caf9; /* Light Blue */
 }
 
 .slide#contact {
-    background-color: #ff7f7f;
+    background-color: #64b5f6; /* Blue */
+}
+
+/* Form Table */
+table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+td {
+    padding: 10px;
+}
+
+input[type="text"], input[type="email"], input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #1e88e5; /* Blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0d47a1; /* Darker Blue */
 }
 
 /* Footer */
 footer {
-    background-color: #4b1818;
+    background-color: #1e88e5; /* Blue */
     color: white;
     padding: 10px;
     text-align: center;
