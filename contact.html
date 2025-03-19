@@ -1,16 +1,186 @@
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Kontak Saya</h2>
-        <form action="#" method="POST">
-            <label for="name">Nama:</label>
-            <input type="text" id="name" name="name" required>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpustakaan Muthia Sari - Kontak</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3f2fd; /* Biru Langit */
+            color: #333; /* Hitam */
+        }
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+        /* Navbar */
+        nav {
+            background-color: #1e3a8a; /* Navy */
+            padding: 15px;
+            text-align: center;
+        }
 
-            <label for="message">Pesan:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-            <input type="submit" value="Kirim Pesan">
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff; /* Putih */
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #1e3a8a; /* Navy */
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #3b82f6; /* Biru Langit */
+        }
+
+        /* Header */
+        header {
+            background-color: #1e3a8a; /* Navy */
+            color: #fff; /* Putih */
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        /* Main Section */
+        main {
+            padding: 50px;
+            text-align: center;
+        }
+
+        main h2 {
+            color: #1e3a8a; /* Navy */
+        }
+
+        /* Contact Form Styling */
+        form {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #1e3a8a;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table td {
+            padding: 10px;
+            border: 1px solid #1e3a8a;
+        }
+
+        input[type="text"], input[type="tel"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        input[type="submit"] {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3b82f6; /* Biru Langit */
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #1e3a8a; /* Navy */
+            color: #fff; /* Putih */
+            text-align: center;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-me.html">Tentang Saya</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Perpustakaan Muthia Sari</h1>
+        <p>Selamat datang di perpustakaan kami. Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Kami juga menyediakan berbagai informasi untuk menunjang kegiatan belajar mengajar.</p>
+    </header>
+
+    <!-- Contact Form Section -->
+    <main>
+        <h2>Kontak Kami</h2>
+        <form>
+            <table>
+                <tr>
+                    <td><label for="name">Nama:</label></td>
+                    <td><input type="text" id="name" name="name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="phone">No HP:</label></td>
+                    <td><input type="tel" id="phone" name="phone" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="message">Pesan:</label></td>
+                    <td><textarea id="message" name="message" required></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center;">
+                        <input type="submit" value="Kirim Pesan">
+                    </td>
+                </tr>
+            </table>
         </form>
-    </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Perpustakaan Muthia Sari. Semua hak cipta dilindungi.</p>
+    </footer>
+
+</body>
+</html>
