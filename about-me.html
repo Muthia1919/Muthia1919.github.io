@@ -63,59 +63,41 @@
             font-size: 18px;
         }
 
-        /* About Me Section */
-        #about-me {
-            background-color: #f0f8ff; /* Light Blue */
+        /* Slide Sections */
+        section {
             padding: 50px;
-        }
-
-        /* Center the "About Me" heading */
-        #about-me h2 {
-            color: #1e3a8a; /* Navy */
-            font-size: 28px;
-            margin-bottom: 20px;
-            text-align: center; /* Centered the text */
-        }
-
-        table {
-            width: 60%;
-            margin: 0 auto;
-            border-collapse: collapse;
-            border: 2px solid #1e3a8a; /* Navy border */
-        }
-
-        table, th, td {
-            border: 2px solid #1e3a8a; /* Navy */
-        }
-
-        th, td {
-            padding: 10px;
             text-align: center;
+            min-height: 100vh;
         }
 
-        th {
+        #home {
+            background-color: #bbdefb; /* Lighter Blue */
+        }
+
+        #about-me {
+            background-color: #90caf9; /* Light Blue */
+        }
+
+        #contact {
+            background-color: #64b5f6; /* Blue */
+        }
+
+        /* Link as Button */
+        .button-link {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+            border: 2px solid #1e3a8a;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .button-link:hover {
             background-color: #1e3a8a;
             color: white;
-        }
-
-        /* Slide indicator */
-        .slide-indicator {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .indicator {
-            width: 10px;
-            height: 10px;
-            margin: 0 5px;
-            background-color: #ccc;
-            border-radius: 50%;
-            transition: background-color 0.3s;
-        }
-
-        .active {
-            background-color: #1e3a8a; /* Navy for active slide indicator */
         }
 
         /* Footer Section */
@@ -133,9 +115,9 @@
     <!-- Navbar -->
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about-me.html">Tentang Saya</a></li>
-            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="index.html" id="nav-home">Home</a></li>
+            <li><a href="about-me.html" id="nav-about">Tentang Saya</a></li>
+            <li><a href="contact.html" id="nav-contact">Kontak</a></li>
         </ul>
     </nav>
 
@@ -146,7 +128,12 @@
         <p><a href="https://library.usu.ac.id/" target="_blank">Klik di sini</a> untuk mengunjungi Perpustakaan USU.</p> 
     </header>
 
-    <!-- About Me Section -->
+    <!-- Slide Sections -->
+    <section id="home">
+        <h2>Home</h2>
+        <p>Selamat datang di website Perpustakaan Muthia Sari. Kami menyediakan berbagai koleksi buku dan layanan informasi.</p>
+    </section>
+
     <section id="about-me">
         <h2>Tentang Saya</h2>
         <table>
@@ -160,13 +147,23 @@
             </tr>
             <tr>
                 <td>Muthia Sari</td>
-                <td>220709002</td>
-                <td>B</td>
-                <td>ILMU PERPUSTAKAAN DAN SAINS INFORMASI</td>
-                <td>Fakultas ILMU BUDAYA</td>
+                <td>123456789</td>
+                <td>TI A</td>
+                <td>Teknik Informatika</td>
+                <td>Fakultas Teknik</td>
                 <td>Universitas Sumatera Utara</td>
             </tr>
         </table>
+
+        <!-- Button Link -->
+        <p>
+            <a href="https://library.usu.ac.id/" class="button-link">Klik di sini</a>
+        </p>
+    </section>
+
+    <section id="contact">
+        <h2>Kontak</h2>
+        <p>Hubungi kami untuk informasi lebih lanjut.</p>
     </section>
 
     <!-- Footer Section -->
@@ -174,6 +171,29 @@
         <p>&copy; 2025 Perpustakaan Muthia Sari. Semua hak cipta dilindungi.</p>
     </footer>
 
+    <script>
+        // Function to highlight the active menu item based on scroll position
+        window.addEventListener('scroll', function() {
+            let sections = document.querySelectorAll('section');
+            let navLinks = document.querySelectorAll('nav ul li a');
+
+            let currentSection = "";
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 100) {
+                    currentSection = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
-
