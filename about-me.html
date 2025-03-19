@@ -108,6 +108,20 @@
             padding: 20px;
         }
 
+        /* Enhanced Link Styling for better readability */
+        .enhanced-link {
+            font-size: 20px; /* Bigger font size */
+            font-weight: bold; /* Make the font bold */
+            color: #1e3a8a; /* Navy color for link */
+            text-decoration: none; /* Remove underline */
+            transition: color 0.3s, font-size 0.3s;
+        }
+
+        .enhanced-link:hover {
+            color: #3b82f6; /* Change color to light blue on hover */
+            font-size: 22px; /* Increase font size when hovered */
+        }
+
     </style>
 </head>
 <body>
@@ -115,9 +129,9 @@
     <!-- Navbar -->
     <nav>
         <ul>
-            <li><a href="index.html" id="nav-home">Home</a></li>
-            <li><a href="about-me.html" id="nav-about">Tentang Saya</a></li>
-            <li><a href="contact.html" id="nav-contact">Kontak</a></li>
+            <li><a href="#home" id="nav-home">Home</a></li>
+            <li><a href="#about-me" id="nav-about">Tentang Saya</a></li>
+            <li><a href="#contact" id="nav-contact">Kontak</a></li>
         </ul>
     </nav>
 
@@ -125,7 +139,7 @@
     <header>
         <h1>Perpustakaan Muthia Sari</h1>
         <p>Selamat datang di perpustakaan kami. Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda, website ini berkolaborasi dengan perpustakan usu bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
-        <p><a href="https://library.usu.ac.id/" target="_blank">Klik di sini</a> untuk mengunjungi Perpustakaan USU.</p> 
+        <p><a href="https://library.usu.ac.id/" target="_blank" class="enhanced-link">Klik di sini</a> untuk mengunjungi Perpustakaan USU.</p> 
     </header>
 
     <!-- Slide Sections -->
@@ -170,30 +184,6 @@
     <footer>
         <p>&copy; 2025 Perpustakaan Muthia Sari. Semua hak cipta dilindungi.</p>
     </footer>
-
-    <script>
-        // Function to highlight the active menu item based on scroll position
-        window.addEventListener('scroll', function() {
-            let sections = document.querySelectorAll('section');
-            let navLinks = document.querySelectorAll('nav ul li a');
-
-            let currentSection = "";
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 100) {
-                    currentSection = section.getAttribute("id");
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === currentSection) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
 
 </body>
 </html>
