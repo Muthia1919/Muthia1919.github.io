@@ -63,42 +63,29 @@
             font-size: 18px;
         }
 
-        /* Main Section */
-        main {
-            padding: 50px;
-            text-align: center;
-        }
-
-        main h2 {
-            color: #1e3a8a; /* Navy */
-        }
-
-        main p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
         /* About Me Section */
         #about-me {
             background-color: #f0f8ff; /* Light Blue */
             padding: 50px;
         }
 
+        /* Center the "About Me" heading */
         #about-me h2 {
             color: #1e3a8a; /* Navy */
-            font-size: 28pfcx;
+            font-size: 28px;
             margin-bottom: 20px;
-            text-align: center; /* Centered the text *
+            text-align: center; /* Centered the text */
         }
 
         table {
             width: 60%;
             margin: 0 auto;
             border-collapse: collapse;
+            border: 2px solid #1e3a8a; /* Navy border */
         }
 
         table, th, td {
-            border: 1px solid #1e3a8a; /* Navy */
+            border: 2px solid #1e3a8a; /* Navy */
         }
 
         th, td {
@@ -109,6 +96,26 @@
         th {
             background-color: #1e3a8a;
             color: white;
+        }
+
+        /* Slide indicator */
+        .slide-indicator {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: #ccc;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .active {
+            background-color: #1e3a8a; /* Navy for active slide indicator */
         }
 
         /* Footer Section */
@@ -161,6 +168,13 @@
             </tr>
         </table>
     </section>
+
+    <!-- Slide Indicator -->
+    <div class="slide-indicator">
+        <div class="indicator active"></div>
+        <div class="indicator"></div>
+        <div class="indicator"></div>
+    </div>
 
     <!-- Footer Section -->
     <footer>
