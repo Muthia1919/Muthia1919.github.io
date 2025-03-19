@@ -63,41 +63,59 @@
             font-size: 18px;
         }
 
-        /* Slide Sections */
-        section {
-            padding: 50px;
-            text-align: center;
-            min-height: 100vh;
-        }
-
-        #home {
-            background-color: #bbdefb; /* Lighter Blue */
-        }
-
+        /* About Me Section */
         #about-me {
-            background-color: #90caf9; /* Light Blue */
+            background-color: #f0f8ff; /* Light Blue */
+            padding: 50px;
         }
 
-        #contact {
-            background-color: #64b5f6; /* Blue */
+        /* Center the "About Me" heading */
+        #about-me h2 {
+            color: #1e3a8a; /* Navy */
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center; /* Centered the text */
         }
 
-        /* Link as Button */
-        .button-link {
-            display: inline-block;
-            padding: 12px 20px;
-            background-color: white;
-            color: black;
-            text-decoration: none;
-            font-size: 18px;
-            border: 2px solid #1e3a8a;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+        table {
+            width: 60%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border: 2px solid #1e3a8a; /* Navy border */
         }
 
-        .button-link:hover {
+        table, th, td {
+            border: 2px solid #1e3a8a; /* Navy */
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
             background-color: #1e3a8a;
             color: white;
+        }
+
+        /* Slide indicator */
+        .slide-indicator {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: #ccc;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .active {
+            background-color: #1e3a8a; /* Navy for active slide indicator */
         }
 
         /* Footer Section */
@@ -108,20 +126,6 @@
             padding: 20px;
         }
 
-        /* Enhanced Link Styling for better readability */
-        .enhanced-link {
-            font-size: 20px; /* Bigger font size */
-            font-weight: bold; /* Make the font bold */
-            color: #1e3a8a; /* Navy color for link */
-            text-decoration: none; /* Remove underline */
-            transition: color 0.3s, font-size 0.3s;
-        }
-
-        .enhanced-link:hover {
-            color: #3b82f6; /* Change color to light blue on hover */
-            font-size: 22px; /* Increase font size when hovered */
-        }
-
     </style>
 </head>
 <body>
@@ -129,9 +133,9 @@
     <!-- Navbar -->
     <nav>
         <ul>
-            <li><a href="#home" id="nav-home">Home</a></li>
-            <li><a href="#about-me" id="nav-about">Tentang Saya</a></li>
-            <li><a href="#contact" id="nav-contact">Kontak</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-me.html">Tentang Saya</a></li>
+            <li><a href="contact.html">Kontak</a></li>
         </ul>
     </nav>
 
@@ -139,15 +143,10 @@
     <header>
         <h1>Perpustakaan Muthia Sari</h1>
         <p>Selamat datang di perpustakaan kami. Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda, website ini berkolaborasi dengan perpustakan usu bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
-        <p><a href="https://library.usu.ac.id/" target="_blank" class="enhanced-link">Klik di sini</a> untuk mengunjungi Perpustakaan USU.</p> 
+        <p><a href="https://library.usu.ac.id/" target="_blank">Klik di sini</a> untuk mengunjungi Perpustakaan USU.</p> 
     </header>
 
-    <!-- Slide Sections -->
-    <section id="home">
-        <h2>Home</h2>
-        <p>Selamat datang di website Perpustakaan Muthia Sari. Kami menyediakan berbagai koleksi buku dan layanan informasi.</p>
-    </section>
-
+    <!-- About Me Section -->
     <section id="about-me">
         <h2>Tentang Saya</h2>
         <table>
@@ -161,23 +160,13 @@
             </tr>
             <tr>
                 <td>Muthia Sari</td>
-                <td>123456789</td>
-                <td>TI A</td>
-                <td>Teknik Informatika</td>
-                <td>Fakultas Teknik</td>
+                <td>220709002</td>
+                <td>B</td>
+                <td>ILMU PERPUSTAKAAN DAN SAINS INFORMASI</td>
+                <td>Fakultas ILMU BUDAYA</td>
                 <td>Universitas Sumatera Utara</td>
             </tr>
         </table>
-
-        <!-- Button Link -->
-        <p>
-            <a href="https://library.usu.ac.id/" class="button-link">Klik di sini</a>
-        </p>
-    </section>
-
-    <section id="contact">
-        <h2>Kontak</h2>
-        <p>Hubungi kami untuk informasi lebih lanjut.</p>
     </section>
 
     <!-- Footer Section -->
