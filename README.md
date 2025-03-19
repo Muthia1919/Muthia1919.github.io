@@ -12,9 +12,9 @@
         <!-- Navbar -->
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#" onclick="showSlide('home')">Home</a></li>
+                <li><a href="#" onclick="showSlide('about')">About Me</a></li>
+                <li><a href="#" onclick="showSlide('contact')">Contact Us</a></li>
             </ul>
         </nav>
 
@@ -69,5 +69,7 @@
             </div>
         </section>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
