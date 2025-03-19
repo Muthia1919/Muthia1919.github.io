@@ -12,6 +12,8 @@
             padding: 0;
             background-color: #e3f2fd; /* Biru Langit */
             color: #333; /* Hitam */
+            height: 100vh;
+            overflow: hidden;
         }
 
         /* Navbar */
@@ -39,11 +41,12 @@
             padding: 10px 20px;
             background-color: #1e3a8a; /* Navy */
             border-radius: 5px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         nav ul li a:hover {
             background-color: #3b82f6; /* Biru Langit */
+            transform: scale(1.1); /* Membesar sedikit */
         }
 
         /* Header */
@@ -59,23 +62,10 @@
             margin-bottom: 10px;
         }
 
-        header p {
-            font-size: 18px;
-        }
-
         /* Main Section */
         main {
             padding: 50px;
             text-align: center;
-        }
-
-        main h2 {
-            color: #1e3a8a; /* Navy */
-        }
-
-        main p {
-            font-size: 18px;
-            line-height: 1.6;
         }
 
         /* Footer */
@@ -86,6 +76,33 @@
             padding: 20px;
         }
 
+        /* Typing Animation */
+        #welcome-text {
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 4s steps(30) 1s forwards, blink 0.75s step-end infinite;
+        }
+
+        /* Typing animation */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Cursor Blink */
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
     </style>
 </head>
 <body>
@@ -106,17 +123,33 @@
 
     <!-- Main Section -->
     <main>
-        <p>Selamat datang di perpustakaan kami!</p>
-        <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda,  website ini berkolaborasi dengan perpustakan usu bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
-        <p><a href="https://library.usu.ac.id/" target="_blank"><klik disini untuk mengunjungi Perpustakaan USU></a></p> 
+        <p id="welcome-text"></p>
+        <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda, website ini berkolaborasi dengan perpustakaan USU bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
+        <p><a href="https://library.usu.ac.id/" target="_blank">Klik disini untuk mengunjungi Perpustakaan USU</a></p> 
     </main>
 
     <!-- Footer Section -->
     <footer>
         <p>@2025 Perpustakaan Muthia Sari.</p>
     </footer>
-    
 
+    <script>
+        // Animasi Teks Ketik untuk "Selamat datang di perpustakaan kami!"
+        const welcomeText = "Selamat datang di perpustakaan kami!";
+        let index = 0;
+        const textElement = document.getElementById("welcome-text");
+
+        function typeText() {
+            if (index < welcomeText.length) {
+                textElement.textContent += welcomeText.charAt(index);
+                index++;
+                setTimeout(typeText, 150); // Kecepatan mengetik
+            }
+        }
+
+        window.onload = function() {
+            typeText();
+        };
+    </script>
 </body>
-<script src="javascript.js"</script>
 </html>
