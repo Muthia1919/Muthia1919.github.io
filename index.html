@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Pribadi</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Cream */
+            color: #800000; /* Maroon */
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #800000; /* Maroon */
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #f5f5f5; /* Cream */
+        }
+
+        /* Sections */
+        section {
+            padding: 50px;
+            text-align: center;
+        }
+
+        /* Home Section */
+        #home {
+            background-color: #800000; /* Maroon */
+            color: #fff;
+        }
+
+        /* About Section */
+        #about {
+            background-color: #f5f5f5; /* Cream */
+            color: #800000; /* Maroon */
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #800000; /* Maroon */
+            color: #fff;
+        }
+
+        /* Form Styles */
+        form {
+            text-align: left;
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #f5f5f5; /* Cream */
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #800000; /* Maroon */
+            border-radius: 5px;
+        }
+
+        form input[type="submit"] {
+            background-color: #800000; /* Maroon */
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #5c0000; /* Dark Maroon */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Tentang Saya</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Selamat datang di Halaman Saya!</h1>
+        <p>Ini adalah halaman pribadi saya yang sederhana. Anda dapat mengetahui lebih lanjut tentang saya, serta cara untuk menghubungi saya melalui halaman ini.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>Tentang Saya</h2>
+        <p>Nama saya adalah Muthia Sari. Saya seorang mahasiswa di bidang Ilmu Komputer. Saya tertarik dengan teknologi, khususnya pengembangan perangkat lunak dan aplikasi web. Saya selalu berusaha untuk terus belajar dan berkembang di dunia teknologi.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Kontak Saya</h2>
+        <form action="#" method="POST">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Pesan:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <input type="submit" value="Kirim Pesan">
+        </form>
+    </section>
+
+</body>
+</html>
