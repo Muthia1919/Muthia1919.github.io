@@ -1,93 +1,76 @@
-*{
-    padding: 3;
+/* Basic styles */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: sans-serif;
 }
-a{
-    color: #4b1818;
-    text-decoration: none;
-}
-.medsos{
-    padding: 15px 0;
-    background-color: #85c1e9;
-}
-.medsos ul li{
-    display: inline-block;
-    color: rgba(103, 27, 27, 0.863);
-    margin-right: 10px;
-}
-.container{
-    width: 80%;
-    margin: auto;
-}
-header{
 
+/* Body */
+body {
+    background-color: #f4f4f4;
+    color: #333;
 }
-header 1{
-    float: :right;
-    padding: 20px 0;
-    color: #58a4de
-}
-header ul{
-    float: right;
-}
-header ul li{
-    display: inline-flex;
-}
-header ul li a{
-    padding: 25px 20px;
-    display: inline-flex;
-}
-header ul li a: :hover{
-    background-color: #fdfefd
-    color: #fff
-}
-.active{
-    background-color: #85c1e9;
-    color: #4b1818
-}
-.benner{
-    height: 60vh;
-    background-image: url(../img/benner.jpg);
-    background-size: cover;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.benner: ::after{
-    content: " "
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba( 133, 193, 233, .6);
-}
-.benner h2{
-    color: #574242;
-    z-index: 1;
-    padding: 20px 25px;
-    border: 3px solid #5d4949;
-}
-.saction{
-    padding: 50 0;
-}
-section h3{
+
+/* Header */
+header {
+    background-color: #4b1818;
+    color: white;
+    padding: 20px;
     text-align: center;
-    padding: 20px 0;
-    margin: 5px;
-    color: #3079aa;
 }
-.about p{
-    color: #85c1e9;
+header h1 a {
+    text-decoration: none;
+    color: white;
+    font-size: 36px;
 }
-.container{
+header ul {
+    list-style: none;
+    margin-top: 10px;
+}
+header ul li {
+    display: inline;
+    margin: 0 15px;
+    cursor: pointer;
+    font-size: 18px;
+}
+header ul li.active {
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+/* Slides */
+.slides {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.slide {
+    display: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.slide#home {
     background-color: #85c1e9;
 }
-footer{
-    padding: 30px 0;
-    background-color: #85c1e9;
-    color: rgba(103, 27, 27, 0.863);
+
+.slide#about {
+    background-color: #ffcc00;
+}
+
+.slide#contact {
+    background-color: #ff7f7f;
+}
+
+/* Footer */
+footer {
+    background-color: #4b1818;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+footer small {
+    font-size: 14px;
 }
