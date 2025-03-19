@@ -1,0 +1,17 @@
+// Function to show the selected slide
+function showSlide(slideId) {
+    // Hide all slides
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach(slide => {
+        slide.style.display = 'none';
+    });
+
+    // Show the selected slide
+    const selectedSlide = document.getElementById(slideId);
+    selectedSlide.style.display = 'block';
+}
+
+// Initially show the home slide
+document.addEventListener('DOMContentLoaded', () => {
+    showSlide('home');
+});
