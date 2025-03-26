@@ -10,125 +10,112 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e3f2fd;
-            color: #333;
-            height: 100vh;
+            background-color: #e3f2fd; /* Biru Langit */
+            color: #333; /* Hitam */
         }
 
         /* Navbar */
         nav {
-            background-color: #1e3a8a;
-            padding: 15px 20px;
-            position: relative;
+            background-color: #1e3a8a; /* Navy */
+            padding: 15px;
             text-align: center;
         }
 
-        .nav-links {
+        nav ul {
             list-style: none;
-            padding: 0;
             margin: 0;
-            display: inline-block;
+            padding: 0;
         }
 
-        .nav-links li {
+        nav ul li {
             display: inline;
-            margin: 0 15px;
+            margin: 0 20px;
         }
 
-        .nav-links li a {
-            color: white;
+        nav ul li a {
+            color: #fff; /* Putih */
             text-decoration: none;
             font-size: 18px;
-            padding: 10px 15px;
+            padding: 10px 20px;
+            background-color: #1e3a8a; /* Navy */
             border-radius: 5px;
             transition: background-color 0.3s;
         }
 
-        .nav-links li a:hover {
-            background-color: #3b82f6;
+        nav ul li a:hover {
+            background-color: #3b82f6; /* Biru Langit */
         }
 
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            cursor: pointer;
+        /* Header */
+        header {
+            background-color: #1e3a8a; /* Navy */
+            color: #fff; /* Putih */
+            padding: 50px 0;
+            text-align: center;
         }
 
-        .hamburger div {
-            width: 30px;
-            height: 4px;
-            background-color: white;
-            margin: 5px 0;
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
         }
 
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 50px;
-                left: 0;
-                width: 100%;
-                background-color: #1e3a8a;
-                text-align: center;
-                padding: 10px 0;
-            }
-
-            .nav-links li {
-                display: block;
-                margin: 10px 0;
-            }
-
-            .hamburger {
-                display: block;
-            }
+        header p {
+            font-size: 18px;
         }
+
+        /* Main Section */
+        main {
+            padding: 50px;
+            text-align: center;
+        }
+
+        main h2 {
+            color: #1e3a8a; /* Navy */
+        }
+
+        main p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e3a8a; /* Navy */
+            color: #fff; /* Putih */
+            text-align: center;
+            padding: 20px;
+        }
+
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
     <nav>
-        <div class="logo" style="color: white; font-size: 20px; font-weight: bold;">Perpustakaan</div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <ul class="nav-links">
+        <ul>
             <li><a href="index.html">Beranda</a></li>
             <li><a href="about-me.html">Tentang saya</a></li>
             <li><a href="contact.html">Kontak</a></li>
         </ul>
     </nav>
+
+    <!-- Header Section -->
     <header>
         <h1>Perpustakaan Muthia Sari</h1>
     </header>
 
+    <!-- Main Section -->
     <main>
-        <p id="welcome-text"></p>
-        <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda.</p>
-        <p><a href="https://library.usu.ac.id/" target="_blank">Klik disini untuk mengunjungi Perpustakaan USU</a></p>
+        <p>Selamat datang di perpustakaan kami!</p>
+        <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda,  website ini berkolaborasi dengan perpustakan usu bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
+        <p><a href="https://library.usu.ac.id/" target="_blank"><klik disini untuk mengunjungi Perpustakaan USU></a></p> 
     </main>
 
+    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 Perpustakaan Muthia Sari. Semua hak cipta dilindungi.</p>
+        <p>@2025 Perpustakaan Muthia Sari.</p>
     </footer>
+    
 
-    <script>
-        function toggleMenu() {
-            var nav = document.querySelector(".nav-links");
-            if (nav.style.display === "block") {
-                nav.style.display = "none";
-            } else {
-                nav.style.display = "block";
-            }
-        }
-    </script>
 </body>
 </html>
-
-   
