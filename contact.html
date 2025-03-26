@@ -17,50 +17,63 @@
         /* Navbar */
         nav {
             background-color: #1e3a8a; /* Navy */
-            padding: 15px;
+            padding: 15px 0;
             text-align: center;
+            position: relative;
         }
 
-        nav ul {
+        /* Logo */
+        .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            display: block;
+        }
+
+        /* Menu */
+        .nav-links {
             list-style: none;
-            margin: 0;
             padding: 0;
+            margin: 0;
         }
 
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
+        .nav-links li {
+            display: inline-block;
+            margin: 0 15px;
         }
 
-        nav ul li a {
-            color: #fff; /* Putih */
+        .nav-links li a {
+            color: white;
             text-decoration: none;
             font-size: 18px;
-            padding: 10px 20px;
-            background-color: #1e3a8a; /* Navy */
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            padding: 10px 15px;
+            display: inline-block;
+            transition: background 0.3s;
         }
 
-        nav ul li a:hover {
-            background-color: #3b82f6; /* Biru Langit */
+        .nav-links li a:hover {
+            background-color: #3b82f6;
+            border-radius: 5px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
         }
 
         /* Header */
         header {
-            background-color: #1e3a8a; /* Navy */
-            color: #fff; /* Putih */
+            background-color: #1e3a8a;
+            color: white;
             padding: 50px 0;
             text-align: center;
-        }
-
-        header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 18px;
         }
 
         /* Main Section */
@@ -73,9 +86,10 @@
             color: #1e3a8a; /* Navy */
         }
 
-        /* Contact Form Styling */
+        /* Contact Form */
         form {
             width: 80%;
+            max-width: 500px;
             margin: 0 auto;
             padding: 20px;
             border: 2px solid #1e3a8a;
@@ -83,20 +97,10 @@
             background-color: #ffffff;
         }
 
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
-
-        table td {
-            padding: 10px;
-            border: 1px solid #1e3a8a;
-        }
-
         input[type="text"], input[type="tel"], input[type="email"], textarea {
             width: 100%;
             padding: 10px;
+            margin-top: 5px;
             border-radius: 5px;
             border: 1px solid #ccc;
         }
@@ -114,76 +118,98 @@
             cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+            margin-top: 10px;
         }
 
         input[type="submit"]:hover {
-            background-color: #3b82f6; /* Biru Langit */
+            background-color: #3b82f6;
         }
 
-        /* Footer Section */
+        /* Footer */
         footer {
-            background-color: #1e3a8a; /* Navy */
-            color: #fff; /* Putih */
+            background-color: #1e3a8a;
+            color: white;
             text-align: center;
             padding: 20px;
         }
-        section{
-            padding: 50px;
-            text-align: center;
-        }
 
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                text-align: center;
+                background-color: #1e3a8a;
+                position: absolute;
+                top: 50px;
+                left: 0;
+            }
+
+            .nav-links li {
+                display: block;
+                padding: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
     <nav>
-        <ul>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="about-me.html">Tentang Saya</a></li>
             <li><a href="contact.html">Kontak</a></li>
         </ul>
     </nav>
 
-    <!-- Header Section -->
+    <!-- Header -->
     <header>
-        <h1>Perpustakaan Muthia Sari</h1>
+        <h1>Kontak Perpustakaan Muthia Sari</h1>
     </header>
 
-    <!-- Contact Form Section -->
+    <!-- Contact Form -->
     <main>
-        <h2>Kontak Kami</h2>
+        <h2>Hubungi Kami</h2>
         <form>
-            <table>
-                <tr>
-                    <td><label for="name">Nama:</label></td>
-                    <td><input type="text" id="name" name="name" required></td>
-                </tr>
-                <tr>
-                    <td><label for="phone">No HP:</label></td>
-                    <td><input type="tel" id="phone" name="phone" required></td>
-                </tr>
-                <tr>
-                    <td><label for="email">Email:</label></td>
-                    <td><input type="email" id="email" name="email" required></td>
-                </tr>
-                <tr>
-                    <td><label for="message">Pesan:</label></td>
-                    <td><textarea id="message" name="message" required></textarea></td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align:center;">
-                        <input type="submit" value="Kirim Pesan">
-                    </td>
-                </tr>
-            </table>
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">No HP:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Pesan:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <input type="submit" value="Kirim Pesan">
         </form>
     </main>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Perpustakaan Muthia Sari. Semua hak cipta dilindungi.</p>
+        <p>&copy; 2025 Perpustakaan Muthia Sari. Semua hak dilindungi.</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.querySelector(".nav-links");
+            if (nav.style.display === "block") {
+                nav.style.display = "none";
+            } else {
+                nav.style.display = "block";
+            }
+        }
+    </script>
 
 </body>
 </html>
