@@ -59,24 +59,17 @@
             margin-bottom: 10px;
         }
 
-        header p {
-            font-size: 18px;
-            text-align: justify; /* Rata kanan kiri */
-            margin: 0 10%; /* Memberikan margin kiri dan kanan untuk menghindari teks yang terlalu lebar */
-        }
-
         /* About Me Section */
         #about-me {
             background-color: #f0f8ff; /* Light Blue */
             padding: 50px;
         }
 
-        /* Center the "About Me" heading */
         #about-me h2 {
             color: #1e3a8a; /* Navy */
             font-size: 28px;
             margin-bottom: 20px;
-            text-align: center; /* Centered the text */
+            text-align: center;
         }
 
         table {
@@ -107,11 +100,11 @@
             text-align: center;
             padding: 20px;
         }
-         section {
+
+        section {
             padding: 50px;
             text-align: center;
         }
-
     </style>
 </head>
 <body>
@@ -143,7 +136,7 @@
                 <th>Universitas</th>
             </tr>
             <tr>
-                <td>Muthia Sari</td>
+                <td id="nama">Muthia Sari</td>
                 <td>220709002</td>
                 <td>B</td>
                 <td>ILMU PERPUSTAKAAN DAN SAINS INFORMASI</td>
@@ -157,6 +150,23 @@
     <footer>
         <p>&copy; 2025 Perpustakaan Muthia Sari. Semua hak cipta dilindungi.</p>
     </footer>
+
+    <script>
+        // Mengubah warna latar belakang navbar saat diklik
+        document.querySelector("nav").addEventListener("click", function() {
+            this.style.backgroundColor = this.style.backgroundColor === "rgb(30, 58, 138)" ? "#3b82f6" : "#1e3a8a";
+        });
+
+        // Menampilkan alert ketika nama diklik
+        document.getElementById("nama").addEventListener("click", function() {
+            alert("Anda mengklik nama: " + this.innerText);
+        });
+
+        // Menambahkan elemen baru ke dalam halaman
+        let newSection = document.createElement("section");
+        newSection.innerHTML = "<h2>Selamat Datang di Perpustakaan Muthia Sari!</h2><p>Silakan eksplorasi koleksi buku kami.</p>";
+        document.body.insertBefore(newSection, document.querySelector("footer"));
+    </script>
 
 </body>
 </html>
