@@ -17,19 +17,12 @@
         /* Navbar */
         nav {
             background-color: #1e3a8a;
-            padding: 15px 20px;
+            padding: 15px 0;
             text-align: center;
             position: relative;
         }
 
-        .logo {
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-            display: block;
-        }
-
+        /* Menu */
         .nav-links {
             list-style: none;
             padding: 0;
@@ -64,7 +57,6 @@
             top: 12px;
             right: 20px;
             cursor: pointer;
-            padding: 5px 10px;
         }
 
         @media screen and (max-width: 768px) {
@@ -76,7 +68,6 @@
                 position: absolute;
                 top: 50px;
                 left: 0;
-                padding: 10px 0;
             }
 
             .nav-links li {
@@ -91,15 +82,28 @@
     </style>
 </head>
 <body>
-
     <nav>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
         <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="about-me.html">Tentang Saya</a></li>
             <li><a href="contact.html">Kontak</a></li>
         </ul>
     </nav>
+
+    <header>
+        <h1>Perpustakaan Muthia Sari</h1>
+    </header>
+
+    <main>
+        <p id="welcome-text"></p>
+        <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda.</p>
+        <p><a href="https://library.usu.ac.id/" target="_blank">Klik disini untuk mengunjungi Perpustakaan USU</a></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Perpustakaan Muthia Sari. Semua hak cipta dilindungi.</p>
+    </footer>
 
     <script>
         function toggleMenu() {
@@ -111,6 +115,5 @@
             }
         }
     </script>
-
 </body>
 </html>
