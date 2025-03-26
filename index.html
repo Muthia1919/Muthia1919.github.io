@@ -4,116 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perpustakaan Muthia Sari</title>
-    <style>
-        /* Basic Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #e3f2fd;
-            color: #333;
-        }
-
-        /* Navbar */
-        nav {
-            background-color: #1e3a8a;
-            padding: 15px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        /* Menu */
-        .nav-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .nav-links li {
-            display: inline-block;
-            margin: 0 15px;
-        }
-
-        .nav-links li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 10px 15px;
-            display: inline-block;
-            transition: background 0.3s;
-        }
-
-        .nav-links li a:hover {
-            background-color: #3b82f6;
-            border-radius: 5px;
-        }
-
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            font-size: 28px;
-            color: white;
-            position: absolute;
-            top: 12px;
-            right: 20px;
-            cursor: pointer;
-        }
-
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-                width: 100%;
-                text-align: center;
-                background-color: #1e3a8a;
-                position: absolute;
-                top: 50px;
-                left: 0;
-            }
-
-            .nav-links li {
-                display: block;
-                padding: 10px 0;
-            }
-
-            .hamburger {
-                display: block;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Navbar -->
     <nav>
-        <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+        <div class="logo">
+            <h2>Perpustakaan</h2>
+        </div>
         <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
-            <li><a href="about-me.html">Tentang Saya</a></li>
+            <li><a href="about-me.html">Tentang saya</a></li>
             <li><a href="contact.html">Kontak</a></li>
         </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </nav>
 
+    <!-- Header Section -->
     <header>
         <h1>Perpustakaan Muthia Sari</h1>
     </header>
 
+    <!-- Main Section -->
     <main>
         <p id="welcome-text"></p>
-        <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda.</p>
-        <p><a href="https://library.usu.ac.id/" target="_blank">Klik disini untuk mengunjungi Perpustakaan USU</a></p>
+        <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda, website ini berkolaborasi dengan perpustakaan USU bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
+        <p><a href="https://library.usu.ac.id/" target="_blank">Klik disini untuk mengunjungi Perpustakaan USU</a></p> 
     </main>
 
+    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 Perpustakaan Muthia Sari. Semua hak cipta dilindungi.</p>
+        <p>@2025 Perpustakaan Muthia Sari.</p>
     </footer>
 
     <script>
         function toggleMenu() {
-            var nav = document.querySelector(".nav-links");
-            if (nav.style.display === "block") {
-                nav.style.display = "none";
-            } else {
-                nav.style.display = "block";
+            const navLinks = document.querySelector(".nav-links");
+            navLinks.classList.toggle("active");
+        }
+
+        // Animasi Teks Ketik untuk "Selamat datang di perpustakaan kami!"
+        const welcomeText = "Selamat datang di perpustakaan kami!";
+        let index = 0;
+        const textElement = document.getElementById("welcome-text");
+
+        function typeText() {
+            if (index < welcomeText.length) {
+                textElement.textContent += welcomeText.charAt(index);
+                index++;
+                setTimeout(typeText, 150);
             }
         }
+
+        window.onload = function() {
+            typeText();
+        };
     </script>
+
 </body>
 </html>
