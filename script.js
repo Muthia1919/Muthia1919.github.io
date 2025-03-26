@@ -1,56 +1,41 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Animasi Efek Ketik
-    const text = "Selamat datang di perpustakaan kami!";
-    let index = 0;
-    const textElement = document.querySelector("main p:first-of-type");
+    // Animasi header saat halaman dimuat
+    const header = document.querySelector("header h1");
+    header.style.opacity = 0;
+    header.style.transform = "translateY(-20px)";
+    setTimeout(() => {
+        header.style.transition = "opacity 1s, transform 1s";
+        header.style.opacity = 1;
+        header.style.transform = "translateY(0)";
+    }, 300);
 
-    function typeText() {
-        if (index < text.length) {
-            textElement.textContent += text.charAt(index);
-            index++;
-            setTimeout(typeText, 100);
-        }
-    }
-
-    textElement.textContent = ""; // Kosongkan teks sebelum mulai
-    setTimeout(typeText, 500);
-
-    // Animasi Navbar Saat Scroll
-    const navbar = document.querySelector("nav");
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 50) {
-            navbar.style.backgroundColor = "#3b82f6"; // Ubah warna saat scroll
-            navbar.style.transition = "0.3s";
-        } else {
-            navbar.style.backgroundColor = "#1e3a8a"; // Kembali ke warna awal
-        }
+    // Efek hover pada navbar
+    const navLinks = document.querySelectorAll("nav ul li a");
+    navLinks.forEach(link => {
+        link.addEventListener("mouseover", () => {
+            link.style.transform = "scale(1.1)";
+        });
+        link.addEventListener("mouseout", () => {
+            link.style.transform = "scale(1)";
+        });
     });
 
-    // Mode Gelap
-    const darkModeBtn = document.createElement("button");
-    darkModeBtn.textContent = "Mode Gelap 🌙";
-    darkModeBtn.style.position = "fixed";
-    darkModeBtn.style.bottom = "20px";
-    darkModeBtn.style.right = "20px";
-    darkModeBtn.style.padding = "10px 15px";
-    darkModeBtn.style.backgroundColor = "#333";
-    darkModeBtn.style.color = "white";
-    darkModeBtn.style.border = "none";
-    darkModeBtn.style.borderRadius = "5px";
-    darkModeBtn.style.cursor = "pointer";
+    // Tambahkan efek fade-in untuk konten utama
+    const mainContent = document.querySelector("main");
+    mainContent.style.opacity = 0;
+    mainContent.style.transition = "opacity 1.5s";
+    setTimeout(() => {
+        mainContent.style.opacity = 1;
+    }, 500);
 
-    document.body.appendChild(darkModeBtn);
-
-    darkModeBtn.addEventListener("click", function () {
-        document.body.classList.toggle("dark-mode");
-        if (document.body.classList.contains("dark-mode")) {
-            document.body.style.backgroundColor = "#1e1e1e";
-            document.body.style.color = "white";
-            darkModeBtn.textContent = "Mode Terang ☀️";
+    // Animasi footer saat di-scroll ke bawah
+    const footer = document.querySelector("footer");
+    window.addEventListener("scroll", () => {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+            footer.style.backgroundColor = "#3b82f6"; // Warna biru saat mencapai footer
+            footer.style.transition = "background-color 0.5s";
         } else {
-            document.body.style.backgroundColor = "#e3f2fd";
-            document.body.style.color = "#333";
-            darkModeBtn.textContent = "Mode Gelap 🌙";
+            footer.style.backgroundColor = "#1e3a8a"; // Kembali ke warna asli
         }
     });
 });
