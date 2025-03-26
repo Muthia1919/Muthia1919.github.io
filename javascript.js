@@ -19,7 +19,6 @@
             background-color: #1e3a8a; /* Navy */
             padding: 15px;
             text-align: center;
-            transition: background-color 0.3s;
         }
 
         nav ul {
@@ -34,11 +33,11 @@
         }
 
         nav ul li a {
-            color: #fff; /* Putih */
+            color: #fff;
             text-decoration: none;
             font-size: 18px;
             padding: 10px 20px;
-            background-color: #1e3a8a; /* Navy */
+            background-color: #1e3a8a;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
@@ -53,8 +52,6 @@
             color: #fff; /* Putih */
             padding: 50px 0;
             text-align: center;
-            opacity: 0; /* Initially hidden for fade-in effect */
-            transition: opacity 1s ease-out;
         }
 
         header h1 {
@@ -62,26 +59,41 @@
             margin-bottom: 10px;
         }
 
-        header p {
-            font-size: 18px;
+        /* About Me Section */
+        #about-me {
+            background-color: #f0f8ff; /* Light Blue */
+            padding: 50px;
         }
 
-        /* Main Section */
-        main {
-            padding: 50px;
+        #about-me h2 {
+            color: #1e3a8a; /* Navy */
+            font-size: 28px;
+            margin-bottom: 20px;
             text-align: center;
         }
 
-        main h2 {
-            color: #1e3a8a; /* Navy */
+        table {
+            width: 60%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border: 2px solid #1e3a8a; /* Navy border */
         }
 
-        main p {
-            font-size: 18px;
-            line-height: 1.6;
+        table, th, td {
+            border: 2px solid #1e3a8a; /* Navy */
         }
 
-        /* Footer */
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #1e3a8a;
+            color: white;
+        }
+
+        /* Footer Section */
         footer {
             background-color: #1e3a8a; /* Navy */
             color: #fff; /* Putih */
@@ -89,67 +101,71 @@
             padding: 20px;
         }
 
+        section {
+            padding: 50px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav id="navbar">
+    <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about-me.html">Tentang saya</a></li>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="about-me.html">Tentang Saya</a></li>
             <li><a href="contact.html">Kontak</a></li>
         </ul>
     </nav>
 
     <!-- Header Section -->
-    <header id="header">
+    <header>
         <h1>Perpustakaan Muthia Sari</h1>
     </header>
 
-    <!-- Main Section -->
-    <main>
-        <p>Selamat datang di perpustakaan kami. Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda, website ini berkolaborasi dengan perpustakan usu bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
-        <p><a href="https://library.usu.ac.id/" target="_blank">Klik disini untuk mengunjungi Perpustakaan USU</a></p>
-    </main>
+    <!-- About Me Section -->
+    <section id="about-me">
+        <h2>Tentang Saya</h2>
+        <table>
+            <tr>
+                <th>Nama</th>
+                <th>NIM</th>
+                <th>Kelas</th>
+                <th>Prodi</th>
+                <th>Fakultas</th>
+                <th>Universitas</th>
+            </tr>
+            <tr>
+                <td id="nama">Muthia Sari</td>
+                <td>220709002</td>
+                <td>B</td>
+                <td>ILMU PERPUSTAKAAN DAN SAINS INFORMASI</td>
+                <td>Fakultas ILMU BUDAYA</td>
+                <td>Universitas Sumatera Utara</td>
+            </tr>
+        </table>
+    </section>
 
     <!-- Footer Section -->
     <footer>
-        <p>@2025 Perpustakaan Muthia Sari.</p>
+        <p>&copy; 2025 Perpustakaan Muthia Sari. Semua hak cipta dilindungi.</p>
     </footer>
 
     <script>
-        // JavaScript untuk animasi header
-        window.addEventListener("scroll", function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.style.opacity = 1; // Fade-in ketika scroll
-            } else {
-                header.style.opacity = 0; // Memudar jika scroll ke atas
-            }
+        // Mengubah warna latar belakang navbar saat diklik
+        document.querySelector("nav").addEventListener("click", function() {
+            this.style.backgroundColor = this.style.backgroundColor === "rgb(30, 58, 138)" ? "#3b82f6" : "#1e3a8a";
         });
 
-        // JavaScript untuk efek warna navbar saat menggulir
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.style.backgroundColor = '#3b82f6'; // Ubah warna navbar saat scroll
-            } else {
-                navbar.style.backgroundColor = '#1e3a8a'; // Warna awal navbar
-            }
+        // Menampilkan alert ketika nama diklik
+        document.getElementById("nama").addEventListener("click", function() {
+            alert("Anda mengklik nama: " + this.innerText);
         });
 
-        // JavaScript untuk efek transisi saat hover pada navbar
-        const navLinks = document.querySelectorAll('nav ul li a');
-        navLinks.forEach(link => {
-            link.addEventListener('mouseover', () => {
-                link.style.transform = 'scale(1.1)'; // Membesar sedikit saat hover
-                link.style.transition = 'transform 0.2s ease-in-out'; // Transisi lembut
-            });
-            link.addEventListener('mouseout', () => {
-                link.style.transform = 'scale(1)'; // Kembali ke ukuran normal
-            });
-        });
+        // Menambahkan elemen baru ke dalam halaman
+        let newSection = document.createElement("section");
+        newSection.innerHTML = "<h2>Selamat Datang di Perpustakaan Muthia Sari!</h2><p>Silakan eksplorasi koleksi buku kami.</p>";
+        document.body.insertBefore(newSection, document.querySelector("footer"));
     </script>
 
 </body>
