@@ -17,46 +17,63 @@
         /* Navbar */
         nav {
             background-color: #1e3a8a; /* Navy */
-            padding: 15px;
+            padding: 15px 0;
             text-align: center;
+            position: relative;
         }
 
-        nav ul {
+        /* Logo */
+        .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            display: block;
+        }
+
+        /* Menu */
+        .nav-links {
             list-style: none;
-            margin: 0;
             padding: 0;
+            margin: 0;
         }
 
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
+        .nav-links li {
+            display: inline-block;
+            margin: 0 15px;
         }
 
-        nav ul li a {
-            color: #fff;
+        .nav-links li a {
+            color: white;
             text-decoration: none;
             font-size: 18px;
-            padding: 10px 20px;
-            background-color: #1e3a8a;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            padding: 10px 15px;
+            display: inline-block;
+            transition: background 0.3s;
         }
 
-        nav ul li a:hover {
-            background-color: #3b82f6; /* Biru Langit */
+        .nav-links li a:hover {
+            background-color: #3b82f6;
+            border-radius: 5px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
         }
 
         /* Header */
         header {
-            background-color: #1e3a8a; /* Navy */
-            color: #fff; /* Putih */
+            background-color: #1e3a8a;
+            color: white;
             padding: 50px 0;
             text-align: center;
-        }
-
-        header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
         }
 
         /* About Me Section */
@@ -66,21 +83,21 @@
         }
 
         #about-me h2 {
-            color: #1e3a8a; /* Navy */
+            color: #1e3a8a;
             font-size: 28px;
             margin-bottom: 20px;
             text-align: center;
         }
 
         table {
-            width: 40%;
+            width: 60%;
             margin: 0 auto;
             border-collapse: collapse;
-            border: 2px solid #1e3a8a; /* Navy border */
+            border: 2px solid #1e3a8a;
         }
 
         table, th, td {
-            border: 2px solid #1e3a8a; /* Navy */
+            border: 2px solid #1e3a8a;
         }
 
         th, td {
@@ -94,33 +111,50 @@
             text-align: center;
         }
 
-        /* Footer Section */
+        /* Footer */
         footer {
-            background-color: #1e3a8a; /* Navy */
-            color: #fff; /* Putih */
+            background-color: #1e3a8a;
+            color: white;
             text-align: center;
             padding: 20px;
         }
 
-        section {
-            padding: 50px;
-            text-align: center;
-        }
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                text-align: center;
+                background-color: #1e3a8a;
+                position: absolute;
+                top: 50px;
+                left: 0;
+            }
 
+            .nav-links li {
+                display: block;
+                padding: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
     <nav>
-        <ul>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="about-me.html">Tentang Saya</a></li>
             <li><a href="contact.html">Kontak</a></li>
         </ul>
     </nav>
 
-    <!-- Header Section -->
+    <!-- Header -->
     <header>
         <h1>Perpustakaan Muthia Sari</h1>
     </header>
@@ -160,10 +194,21 @@
         </table>
     </section>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Perpustakaan Muthia Sari. Semua hak cipta dilindungi.</p>
+        <p>&copy; 2025 Perpustakaan Muthia Sari. Semua hak dilindungi.</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.querySelector(".nav-links");
+            if (nav.style.display === "block") {
+                nav.style.display = "none";
+            } else {
+                nav.style.display = "block";
+            }
+        }
+    </script>
 
 </body>
 </html>
