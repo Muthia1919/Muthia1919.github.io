@@ -10,19 +10,18 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e3f2fd; /* Biru Langit */
-            color: #333; /* Hitam */
+            background-color: #e3f2fd;
+            color: #333;
         }
 
         /* Navbar */
         nav {
-            background-color: #1e3a8a; /* Navy */
-            padding: 15px 0;
+            background-color: #1e3a8a;
+            padding: 15px 20px;
             text-align: center;
             position: relative;
         }
 
-        /* Logo */
         .logo {
             color: white;
             font-size: 20px;
@@ -31,7 +30,6 @@
             display: block;
         }
 
-        /* Menu */
         .nav-links {
             list-style: none;
             padding: 0;
@@ -60,57 +58,15 @@
         /* Hamburger Menu */
         .hamburger {
             display: none;
-            font-size: 24px;
+            font-size: 28px;
             color: white;
             position: absolute;
-            top: 15px;
+            top: 12px;
             right: 20px;
             cursor: pointer;
+            padding: 5px 10px;
         }
 
-        /* Header */
-        header {
-            background-color: #1e3a8a;
-            color: white;
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        /* Main Section */
-        main {
-            padding: 50px;
-            text-align: center;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #1e3a8a;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Typing Animation */
-        #welcome-text {
-            font-size: 24px;
-            color: #333;
-            font-weight: bold;
-            white-space: nowrap;
-            overflow: hidden;
-            width: 0;
-            animation: typing 4s steps(30) forwards;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-
-        /* Responsive Design */
         @media screen and (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -120,6 +76,7 @@
                 position: absolute;
                 top: 50px;
                 left: 0;
+                padding: 10px 0;
             }
 
             .nav-links li {
@@ -135,32 +92,14 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav>
         <div class="hamburger" onclick="toggleMenu()">☰</div>
         <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
-            <li><a href="about-me.html">Tentang saya</a></li>
+            <li><a href="about-me.html">Tentang Saya</a></li>
             <li><a href="contact.html">Kontak</a></li>
         </ul>
     </nav>
-
-    <!-- Header Section -->
-    <header>
-        <h1>Perpustakaan Muthia Sari</h1>
-    </header>
-
-    <!-- Main Section -->
-    <main>
-        <p id="welcome-text"></p>
-        <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda.</p>
-        <p><a href="https://library.usu.ac.id/" target="_blank">Klik disini untuk mengunjungi Perpustakaan USU</a></p> 
-    </main>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>@2025 Perpustakaan Muthia Sari.</p>
-    </footer>
 
     <script>
         function toggleMenu() {
@@ -171,23 +110,6 @@
                 nav.style.display = "block";
             }
         }
-
-        // Animasi Teks Ketik
-        const welcomeText = "Selamat datang di perpustakaan kami!";
-        let index = 0;
-        const textElement = document.getElementById("welcome-text");
-
-        function typeText() {
-            if (index < welcomeText.length) {
-                textElement.textContent += welcomeText.charAt(index);
-                index++;
-                setTimeout(typeText, 150);
-            }
-        }
-
-        window.onload = function() {
-            typeText();
-        };
     </script>
 
 </body>
