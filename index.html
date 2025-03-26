@@ -4,14 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perpustakaan Muthia Sari</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3f2fd; /* Biru Langit */
+            color: #333; /* Hitam */
+            height: 100vh;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #1e3a8a; /* Navy */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Navbar Menu */
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .nav-links li a:hover {
+            background-color: #3b82f6; /* Biru Langit */
+            transform: scale(1.1);
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 4px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        /* Header */
+        header {
+            background-color: #1e3a8a; /* Navy */
+            color: #fff; /* Putih */
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 36px;
+        }
+
+        /* Main Section */
+        main {
+            padding: 50px;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e3a8a; /* Navy */
+            color: #fff; /* Putih */
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Typing Animation */
+        #welcome-text {
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 4s steps(30) 1s forwards;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #1e3a8a;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <!-- Navbar -->
     <nav>
         <div class="logo">
-            <h2>Perpustakaan</h2>
+            <h2 style="color: white;">Perpustakaan</h2>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
