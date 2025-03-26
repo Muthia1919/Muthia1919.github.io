@@ -10,50 +10,50 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e3f2fd; /* Biru Langit */
-            color: #333; /* Hitam */
+            background-color: #e3f2fd;
+            color: #333;
             height: 100vh;
         }
 
         /* Navbar */
         nav {
-            background-color: #1e3a8a; /* Navy */
+            background-color: #1e3a8a;
             padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            position: relative;
+            text-align: center;
         }
 
-        /* Navbar Menu */
         .nav-links {
             list-style: none;
-            margin: 0;
             padding: 0;
-            display: flex;
+            margin: 0;
+            display: inline-block;
         }
 
         .nav-links li {
+            display: inline;
             margin: 0 15px;
         }
 
         .nav-links li a {
-            color: #fff;
+            color: white;
             text-decoration: none;
             font-size: 18px;
             padding: 10px 15px;
             border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.3s;
         }
 
         .nav-links li a:hover {
-            background-color: #3b82f6; /* Biru Langit */
-            transform: scale(1.1);
+            background-color: #3b82f6;
         }
 
         /* Hamburger Menu */
         .hamburger {
             display: none;
-            flex-direction: column;
+            position: absolute;
+            top: 15px;
+            right: 20px;
             cursor: pointer;
         }
 
@@ -62,78 +62,28 @@
             height: 4px;
             background-color: white;
             margin: 5px 0;
-            transition: 0.4s;
-        }
-
-        /* Header */
-        header {
-            background-color: #1e3a8a; /* Navy */
-            color: #fff; /* Putih */
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 36px;
-        }
-
-        /* Main Section */
-        main {
-            padding: 50px;
-            text-align: center;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #1e3a8a; /* Navy */
-            color: #fff; /* Putih */
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Typing Animation */
-        #welcome-text {
-            font-size: 24px;
-            color: #333;
-            font-weight: bold;
-            white-space: nowrap;
-            overflow: hidden;
-            width: 0;
-            animation: typing 4s steps(30) 1s forwards;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
         }
 
         /* Responsive Design */
         @media screen and (max-width: 768px) {
             .nav-links {
                 display: none;
-                flex-direction: column;
                 position: absolute;
-                top: 60px;
+                top: 50px;
                 left: 0;
                 width: 100%;
                 background-color: #1e3a8a;
                 text-align: center;
-            }
-
-            .nav-links.active {
-                display: flex;
+                padding: 10px 0;
             }
 
             .nav-links li {
+                display: block;
                 margin: 10px 0;
             }
 
             .hamburger {
-                display: flex;
+                display: block;
             }
         }
     </style>
@@ -142,61 +92,43 @@
 
     <!-- Navbar -->
     <nav>
-        <div class="logo">
-            <h2 style="color: white;">Perpustakaan</h2>
+        <div class="logo" style="color: white; font-size: 20px; font-weight: bold;">Perpustakaan</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="about-me.html">Tentang saya</a></li>
             <li><a href="contact.html">Kontak</a></li>
         </ul>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
     </nav>
-
-    <!-- Header Section -->
     <header>
         <h1>Perpustakaan Muthia Sari</h1>
     </header>
 
-    <!-- Main Section -->
     <main>
         <p id="welcome-text"></p>
-        <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda, website ini berkolaborasi dengan perpustakaan USU bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
-        <p><a href="https://library.usu.ac.id/" target="_blank">Klik disini untuk mengunjungi Perpustakaan USU</a></p> 
+        <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda.</p>
+        <p><a href="https://library.usu.ac.id/" target="_blank">Klik disini untuk mengunjungi Perpustakaan USU</a></p>
     </main>
 
-    <!-- Footer Section -->
     <footer>
-        <p>@2025 Perpustakaan Muthia Sari.</p>
+        <p>&copy; 2025 Perpustakaan Muthia Sari. Semua hak cipta dilindungi.</p>
     </footer>
 
     <script>
         function toggleMenu() {
-            const navLinks = document.querySelector(".nav-links");
-            navLinks.classList.toggle("active");
-        }
-
-        // Animasi Teks Ketik untuk "Selamat datang di perpustakaan kami!"
-        const welcomeText = "Selamat datang di perpustakaan kami!";
-        let index = 0;
-        const textElement = document.getElementById("welcome-text");
-
-        function typeText() {
-            if (index < welcomeText.length) {
-                textElement.textContent += welcomeText.charAt(index);
-                index++;
-                setTimeout(typeText, 150);
+            var nav = document.querySelector(".nav-links");
+            if (nav.style.display === "block") {
+                nav.style.display = "none";
+            } else {
+                nav.style.display = "block";
             }
         }
-
-        window.onload = function() {
-            typeText();
-        };
     </script>
-
 </body>
 </html>
+
+   
