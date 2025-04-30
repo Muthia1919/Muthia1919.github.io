@@ -2,11 +2,43 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Hello World</title>
+    <title>Kontak</title>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <p>Ini halaman pertama Anda di web!</p>
-    <p><a href="index.html">Kembali ke Beranda</a></p>
+    <h1>Hubungi Kami</h1>
+    <form id="contactForm">
+        <label for="name">Nama:</label><br>
+        <input type="text" id="name" required><br><br>
+
+        <label for="message">Pesan:</label><br>
+        <textarea id="message" required></textarea><br><br>
+
+        <button type="submit">Kirim ke WhatsApp</button>
+    </form>
+
+    <p id="confirmation" style="color: green;"></p>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const message = document.getElementById("message").value;
+            const fullMessage = `Halo, saya ${name}. Pesan saya: ${message}`;
+
+            // Simpan ke localStorage sebagai "database"
+            let data = JSON.parse(localStorage.getItem("inbox")) || [];
+            data.push({ name, message });
+            localStorage.setItem("inbox", JSON.stringify(data));
+
+            // Kirim ke WhatsApp
+            const phone = "6285174147405"; // Ganti ke format internasional tanpa +
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(fullMessage)}`;
+            window.open(url, '_blank');
+
+            document.getElementById("confirmation").innerText = "Pesan siap dikirim via WhatsApp.";
+            this.reset();
+        });
+    </script>
 </body>
 </html>
