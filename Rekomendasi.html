@@ -1,29 +1,119 @@
-<div class="book-container">
-    <!-- Buku 1 -->
-    <div class="book">
-        <img src="https://upload.wikimedia.org/wikipedia/en/d/dd/Beauty_Is_a_Wound.jpg" alt="Beauty Is a Wound">
-        <h3>Beauty Is a Wound</h3>
-        <p>Penulis: Eka Kurniawan<br>Genre: Fiksi, Realisme Magis</p>
-    </div>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekomendasi Buku - Perpustakaan Muthia Sari</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3f2fd;
+            color: #333;
+        }
 
-    <!-- Buku 2 -->
-    <div class="book">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/91Z0NRJr1kL.jpg" alt="Na Willa and the House in the Alley">
-        <h3>Na Willa and the House in the Alley</h3>
-        <p>Penulis: Reda Gaudiamo<br>Genre: Fiksi Anak, Petualangan</p>
-    </div>
+        nav {
+            background-color: #1e3a8a;
+            padding: 15px;
+            text-align: center;
+        }
 
-    <!-- Buku 3 -->
-    <div class="book">
-        <img src="https://m.media-amazon.com/images/I/81wn2p0IZ0L._SL1500_.jpg" alt="Your Story Is Your Power">
-        <h3>Your Story Is Your Power</h3>
-        <p>Penulis: Elle Luna & Susie Herrick<br>Genre: Self-Help, Empowerment</p>
-    </div>
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-    <!-- Buku 4 -->
-    <div class="book">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/81vsygAaKkL.jpg" alt="Let's Go to Taekwondo!">
-        <h3>Let's Go to Taekwondo!</h3>
-        <p>Penulis: Aram Kim<br>Genre: Buku Anak, Aktivitas</p>
-    </div>
-</div>
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #1e3a8a;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #3b82f6;
+        }
+
+        header {
+            background-color: #1e3a8a;
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        main {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .book {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 250px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .book:hover {
+            transform: scale(1.05);
+        }
+
+        .book img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .book h3 {
+            color: #1e3a8a;
+            margin: 15px 0 10px;
+        }
+
+        .book p {
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        footer {
+            background-color: #1e3a8a;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="about-me.html">Tentang Saya</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="rekomendasi.html">Rekomendasi Buku</a></li>
+        </ul>
