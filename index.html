@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perpustakaan Muthia Sari</title>
   <style>
+    /* Basic Styles */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -17,15 +18,10 @@
     nav {
       background-color: #1e3a8a;
       padding: 15px 20px;
-      position: relative;
-    }
-
-    .nav-container {
-      max-width: 1000px;
-      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
     }
 
     .nav-links {
@@ -40,8 +36,7 @@
       color: white;
       text-decoration: none;
       font-size: 18px;
-      padding: 10px 15px;
-      display: block;
+      padding: 10px;
       transition: background 0.3s;
     }
 
@@ -52,15 +47,37 @@
 
     .hamburger {
       display: none;
-      font-size: 28px;
+      font-size: 26px;
       color: white;
       cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        background-color: #1e3a8a;
+        width: 100%;
+        display: none;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+        margin-left: auto;
+      }
     }
 
     /* Header */
     header {
       background-color: #1e3a8a;
-      color: #fff;
+      color: white;
       padding: 50px 0;
       text-align: center;
     }
@@ -70,51 +87,31 @@
       margin-bottom: 10px;
     }
 
-    /* Main */
+    header p {
+      font-size: 18px;
+    }
+
+    /* Main Section */
     main {
-      padding: 40px 20px;
+      padding: 50px;
       text-align: center;
+    }
+
+    main h2 {
+      color: #1e3a8a;
     }
 
     main p {
       font-size: 18px;
       line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto 20px;
     }
 
     /* Footer */
     footer {
       background-color: #1e3a8a;
-      color: #fff;
+      color: white;
       text-align: center;
       padding: 20px;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #1e3a8a;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        text-align: center;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-links li {
-        padding: 10px 0;
-      }
     }
   </style>
 </head>
@@ -122,15 +119,13 @@
 
   <!-- Navbar -->
   <nav>
-    <div class="nav-container">
-      <div class="hamburger" onclick="toggleMenu()">☰</div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="about-me.html">Tentang Saya</a></li>
-        <li><a href="contact.html">Kontak</a></li>
-        <li><a href="rekomendasi.html">Rekomendasi</a></li>
-      </ul>
-    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="about-me.html">Tentang Saya</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+      <li><a href="rekomendasi.html">Rekomendasi</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
   </nav>
 
   <!-- Header -->
@@ -138,10 +133,10 @@
     <h1>Perpustakaan Muthia Sari</h1>
   </header>
 
-  <!-- Main Content -->
+  <!-- Main Section -->
   <main>
     <p>Selamat datang di perpustakaan kami!</p>
-    <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Website ini berkolaborasi dengan Perpustakaan USU bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
+    <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Website ini berkolaborasi dengan Perpustakaan USU untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
     <p><a href="https://library.usu.ac.id/" target="_blank">Klik di sini untuk mengunjungi Perpustakaan USU</a></p>
   </main>
 
@@ -150,10 +145,11 @@
     <p>&copy; 2025 Perpustakaan Muthia Sari. Semua hak dilindungi.</p>
   </footer>
 
+  <!-- Hamburger Script -->
   <script>
     function toggleMenu() {
-      const nav = document.getElementById("navLinks");
-      nav.classList.toggle("active");
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('show');
     }
   </script>
 
