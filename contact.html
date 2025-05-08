@@ -177,21 +177,28 @@
     </header>
 
     <!-- Contact Form -->
-    <main>
-        <h2>Hubungi Kami</h2>
-        <form>
-            action="https://formspree.io/f/xldbnavz"
-            method="POST"
+<main>
+    <h2>Hubungi Kami</h2>
+    <form action="https://formspree.io/f/xldbnavz" method="POST">
         <label>
-                Your email:
-                <input type="email" name="email">
+            Nama:<br>
+            <input type="text" name="nama" required>
         </label>
+        <br><br>
         <label>
-                Your message:
-                <textarea name="message"></textarea>
+            Email:<br>
+            <input type="email" name="email" required>
         </label>
-        <!-- your other form fields go here -->
-    </main>
+        <br><br>
+        <label>
+            Pesan:<br>
+            <textarea name="message" required></textarea>
+        </label>
+        <br><br>
+        <button type="submit">Kirim</button>
+    </form>
+</main>
+
 
     <!-- Footer -->
     <footer>
