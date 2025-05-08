@@ -14,48 +14,48 @@
             color: #333; /* Hitam */
         }
 
-/* Navbar */
-    nav {
-      background-color: #1e3a8a;
-      padding: 15px 0;
-      text-align: center;
-      position: relative;
-    }
+        /* Navbar */
+        nav {
+            background-color: #1e3a8a;
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
+        }
 
-    .nav-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    .nav-links li {
-      display: inline-block;
-      margin: 0 15px;
-    }
+        .nav-links li {
+            display: inline-block;
+            margin: 0 15px;
+        }
 
-    .nav-links li a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      padding: 10px 15px;
-      display: inline-block;
-      transition: background 0.3s;
-    }
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
 
-    .nav-links li a:hover {
-      background-color: #3b82f6;
-      border-radius: 5px;
-    }
+        .nav-links li a:hover {
+            background-color: #3b82f6;
+            border-radius: 5px;
+        }
 
-    .hamburger {
-      display: none;
-      font-size: 24px;
-      color: white;
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      cursor: pointer;
-    }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+        }
 
         /* Header */
         header {
@@ -97,20 +97,57 @@
             padding: 20px;
         }
 
+        /* Responsiveness: Mobile view */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                text-align: center;
+                background-color: #1e3a8a;
+                position: absolute;
+                top: 55px;
+                left: 0;
+                z-index: 100;
+            }
+
+            .nav-links li {
+                display: block;
+                padding: 10px;
+                margin: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links li a {
+                padding: 10px 15px;
+                font-size: 18px;
+                width: 100%;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            main p {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
-<nav>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="about-me.html">Tentang Saya</a></li>
-        <li><a href="contact.html">Kontak</a></li>
-        <li><a href="rekomendasi.html">Rekomendasi</a></li>
-    </ul>
-</nav>
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="about-me.html">Tentang Saya</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="rekomendasi.html">Rekomendasi</a></li>
+        </ul>
+    </nav>
 
     <!-- Header Section -->
     <header>
@@ -120,7 +157,7 @@
     <!-- Main Section -->
     <main>
         <p>Selamat datang di perpustakaan kami!</p>
-        <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda,  website ini berkolaborasi dengan perpustakan usu bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
+        <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda,  website ini berkolaborasi dengan perpustakan USU bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
         <p><a href="https://library.usu.ac.id/" target="_blank">Klik disini untuk mengunjungi Perpustakaan USU</a></p>
     </main>
 
@@ -129,20 +166,16 @@
         <p>@2025 Perpustakaan Muthia Sari</p>
     </footer>
 
-    <script src="script.js"></script>
-
-      <script>
-    function toggleMenu() {
-      var nav = document.querySelector(".nav-links");
-      if (nav.style.display === "block") {
-        nav.style.display = "none";
-      } else {
-        nav.style.display = "block";
-      }
-    }
-  </script>
-    
+    <script>
+        function toggleMenu() {
+            var nav = document.querySelector(".nav-links");
+            if (nav.style.display === "block") {
+                nav.style.display = "none";
+            } else {
+                nav.style.display = "block";
+            }
+        }
+    </script>
 
 </body>
-    <script src="script.js"></script>
 </html>
