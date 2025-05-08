@@ -103,13 +103,47 @@
             padding: 20px;
             margin-top: 50px;
         }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+    @media screen and (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            background-color: #1e3a8a;
+            position: absolute;
+            width: 100%;
+            top: 55px;
+            left: 0;
+            text-align: center;
+        }
+
+        .nav-links li {
+            display: block;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        .hamburger {
+            display: block;
+        }
+
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
     <nav>
-        <ul>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="about-me.html">Tentang Saya</a></li>
             <li><a href="contact.html">Kontak</a></li>
@@ -166,8 +200,15 @@
 
     <!-- Footer -->
     <footer>
-        <p>@2025 Perpustakaan Muthia Sari.</p>
+        <p>@2025 Perpustakaan Muthia Sari</p>
     </footer>
+    
+    <script>
+    function toggleMenu() {
+        const nav = document.querySelector(".nav-links");
+        nav.style.display = (nav.style.display === "block") ? "none" : "block";
+    }
+    </script>
 
 </body>
 </html>
