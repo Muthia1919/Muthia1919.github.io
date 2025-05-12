@@ -1,214 +1,245 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rekomendasi- Perpustakaan Muthia Sari</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #e3f2fd;
-            color: #333;
-        }
-
-        nav {
-            background-color: #1e3a8a;
-            padding: 15px;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 10px 20px;
-            background-color: #1e3a8a;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        nav ul li a:hover {
-            background-color: #3b82f6;
-        }
-
-        header {
-            background-color: #1e3a8a;
-            color: #fff;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        main {
-            padding: 50px;
-            text-align: center;
-        }
-
-        h2 {
-            color: #1e3a8a;
-        }
-
-        .book-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .book {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            width: 250px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .book img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-
-        .book h3 {
-            margin-top: 15px;
-            color: #1e3a8a;
-        }
-
-        .book p {
-            font-size: 14px;
-            color: #555;
-            text-align: left;
-            line-height: 1.5;
-            margin-top: 10px;
-        }
-
-        footer {
-            background-color: #1e3a8a;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 24px;
-            color: white;
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            cursor: pointer;
-        }
-
-    @media screen and (max-width: 768px) {
-            .nav-links {
-            display: none;
-            flex-direction: column;
-            background-color: #1e3a8a;
-            position: absolute;
-            width: 100%;
-            top: 55px;
-            left: 0;
-            text-align: center;
-        }
-
-        .nav-links li {
-            display: block;
-            padding: 10px 0;
-            margin: 0;
-        }
-
-        .hamburger {
-            display: block;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rekomendasi - Perpustakaan Muthia Sari</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e3f2fd;
+      color: #333;
     }
-    </style>
+
+    nav {
+      background-color: #1e3a8a;
+      padding: 15px;
+      text-align: center;
+      position: relative;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #1e3a8a;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #3b82f6;
+    }
+
+    hamburger {
+      display: none;
+      font-size: 24px;
+      color: white;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    header {
+      background-color: #1e3a8a;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    main {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #1e3a8a;
+      font-size: 28px;
+    }
+
+    book-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    book {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    book img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    book h3 {
+      margin-top: 15px;
+      color: #1e3a8a;
+      font-size: 20px;
+    }
+
+    book p {
+      font-size: 14px;
+      color: #555;
+      text-align: left;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #1e3a8a;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    /* Responsiveness */
+    @media screen and (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #1e3a8a;
+        position: absolute;
+        width: 100%;
+        top: 55px;
+        left: 0;
+        z-index: 1000;
+      }
+
+      nav ul li {
+        display: block;
+        padding: 12px 0;
+      }
+
+      hamburger {
+        display: block;
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+
+      header p {
+        font-size: 16px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      book {
+        width: 90%;
+        margin: auto;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="about-me.html">Tentang Saya</a></li>
-            <li><a href="contact.html">Kontak</a></li>
-            <li><a href="rekomendasi.html">Rekomendasi</a></li>
-        </ul>
-    </nav>
+  <!-- Navbar -->
+  <nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="about-me.html">Tentang Saya</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+      <li><a href="rekomendasi.html">Rekomendasi</a></li>
+    </ul>
+  </nav>
 
-    <!-- Header -->
-    <header>
-        <h1>Rekomendasi Buku</h1>
-        <p>Buku-buku pilihan yang kami rekomendasikan untuk Anda baca</p>
-    </header>
+  <!-- Header -->
+  <header>
+    <h1>Rekomendasi Buku</h1>
+    <p>Buku-buku pilihan yang kami rekomendasikan untuk Anda baca</p>
+  </header>
 
-    <!-- Main Content -->
-    <main>
-        <div class="book-container">
-            <!-- Buku 1 -->
-            <div class="book">
-                 <a href="https://www.google.co.id/books/edition/Introduction_to_Digital_Libraries/mdMqDgAAQBAJ?hl=en&gbpv=1" target="_blank">
-                <img src="https://media.s-bol.com/VOm5xRZwk665/550x811.jpg" alt="Introduction to Digital Libraries"></a>
-                <h3>Introduction to Digital Libraries</h3>
-                <p>
-                    <strong>Penulis:</strong> Gobinda G. Chowdhury, Sudatta Chowdhury<br>
-                    <strong>Genre:</strong> Non-fiksi edukatif, Teknologi informasi<br>
-                    <strong>Bahasa:</strong> English
-                </p>
-            </div>
+  <!-- Main Content -->
+  <main>
+    <h2>Daftar Buku Pilihan</h2>
+    <div class="book-container">
+      <!-- Buku 1 -->
+      <div class="book">
+        <a href="https://www.google.co.id/books/edition/Introduction_to_Digital_Libraries/mdMqDgAAQBAJ?hl=en&gbpv=1" target="_blank">
+          <img src="https://media.s-bol.com/VOm5xRZwk665/550x811.jpg" alt="Introduction to Digital Libraries"></a>
+        <h3>Introduction to Digital Libraries</h3>
+        <p>
+          <strong>Penulis:</strong> Gobinda G. Chowdhury, Sudatta Chowdhury<br>
+          <strong>Genre:</strong> Non-fiksi edukatif, Teknologi informasi<br>
+          <strong>Bahasa:</strong> English
+        </p>
+      </div>
 
-            <!-- Buku 2 -->
-            <div class="book">
-                <a href="https://www.google.co.id/books/edition/Moderenisasi_Gaya_Hidup/L_NmEAAAQBAJ?hl=en&gbpv=1" target="_blank">
-                <img src="https://penerbitalineaku.com/wp-content/uploads/2022/08/Modernisasi-Gaya-Hidup-212x300.jpg" alt="Moderenisasi Gaya Hidup"></a>
-                <h3>Moderenisasi Gaya Hidup</h3>
-                <p>
-                    <strong>Penulis:</strong> Agus Juliansyah, M. Hipji Rahmani, dan Peserta Kelas Self Publishing Alineaku<br>
-                    <strong>Genre:</strong> Non-fiksi edukatif<br>
-                    <strong>Bahasa:</strong> Indonesi
-                </p>
-            </div>
+      <!-- Buku 2 -->
+      <div class="book">
+        <a href="https://www.google.co.id/books/edition/Moderenisasi_Gaya_Hidup/L_NmEAAAQBAJ?hl=en&gbpv=1" target="_blank">
+          <img src="https://penerbitalineaku.com/wp-content/uploads/2022/08/Modernisasi-Gaya-Hidup-212x300.jpg" alt="Moderenisasi Gaya Hidup"></a>
+        <h3>Moderenisasi Gaya Hidup</h3>
+        <p>
+          <strong>Penulis:</strong> Agus Juliansyah, M. Hipji Rahmani, dan Peserta Kelas Self Publishing Alineaku<br>
+          <strong>Genre:</strong> Non-fiksi edukatif<br>
+          <strong>Bahasa:</strong> Indonesia
+        </p>
+      </div>
 
-            <!-- Buku 3 -->
-            <div class="book">
-                <a href="https://www.google.co.id/books/edition/Ensiklopedia/nR7l61qlzDcC?hl=en&gbpv=1" target="_blank">
-                <img src="https://m.media-amazon.com/images/I/51W14yvO7CL.jpg" alt="Ensiklopedia"></a>
-                <h3>Ensiklopedia</h3>
-                <p>
-                    <strong>Penulis:</strong> Temuan Yang, Mengubah Dunia<br>
-                    <strong>Genre:</strong> Ensiklopedia anak, Sains & Teknologi<br>
-                    <strong>Bahasa:</strong> Indonesia<br>
-                </p>
-            </div>
-        </div>
-    </main>
+      <!-- Buku 3 -->
+      <div class="book">
+        <a href="https://www.google.co.id/books/edition/Ensiklopedia/nR7l61qlzDcC?hl=en&gbpv=1" target="_blank">
+          <img src="https://m.media-amazon.com/images/I/51W14yvO7CL.jpg" alt="Ensiklopedia"></a>
+        <h3>Ensiklopedia</h3>
+        <p>
+          <strong>Penulis:</strong> Temuan Yang Mengubah Dunia<br>
+          <strong>Genre:</strong> Ensiklopedia anak, Sains & Teknologi<br>
+          <strong>Bahasa:</strong> Indonesia
+        </p>
+      </div>
+    </div>
+  </main>
 
-    <!-- Footer -->
-    <footer>
-        <p>@2025 Perpustakaan Muthia Sari</p>
-    </footer>
-    
-    <script>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Perpustakaan Muthia Sari</p>
+  </footer>
+
+  <script>
     function toggleMenu() {
-        const nav = document.querySelector(".nav-links");
-        nav.style.display = (nav.style.display === "block") ? "none" : "block";
+      const nav = document.querySelector(".nav-links");
+      nav.style.display = nav.style.display === "block" ? "none" : "block";
     }
-    </script>
+  </script>
 
 </body>
 </html>
