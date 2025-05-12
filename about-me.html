@@ -2,9 +2,10 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tentang Saya - Perpustakaan Muthia Sari</title>
   <style>
+    /* Global Style */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -15,67 +16,82 @@
 
     nav {
       background-color: #1e3a8a;
-      padding: 15px 0;
+      padding: 15px;
       text-align: center;
+      position: relative;
     }
 
-    nav ul {
+    nav .hamburger {
+      display: none;
+      font-size: 24px;
+      color: white;
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      cursor: pointer;
+    }
+
+    .nav-links {
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
-    nav ul li {
+    .nav-links li {
       display: inline-block;
       margin: 0 15px;
     }
 
-    nav ul li a {
+    .nav-links a {
       color: white;
       text-decoration: none;
       font-size: 18px;
       padding: 10px 15px;
       display: inline-block;
-      transition: background 0.3s;
       border-radius: 5px;
+      transition: background 0.3s;
     }
 
-    nav ul li a:hover {
+    .nav-links a:hover {
       background-color: #3b82f6;
     }
 
     header {
       background-color: #1e3a8a;
       color: white;
-      padding: 40px 0;
-      text-align: center;
-    }
-
-    section {
       padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
+      text-align: center;
     }
 
     h2 {
-      color: #1e3a8a;
       text-align: center;
-      margin-bottom: 30px;
-      font-size: 28px;
+      color: #1e3a8a;
+      margin-top: 40px;
+    }
+
+    .content-wrapper {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .description {
+      text-align: justify;
+      line-height: 1.6;
+      font-size: 16px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 40px;
+      margin: 30px auto;
       background-color: #fff;
-      border: 2px solid #1e3a8a;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
     th, td {
       border: 2px solid #1e3a8a;
-      padding: 15px;
+      padding: 12px;
       text-align: left;
     }
 
@@ -85,26 +101,33 @@
       text-align: center;
     }
 
-    tr:nth-child(even) {
-      background-color: #f4f8ff;
-    }
-
     footer {
       background-color: #1e3a8a;
       color: white;
       text-align: center;
       padding: 20px;
+      margin-top: 40px;
     }
 
-    @media screen and (max-width: 768px) {
-      table, th, td {
-        font-size: 14px;
-        padding: 10px;
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #1e3a8a;
+        width: 100%;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        z-index: 10;
       }
 
-      nav ul li {
+      .nav-links li {
         display: block;
-        margin: 10px 0;
+        padding: 10px 0;
+      }
+
+      nav .hamburger {
+        display: block;
       }
     }
   </style>
@@ -113,7 +136,8 @@
 
   <!-- Navbar -->
   <nav>
-    <ul>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links">
       <li><a href="index.html">Beranda</a></li>
       <li><a href="about-me.html">Tentang Saya</a></li>
       <li><a href="contact.html">Kontak</a></li>
@@ -123,12 +147,21 @@
 
   <!-- Header -->
   <header>
-    <h1>Profil Singkat Saya</h1>
+    <h1>Tentang Muthia Sari</h1>
+    <p>Mahasiswa Ilmu Perpustakaan yang aktif dan berprestasi</p>
   </header>
 
-  <!-- Section: Tentang Saya -->
-  <section id="about-me">
-    <h2>Informasi Pribadi</h2>
+  <!-- Konten -->
+  <div class="content-wrapper">
+
+    <!-- Deskripsi Diri -->
+    <h2>Mengenal Muthia Sari Lebih Dekat</h2>
+    <p class="description">
+      Saya adalah mahasiswa aktif Program Studi Ilmu Perpustakaan dan Sains Informasi di Universitas Sumatera Utara. Selain fokus pada akademik, saya juga aktif dalam berbagai kegiatan olahraga, khususnya taekwondo, yang telah memberikan saya banyak pengalaman dan prestasi membanggakan di tingkat nasional maupun internasional. Saya percaya bahwa ilmu pengetahuan dan disiplin dapat berjalan beriringan dalam membentuk pribadi yang unggul dan berdaya saing tinggi.
+    </p>
+
+    <!-- Tabel Biodata -->
+    <h2>Biodata Singkat</h2>
     <table>
       <tr>
         <th>Data</th>
@@ -147,7 +180,7 @@
         <td>B</td>
       </tr>
       <tr>
-        <td>Prodi</td>
+        <td>Program Studi</td>
         <td>Ilmu Perpustakaan dan Sains Informasi</td>
       </tr>
       <tr>
@@ -159,53 +192,55 @@
         <td>Universitas Sumatera Utara</td>
       </tr>
     </table>
-  </section>
 
-  <!-- Section: Prestasi -->
-  <section id="achievements">
+    <!-- Tabel Prestasi -->
     <h2>Beberapa Prestasi Saya</h2>
     <table>
-      <thead>
-        <tr>
-          <th>Tahun</th>
-          <th>Juara</th>
-          <th>Prestasi yang Dicapai</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>2024</td>
-          <td>Juara 1</td>
-          <td>10th Tirak Taekwondo Internasional Tournament 2024</td>
-        </tr>
-        <tr>
-          <td>2023</td>
-          <td>Juara 3</td>
-          <td>Indonesia Taekwondo Championship</td>
-        </tr>
-        <tr>
-          <td>2023</td>
-          <td>Juara 1</td>
-          <td>Kejuaraan Nasional Piala Kemenpora RI & Kejurwil 1 Sumut 2023</td>
-        </tr>
-        <tr>
-          <td>2021</td>
-          <td>Juara 2</td>
-          <td>2nd Gewinn Pro League 2021 Poomsae Internasional e-Sport</td>
-        </tr>
-        <tr>
-          <td>2018</td>
-          <td>Juara 2</td>
-          <td>6th Daedo Taekwondo Internasional Open Championships</td>
-        </tr>
-      </tbody>
+      <tr>
+        <th>Tahun</th>
+        <th>Juara</th>
+        <th>Prestasi yang Dicapai</th>
+      </tr>
+      <tr>
+        <td>2024</td>
+        <td>Juara 1</td>
+        <td>10th Tirak Taekwondo Internasional Tournament 2024</td>
+      </tr>
+      <tr>
+        <td>2023</td>
+        <td>Juara 3</td>
+        <td>Indonesia Taekwondo Championship</td>
+      </tr>
+      <tr>
+        <td>2023</td>
+        <td>Juara 1</td>
+        <td>Kejuaraan Nasional Piala Kemenpora RI & Kejurwil I Sumatera Utara</td>
+      </tr>
+      <tr>
+        <td>2021</td>
+        <td>Juara 2</td>
+        <td>2nd Gewinn Pro League Poomsae Internasional Taekwondo e-Sport</td>
+      </tr>
+      <tr>
+        <td>2018</td>
+        <td>Juara 2</td>
+        <td>6th Daedo Taekwondo Open Championships</td>
+      </tr>
     </table>
-  </section>
+
+  </div>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Perpustakaan Muthia Sari</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector(".nav-links");
+      nav.style.display = nav.style.display === "block" ? "none" : "block";
+    }
+  </script>
 
 </body>
 </html>
