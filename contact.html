@@ -147,8 +147,9 @@
                 text-align: center;
                 background-color: #1e3a8a;
                 position: absolute;
-                top: 50px;
+                top: 60px;
                 left: 0;
+                z-index: 1000;
             }
 
             .nav-links li {
@@ -158,6 +159,43 @@
 
             .hamburger {
                 display: block;
+            }
+            
+            /* Header Responsif */
+            header {
+                padding: 30px 10px;
+            }
+
+            header h1 {
+                font-size: 22px;
+                padding: 0 10px;
+            }
+
+            main h2 {
+                font-size: 20px;
+                padding: 0 10px;
+            }
+
+            form {
+                padding: 20px;
+                margin: 0 10px;
+                width: auto;
+            }
+
+            label {
+                font-size: 14px;
+            }
+
+            input[type="text"],
+            input[type="tel"],
+            input[type="email"],
+            textarea {
+                font-size: 14px;
+            }
+
+            button[type="submit"] {
+                font-size: 14px;
+                padding: 10px;
             }
         }
     </style>
