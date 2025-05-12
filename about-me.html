@@ -78,7 +78,6 @@
       font-size: 28px;
       margin-bottom: 20px;
       text-align: center;
-      transition: font-size 0.3s ease;
     }
 
     #achievements h2 {
@@ -99,23 +98,37 @@
       min-width: 320px;
       border-collapse: collapse;
       border: 2px solid #1e3a8a;
-    }
-
-    table, th, td {
-      border: 2px solid #1e3a8a;
+      margin: 20px 0;
     }
 
     th, td {
-      padding: 10px;
-      text-align: left;
-      font-size: 14px;
-      word-wrap: break-word;
+      padding: 15px;
+      text-align: center;
+      font-size: 16px;
+      border: 1px solid #ddd;
     }
 
     th {
       background-color: #1e3a8a;
       color: white;
-      text-align: center;
+      font-weight: bold;
+    }
+
+    td {
+      background-color: #f9f9f9;
+    }
+
+    td:hover {
+      background-color: #f1f1f1;
+      cursor: pointer;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #e0e0e0;
     }
 
     footer {
@@ -157,6 +170,10 @@
 
       #achievements h2 {
         font-size: 20px;
+      }
+
+      table, th, td {
+        font-size: 14px;
       }
     }
   </style>
@@ -262,36 +279,4 @@
           <td>Festival Buku Indonesia</td>
         </tr>
         <tr>
-          <td>2017</td>
-          <td>Juara Harapan 2</td>
-          <td>Lomba Desain Web Perpustakaan</td>
-        </tr>
-        <tr>
-          <td>2016</td>
-          <td>Juara 1</td>
-          <td>Konferensi Ilmu Perpustakaan Dunia</td>
-        </tr>
-        <tr>
-          <td>2015</td>
-          <td>Juara 2</td>
-          <td>Kompetisi Pemrograman Sistem Informasi Perpustakaan</td>
-        </tr>
-      </table>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Perpustakaan Muthia Sari</p>
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      const nav = document.querySelector(".nav-links");
-      nav.style.display = nav.style.display === "block" ? "none" : "block";
-    }
-  </script>
-
-</body>
-</html>
-
+          <td>
