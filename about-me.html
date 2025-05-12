@@ -69,6 +69,12 @@
       text-align: center;
     }
 
+    header h1 {
+      font-size: 32px;
+      margin: 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
     #about-me {
       background-color: #f0f8ff;
       padding: 30px 15px;
@@ -139,10 +145,15 @@
       .hamburger {
         display: block;
       }
+
+      header h1 {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
 <body>
+
   <!-- Navbar -->
   <nav>
     <div class="hamburger" onclick="toggleMenu()">☰</div>
@@ -201,12 +212,12 @@
     <p>&copy; 2025 Perpustakaan Muthia Sari</p>
   </footer>
 
-  <!-- Script untuk Toggle Menu -->
   <script>
     function toggleMenu() {
       const nav = document.querySelector(".nav-links");
       nav.style.display = nav.style.display === "block" ? "none" : "block";
     }
   </script>
+
 </body>
 </html>
