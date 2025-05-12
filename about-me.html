@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perpustakaan Muthia Sari</title>
+  <title>Tentang Saya - Perpustakaan Muthia Sari</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,122 +15,78 @@
 
     nav {
       background-color: #1e3a8a;
-      padding: 15px 20px;
-      position: relative;
-    }
-
-    .nav-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+      padding: 15px 0;
       text-align: center;
     }
 
-    .nav-links li {
-      display: inline-block;
-      margin: 0 10px;
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    .nav-links li a {
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
       color: white;
       text-decoration: none;
-      font-size: 16px;
-      padding: 8px 12px;
+      font-size: 18px;
+      padding: 10px 15px;
       display: inline-block;
       transition: background 0.3s;
-    }
-
-    .nav-links li a:hover {
-      background-color: #3b82f6;
       border-radius: 5px;
     }
 
-    .hamburger {
-      display: none;
-      font-size: 24px;
-      color: white;
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      cursor: pointer;
+    nav ul li a:hover {
+      background-color: #3b82f6;
     }
 
     header {
       background-color: #1e3a8a;
       color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    section {
       padding: 40px 20px;
-      text-align: center;
+      max-width: 1000px;
+      margin: auto;
     }
 
-    header h1 {
-      font-size: 32px;
-      margin: 0;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    }
-
-    #about-me {
-      background-color: #f0f8ff;
-      padding: 30px 15px;
-    }
-
-    #about-me h2 {
+    h2 {
       color: #1e3a8a;
-      font-size: 28px;
-      margin-bottom: 20px;
       text-align: center;
-    }
-
-    #achievements h2 {
-      color: #1e3a8a;
+      margin-bottom: 30px;
       font-size: 28px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .table-container {
-      overflow-x: auto;
-      margin: 0 auto;
-      max-width: 80%; /* Menambahkan ruang di kiri dan kanan */
-      padding: 0 20px; /* Memberikan padding tambahan agar tidak menempel pada sisi */
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      border: 2px solid #1e3a8a;
-      margin: 20px 0;
-      border-radius: 8px;
+      margin-bottom: 40px;
       background-color: #fff;
+      border: 2px solid #1e3a8a;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     th, td {
-      padding: 15px 20px; /* Menambahkan padding tambahan */
-      text-align: center;
-      font-size: 16px;
-      border: 1px solid #ddd;
+      border: 2px solid #1e3a8a;
+      padding: 15px;
+      text-align: left;
     }
 
     th {
       background-color: #1e3a8a;
       color: white;
-      font-weight: bold;
+      text-align: center;
     }
 
-    td {
-      background-color: #f9f9f9;
-    }
-
-    td:hover {
-      background-color: #f1f1f1;
-      cursor: pointer;
-    }
-
-    tr:nth-child(even) td {
-      background-color: #f2f2f2;
-    }
-
-    tr:hover {
-      background-color: #e0e0e0;
+    tr:nth-child(even) {
+      background-color: #f4f8ff;
     }
 
     footer {
@@ -140,42 +96,15 @@
       padding: 20px;
     }
 
-    /* Responsive Design */
     @media screen and (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #1e3a8a;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-      }
-
-      .nav-links li {
-        display: block;
-        padding: 12px 0;
-      }
-
-      .hamburger {
-        display: block;
-      }
-
-      header h1 {
-        font-size: 24px;
-      }
-
-      #about-me h2 {
-        font-size: 20px;
-      }
-
-      #achievements h2 {
-        font-size: 20px;
-      }
-
       table, th, td {
         font-size: 14px;
+        padding: 10px;
+      }
+
+      nav ul li {
+        display: block;
+        margin: 10px 0;
       }
     }
   </style>
@@ -184,8 +113,7 @@
 
   <!-- Navbar -->
   <nav>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <ul class="nav-links">
+    <ul>
       <li><a href="index.html">Beranda</a></li>
       <li><a href="about-me.html">Tentang Saya</a></li>
       <li><a href="contact.html">Kontak</a></li>
@@ -195,56 +123,56 @@
 
   <!-- Header -->
   <header>
-    <h1>Perpustakaan Muthia Sari</h1>
+    <h1>Tentang Saya</h1>
   </header>
 
-  <!-- About Me Section -->
+  <!-- Section: Tentang Saya -->
   <section id="about-me">
-    <h2>Tentang Saya</h2>
-    <div class="table-container">
-      <table>
-        <tr>
-          <th>Data</th>
-          <th>Informasi</th>
-        </tr>
-        <tr>
-          <td>Nama</td>
-          <td>Muthia Sari</td>
-        </tr>
-        <tr>
-          <td>NIM</td>
-          <td>220709002</td>
-        </tr>
-        <tr>
-          <td>Kelas</td>
-          <td>B</td>
-        </tr>
-        <tr>
-          <td>Prodi</td>
-          <td>Ilmu Perpustakaan dan Sains Informasi</td>
-        </tr>
-        <tr>
-          <td>Fakultas</td>
-          <td>Fakultas Ilmu Budaya</td>
-        </tr>
-        <tr>
-          <td>Universitas</td>
-          <td>Universitas Sumatera Utara</td>
-        </tr>
-      </table>
-    </div>
+    <h2>Informasi Pribadi</h2>
+    <table>
+      <tr>
+        <th>Data</th>
+        <th>Informasi</th>
+      </tr>
+      <tr>
+        <td>Nama</td>
+        <td>Muthia Sari</td>
+      </tr>
+      <tr>
+        <td>NIM</td>
+        <td>220709002</td>
+      </tr>
+      <tr>
+        <td>Kelas</td>
+        <td>B</td>
+      </tr>
+      <tr>
+        <td>Prodi</td>
+        <td>Ilmu Perpustakaan dan Sains Informasi</td>
+      </tr>
+      <tr>
+        <td>Fakultas</td>
+        <td>Fakultas Ilmu Budaya</td>
+      </tr>
+      <tr>
+        <td>Universitas</td>
+        <td>Universitas Sumatera Utara</td>
+      </tr>
+    </table>
   </section>
 
-  <!-- Achievements Section -->
+  <!-- Section: Prestasi -->
   <section id="achievements">
     <h2>Beberapa Prestasi Saya</h2>
-    <div class="table-container">
-      <table>
+    <table>
+      <thead>
         <tr>
           <th>Tahun</th>
           <th>Juara</th>
           <th>Prestasi yang Dicapai</th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
           <td>2024</td>
           <td>Juara 1</td>
@@ -258,33 +186,26 @@
         <tr>
           <td>2023</td>
           <td>Juara 1</td>
-          <td>Kejuaraan Nasional Piala Kementrian Pemuda & Olahraga Republik Indonesia (Kemenpora RI) & Kejuaraan Wilayah (Kejurwil) 1 Sumatera Utara Tahun 2023</td>
+          <td>Kejuaraan Nasional Piala Kemenpora RI & Kejurwil 1 Sumut 2023</td>
         </tr>
         <tr>
           <td>2021</td>
           <td>Juara 2</td>
-          <td>2Nd Gewinn Pro League 2021 Poomsae Internasional Taekwondo e-Sport</td>
+          <td>2nd Gewinn Pro League 2021 Poomsae Internasional e-Sport</td>
         </tr>
         <tr>
           <td>2018</td>
           <td>Juara 2</td>
-          <td>6Th Daedo Taekwondo Open Championships</td>
+          <td>6th Daedo Taekwondo Open Championships</td>
         </tr>
-      </table>
-    </div>
+      </tbody>
+    </table>
   </section>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Perpustakaan Muthia Sari</p>
   </footer>
-
-  <script>
-    function toggleMenu() {
-      const nav = document.querySelector(".nav-links");
-      nav.style.display = nav.style.display === "block" ? "none" : "block";
-    }
-  </script>
 
 </body>
 </html>
