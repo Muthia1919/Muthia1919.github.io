@@ -90,19 +90,21 @@
     .table-container {
       overflow-x: auto;
       margin: 0 auto;
-      max-width: 100%;
+      max-width: 80%; /* Menambahkan ruang di kiri dan kanan */
+      padding: 0 20px; /* Memberikan padding tambahan agar tidak menempel pada sisi */
     }
 
     table {
       width: 100%;
-      min-width: 320px;
       border-collapse: collapse;
       border: 2px solid #1e3a8a;
       margin: 20px 0;
+      border-radius: 8px;
+      background-color: #fff;
     }
 
     th, td {
-      padding: 15px;
+      padding: 15px 20px; /* Menambahkan padding tambahan */
       text-align: center;
       font-size: 16px;
       border: 1px solid #ddd;
@@ -279,4 +281,36 @@
           <td>Festival Buku Indonesia</td>
         </tr>
         <tr>
-          <td>
+          <td>2017</td>
+          <td>Juara Harapan 2</td>
+          <td>Lomba Desain Web Perpustakaan</td>
+        </tr>
+        <tr>
+          <td>2016</td>
+          <td>Juara 1</td>
+          <td>Konferensi Ilmu Perpustakaan Dunia</td>
+        </tr>
+        <tr>
+          <td>2015</td>
+          <td>Juara 2</td>
+          <td>Kompetisi Pemrograman Sistem Informasi Perpustakaan</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Perpustakaan Muthia Sari</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector(".nav-links");
+      nav.style.display = nav.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+</body>
+</html>
+
