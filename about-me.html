@@ -80,17 +80,16 @@
       text-align: center;
       margin-bottom: 20px;
     }
-   
+
     .table-container {
       overflow-x: auto;
       margin: 0 auto;
       max-width: 100%;
     }
-    
+
     table {
       width: 100%;
-      man-width: 320px;
-      margin: 0 auto;
+      min-width: 320px;
       border-collapse: collapse;
       border: 2px solid #1e3a8a;
     }
@@ -160,47 +159,49 @@
     <h1>Perpustakaan Muthia Sari</h1>
   </header>
 
-<section id="about-me">
-  <h2>Tentang Saya</h2>
-  <div class="table-container">
-    <table>
-      <tr>
-        <th>Data</th>
-        <th>Informasi</th>
-      </tr>
-      <tr>
-        <td>Nama</td>
-        <td>Muthia Sari</td>
-      </tr>
-      <tr>
-        <td>NIM</td>
-        <td>220709002</td>
-      </tr>
-      <tr>
-        <td>Kelas</td>
-        <td>B</td>
-      </tr>
-      <tr>
-        <td>Prodi</td>
-        <td>Ilmu Perpustakaan dan Sains Informasi</td>
-      </tr>
-      <tr>
-        <td>Fakultas</td>
-        <td>Fakultas Ilmu Budaya</td>
-      </tr>
-      <tr>
-        <td>Universitas</td>
-        <td>Universitas Sumatera Utara</td>
-      </tr>
-    </table>
-  </div>
-</section>
+  <!-- About Me Section -->
+  <section id="about-me">
+    <h2>Tentang Saya</h2>
+    <div class="table-container">
+      <table>
+        <tr>
+          <th>Data</th>
+          <th>Informasi</th>
+        </tr>
+        <tr>
+          <td>Nama</td>
+          <td>Muthia Sari</td>
+        </tr>
+        <tr>
+          <td>NIM</td>
+          <td>220709002</td>
+        </tr>
+        <tr>
+          <td>Kelas</td>
+          <td>B</td>
+        </tr>
+        <tr>
+          <td>Prodi</td>
+          <td>Ilmu Perpustakaan dan Sains Informasi</td>
+        </tr>
+        <tr>
+          <td>Fakultas</td>
+          <td>Fakultas Ilmu Budaya</td>
+        </tr>
+        <tr>
+          <td>Universitas</td>
+          <td>Universitas Sumatera Utara</td>
+        </tr>
+      </table>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Perpustakaan Muthia Sari</p>
   </footer>
 
+  <!-- Script untuk Toggle Menu -->
   <script>
     function toggleMenu() {
       const nav = document.querySelector(".nav-links");
