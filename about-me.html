@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tentang Saya - Perpustakaan Muthia Sari</title>
   <style>
+    /* Global Style */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -46,6 +47,7 @@
       text-decoration: none;
       font-size: 18px;
       padding: 10px 15px;
+      display: inline-block;
       border-radius: 5px;
       transition: background 0.3s;
     }
@@ -61,11 +63,15 @@
       text-align: center;
     }
 
+    h1 {
+      font-size: clamp(26px, 5.5vw, 42px);
+    }
+
     h2 {
+      font-size: clamp(22px, 4.5vw, 32px);
       text-align: center;
       color: #1e3a8a;
       margin-top: 40px;
-      font-size: 28px;
     }
 
     .content-wrapper {
@@ -85,14 +91,12 @@
       border-collapse: collapse;
       margin: 30px auto;
       background-color: #fff;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      border-radius: 8px;
-      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
     th, td {
       border: 2px solid #1e3a8a;
-      padding: 14px 16px;
+      padding: 12px;
       text-align: left;
     }
 
@@ -100,14 +104,6 @@
       background-color: #1e3a8a;
       color: white;
       text-align: center;
-    }
-
-    tr:nth-child(even) {
-      background-color: #f0f8ff;
-    }
-
-    tr:hover {
-      background-color: #dbeafe;
     }
 
     footer {
@@ -163,7 +159,7 @@
   <div class="content-wrapper">
 
     <!-- Tabel Biodata -->
-    <h2>📌 Biodata Singkat</h2>
+    <h2>📝 Biodata Singkat</h2>
     <table>
       <tr>
         <th>Data</th>
