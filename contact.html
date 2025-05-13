@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perpustakaan Muthia Sari - Kontak</title>
     <style>
-        /* Basic Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -19,13 +18,6 @@
             padding: 15px 0;
             text-align: center;
             position: relative;
-        }
-
-        .logo {
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            display: block;
         }
 
         .nav-links {
@@ -196,16 +188,6 @@
                 padding: 10px;
             }
         }
-
-        /* Ucapan Terima Kasih */
-        #ucapanTerimaKasih {
-            display: none;
-            text-align: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: green;
-            margin-top: 30px;
-        }
     </style>
 </head>
 <body>
@@ -241,9 +223,6 @@
 
             <button type="submit">📨 Kirim Pesan</button>
         </form>
-
-        <!-- Ucapan Terima Kasih -->
-        <p id="ucapanTerimaKasih"></p>
     </main>
 
     <!-- Footer -->
@@ -251,7 +230,7 @@
         <p>&copy; 2025 Perpustakaan Muthia Sari</p>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Script -->
     <script>
         function toggleMenu() {
             const nav = document.querySelector(".nav-links");
@@ -259,8 +238,6 @@
         }
 
         const form = document.getElementById('contact-form');
-        const ucapan = document.getElementById('ucapanTerimaKasih');
-
         form.addEventListener('submit', async function(event) {
             event.preventDefault();
 
@@ -276,11 +253,10 @@
             });
 
             if (response.ok) {
-                form.style.display = "none";
-                ucapan.textContent = `Terima kasih, ${nama}, pesan Anda telah kami terima.`;
-                ucapan.style.display = "block";
+                alert(`📬 Terima kasih, ${nama}, pesan Anda telah berhasil dikirim!`);
+                form.reset();
             } else {
-                alert("❌ Terjadi kesalahan. Silakan coba lagi.");
+                alert("❌ Terjadi kesalahan. Silakan coba lagi .");
             }
         });
     </script>
