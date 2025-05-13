@@ -1,5 +1,4 @@
- <!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -11,153 +10,145 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e3f2fd; /* Biru Langit */
-            color: #333; /* Hitam */
+            background-color: #e3f2fd;
+            color: #333;
         }
 
-```
-    /* Navbar */
-    nav {
-        background-color: #1e3a8a;
-        padding: 15px 0;
-        text-align: center;
-        position: relative;
-    }
-
-    .nav-links {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .nav-links li {
-        display: inline-block;
-        margin: 0 15px;
-    }
-
-    .nav-links li a {
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        padding: 10px 15px;
-        display: inline-block;
-        transition: background 0.3s;
-    }
-
-    .nav-links li a:hover {
-        background-color: #3b82f6;
-        border-radius: 5px;
-    }
-
-    .hamburger {
-        display: none;
-        font-size: 24px;
-        color: white;
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        cursor: pointer;
-    }
-
-    /* Header */
-    header {
-        background-color: #1e3a8a; /* Navy */
-        color: #fff; /* Putih */
-        padding: 50px 0;
-        text-align: center;
-    }
-    h1 {
-        font-size: 32px;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    p {
-        font-size: 16px;
-        line-height: 1.6;
-        margin-bottom: 14px;
-    }
-    
-    header h1 {
-        font-size: 26px;
-        margin-bottom: 10px;
-    }
-
-    header p {
-        font-size: 18px;
-    }
-
-    /* Main Section */
-    main {
-        padding: 50px;
-        text-align: center;
-    }
-
-    main h2 {
-        color: #1e3a8a; /* Navy */
-    }
-
-    main p {
-        font-size: 18px;
-        line-height: 1.6;
-    }
-
-    /* Footer */
-    footer {
-        background-color: #1e3a8a; /* Navy */
-        color: #fff; /* Putih */
-        text-align: center;
-        padding: 20px;
-    }
-
-    /* Responsiveness: Mobile view */
-    @media screen and (max-width: 768px) {
-        .nav-links {
-            display: none;
-            width: 100%;
-            text-align: center;
+        /* Navbar */
+        nav {
             background-color: #1e3a8a;
-            position: absolute;
-            top: 55px;
-            left: 0;
-            z-index: 100;
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
         }
 
-        .nav-links li {
-            display: block;
-            padding: 10px;
+        .nav-links {
+            list-style: none;
+            padding: 0;
             margin: 0;
         }
 
-        .hamburger {
-            display: block;
+        .nav-links li {
+            display: inline-block;
+            margin: 0 15px;
         }
 
         .nav-links li a {
-            padding: 10px 15px;
+            color: white;
+            text-decoration: none;
             font-size: 18px;
-            width: 100%;
+            padding: 10px 15px;
+            display: inline-block;
+            transition: background 0.3s;
         }
 
-        header h1 {
-            font-size: 28px;
+        .nav-links li a:hover {
+            background-color: #3b82f6;
+            border-radius: 5px;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        /* Header */
+        header {
+            background-color: #1e3a8a;
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        /* Main Section */
+        main {
+            padding: 50px;
+            text-align: center;
+        }
+
+        main h2 {
+            color: #1e3a8a;
         }
 
         main p {
-            font-size: 16px;
+            font-size: 18px;
+            line-height: 1.6;
         }
-    }
-</style>
-```
 
+        /* Footer */
+        footer {
+            background-color: #1e3a8a;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsiveness */
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                background-color: #1e3a8a;
+                position: absolute;
+                top: 55px;
+                left: 0;
+                z-index: 100;
+            }
+
+            .nav-links li {
+                display: block;
+                padding: 10px;
+                margin: 0;
+            }
+
+            .nav-links li a {
+                width: 100%;
+                font-size: 18px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            header h1 {
+                font-size: 26px;
+            }
+
+            main p {
+                font-size: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-```
 <!-- Navbar -->
 <nav>
     <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navMenu">
         <li><a href="index.html">Beranda</a></li>
         <li><a href="about-me.html">Tentang Saya</a></li>
         <li><a href="rekomendasi.html">Rekomendasi</a></li>
@@ -173,8 +164,8 @@
 <!-- Main Section -->
 <main>
     <p>Selamat datang di perpustakaan kami!</p>
-    <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda,  website ini berkolaborasi dengan perpustakan USU bertujuan untuk meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
-    <p><a href="https://library.usu.ac.id/" target="_blank">Klik disini untuk mengunjungi Perpustakaan USU</a></p>
+    <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Website ini berkolaborasi dengan Perpustakaan USU dengan tujuan meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
+    <p><a href="https://library.usu.ac.id/" target="_blank">Klik di sini untuk mengunjungi Perpustakaan USU</a></p>
 </main>
 
 <!-- Footer Section -->
@@ -184,7 +175,7 @@
 
 <script>
     function toggleMenu() {
-        var nav = document.querySelector(".nav-links");
+        var nav = document.getElementById("navMenu");
         if (nav.style.display === "block") {
             nav.style.display = "none";
         } else {
@@ -192,7 +183,6 @@
         }
     }
 </script>
-```
 
 </body>
-</html> 
+</html>
