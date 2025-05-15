@@ -1,5 +1,4 @@
-"<!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -14,161 +13,157 @@
       color: #333;
     }
 
-```
-nav {
-  background-color: #1e3a8a;
-  padding: 15px;
-  text-align: center;
-  position: relative;
-}
+    nav {
+      background-color: #1e3a8a;
+      padding: 15px;
+      text-align: center;
+      position: relative;
+    }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-nav ul li {
-  display: inline-block;
-  margin: 0 20px;
-}
+    nav ul li {
+      display: inline-block;
+      margin: 0 20px;
+    }
 
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-  padding: 10px 20px;
-  background-color: #1e3a8a;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #1e3a8a;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
 
-nav ul li a:hover {
-  background-color: #3b82f6;
-}
+    nav ul li a:hover {
+      background-color: #3b82f6;
+    }
 
-.hamburger {
-  display: none;
-  font-size: 24px;
-  color: white;
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  cursor: pointer;
-}
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      color: white;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      cursor: pointer;
+    }
 
-header {
-  background-color: #1e3a8a;
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
-}
+    header {
+      background-color: #1e3a8a;
+      color: white;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      text-align: center;
+    }
 
-header h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
+    header h1 {
+      font-size: 18px;
+      margin: 0;
+    }
 
-header p {
-  font-size: 18px;
-  margin: 0;
-}
+    header p {
+      display: none;
+    }
 
-main {
-  padding: 50px 20px;
-  text-align: center;
-}
+    main {
+      padding: 50px 20px;
+      text-align: center;
+    }
 
-h2 {
-  color: #1e3a8a;
-  font-size: 28px;
-}
+    h2 {
+      color: #1e3a8a;
+      font-size: 28px;
+    }
 
-.book-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  margin-top: 30px;
-}
+    .book-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
 
-.book {
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  width: 250px;
-  padding: 20px;
-  text-align: center;
-}
+    .book {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+    }
 
-.book img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
+    .book img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
 
-.book h3 {
-  margin-top: 15px;
-  color: #1e3a8a;
-  font-size: 20px;
-}
+    .book h3 {
+      margin-top: 15px;
+      color: #1e3a8a;
+      font-size: 20px;
+    }
 
-.book p {
-  font-size: 14px;
-  color: #555;
-  text-align: left;
-  line-height: 1.5;
-  margin-top: 10px;
-}
+    .book p {
+      font-size: 14px;
+      color: #555;
+      text-align: left;
+      line-height: 1.5;
+      margin-top: 10px;
+    }
 
-footer {
-  background-color: #1e3a8a;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-top: 50px;
-}
+    footer {
+      background-color: #1e3a8a;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
 
-@media screen and (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background-color: #1e3a8a;
-    position: absolute;
-    width: 100%;
-    top: 55px;
-    left: 0;
-    z-index: 1000;
-  }
+    @media screen and (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #1e3a8a;
+        position: absolute;
+        width: 100%;
+        top: 55px;
+        left: 0;
+        z-index: 1000;
+      }
 
-  nav ul li {
-    display: block;
-    padding: 12px 0;
-  }
+      nav ul li {
+        display: block;
+        padding: 12px 0;
+      }
 
-  .hamburger {
-    display: block;
-  }
+      .hamburger {
+        display: block;
+      }
 
-  header h1 {
-    font-size: 24px;
-  }
+      header h1 {
+        font-size: 16px;
+      }
 
-  header p {
-    font-size: 16px;
-  }
+      h2 {
+        font-size: 20px;
+      }
 
-  h2 {
-    font-size: 20px;
-  }
-
-  .book {
-    width: 90%;
-    margin: auto;
-  }
-}
-```
-
+      .book {
+        width: 90%;
+        margin: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -184,14 +179,11 @@ footer {
   </nav>
 
   <!-- Header -->
-
   <header>
     <h1>Rekomendasi Buku</h1>
-    <p>Buku-buku pilihan yang kami rekomendasikan untuk Anda baca</p>
   </header>
 
   <!-- Main Content -->
-
   <main>
     <h2>Daftar Buku Pilihan</h2>
     <div class="book-container">
@@ -207,37 +199,33 @@ footer {
         </p>
       </div>
 
-```
-  <!-- Buku 2 -->
-  <div class="book">
-    <a href="https://www.google.co.id/books/edition/Moderenisasi_Gaya_Hidup/L_NmEAAAQBAJ?hl=en&gbpv=1" target="_blank">
-      <img src="https://penerbitalineaku.com/wp-content/uploads/2022/08/Modernisasi-Gaya-Hidup-212x300.jpg" alt="Moderenisasi Gaya Hidup"></a>
-    <h3>Moderenisasi Gaya Hidup</h3>
-    <p>
-      <strong>Penulis:</strong> Agus Juliansyah, M. Hipji Rahmani, dan Peserta Kelas Self Publishing Alineaku<br>
-      <strong>Genre:</strong> Non-fiksi edukatif<br>
-      <strong>Bahasa:</strong> Indonesia
-    </p>
-  </div>
+      <!-- Buku 2 -->
+      <div class="book">
+        <a href="https://www.google.co.id/books/edition/Moderenisasi_Gaya_Hidup/L_NmEAAAQBAJ?hl=en&gbpv=1" target="_blank">
+          <img src="https://penerbitalineaku.com/wp-content/uploads/2022/08/Modernisasi-Gaya-Hidup-212x300.jpg" alt="Moderenisasi Gaya Hidup"></a>
+        <h3>Moderenisasi Gaya Hidup</h3>
+        <p>
+          <strong>Penulis:</strong> Agus Juliansyah, M. Hipji Rahmani, dan Peserta Kelas Self Publishing Alineaku<br>
+          <strong>Genre:</strong> Non-fiksi edukatif<br>
+          <strong>Bahasa:</strong> Indonesia
+        </p>
+      </div>
 
-  <!-- Buku 3 -->
-  <div class="book">
-    <a href="https://www.google.co.id/books/edition/Ensiklopedia/nR7l61qlzDcC?hl=en&gbpv=1" target="_blank">
-      <img src="https://m.media-amazon.com/images/I/51W14yvO7CL.jpg" alt="Ensiklopedia"></a>
-    <h3>Ensiklopedia</h3>
-    <p>
-      <strong>Penulis:</strong> Temuan Yang Mengubah Dunia<br>
-      <strong>Genre:</strong> Ensiklopedia anak, Sains & Teknologi<br>
-      <strong>Bahasa:</strong> Indonesia
-    </p>
-  </div>
-</div>
-```
-
+      <!-- Buku 3 -->
+      <div class="book">
+        <a href="https://www.google.co.id/books/edition/Ensiklopedia/nR7l61qlzDcC?hl=en&gbpv=1" target="_blank">
+          <img src="https://m.media-amazon.com/images/I/51W14yvO7CL.jpg" alt="Ensiklopedia"></a>
+        <h3>Ensiklopedia</h3>
+        <p>
+          <strong>Penulis:</strong> Temuan Yang Mengubah Dunia<br>
+          <strong>Genre:</strong> Ensiklopedia anak, Sains & Teknologi<br>
+          <strong>Bahasa:</strong> Indonesia
+        </p>
+      </div>
+    </div>
   </main>
 
   <!-- Footer -->
-
   <footer>
     <p>&copy; 2025 Perpustakaan Muthia Sari</p>
   </footer>
@@ -248,6 +236,5 @@ footer {
       nav.style.display = nav.style.display === "block" ? "none" : "block";
     }
   </script>
-
 </body>
-</html>" 
+</html>
