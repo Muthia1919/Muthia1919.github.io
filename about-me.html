@@ -3,37 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tentang Saya - Perpustakaan Muthia Sari</title>
+  <title>Rekomendasi - Perpustakaan Muthia Sari</title>
   <style>
-    /* Global Style */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #e3f2fd;
       color: #333;
-    }
-
-    /* Ukuran Font Konsisten */
-    h1 {
-      font-size: clamp(36px, 5.5vw, 42px);
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-size: clamp(22px, 4.5vw, 32px);
-      font-weight: 600;
-      text-align: center;
-      color: #1e3a8a;
-      margin-top: 40px;
-      margin-bottom: 16px;
-    }
-
-    p {
-      font-size: 22px;
-      line-height: 1.6;
-      margin-bottom: 14px;
     }
 
     nav {
@@ -43,39 +20,39 @@
       position: relative;
     }
 
-    nav .hamburger {
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 20px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #1e3a8a;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #3b82f6;
+    }
+
+    .hamburger {
       display: none;
       font-size: 24px;
       color: white;
       position: absolute;
-      right: 20px;
       top: 15px;
+      right: 20px;
       cursor: pointer;
-    }
-
-    .nav-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .nav-links li {
-      display: inline-block;
-      margin: 0 15px;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      padding: 10px 15px;
-      display: inline-block;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    .nav-links a:hover {
-      background-color: #3b82f6;
     }
 
     header {
@@ -85,71 +62,112 @@
       text-align: center;
     }
 
-    .content-wrapper {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
     }
 
-    .description {
-      text-align: justify;
-      line-height: 1.6;
-      font-size: 16px;
+    header p {
+      font-size: 18px;
+      margin: 0;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 30px auto;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    th, td {
-      border: 2px solid #1e3a8a;
-      padding: 12px;
-      text-align: left;
-    }
-
-    th {
-      background-color: #1e3a8a;
-      color: white;
+    main {
+      padding: 50px 20px;
       text-align: center;
+    }
+
+    h2 {
+      color: #1e3a8a;
+      font-size: 28px;
+    }
+
+    .book-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .book {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .book img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .book h3 {
+      margin-top: 15px;
+      color: #1e3a8a;
+      font-size: 20px;
+    }
+
+    .book p {
+      font-size: 14px;
+      color: #555;
+      text-align: left;
+      line-height: 1.5;
+      margin-top: 10px;
     }
 
     footer {
       background-color: #1e3a8a;
-      color: white;
+      color: #fff;
       text-align: center;
       padding: 20px;
-      margin-top: 40px;
+      margin-top: 50px;
     }
 
-    @media (max-width: 768px) {
-      .nav-links {
+    @media screen and (max-width: 768px) {
+      nav ul {
         display: none;
         flex-direction: column;
         background-color: #1e3a8a;
-        width: 100%;
         position: absolute;
+        width: 100%;
         top: 55px;
         left: 0;
-        z-index: 10;
+        z-index: 1000;
       }
 
-      .nav-links li {
+      nav ul li {
         display: block;
-        padding: 10px 0;
+        padding: 12px 0;
       }
 
-      nav .hamburger {
+      .hamburger {
         display: block;
+      }
+
+      header h1 {
+        font-size: 24px;
+      }
+
+      header p {
+        font-size: 16px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .book {
+        width: 90%;
+        margin: auto;
       }
     }
   </style>
 </head>
 <body>
-
   <!-- Navbar -->
   <nav>
     <div class="hamburger" onclick="toggleMenu()">☰</div>
@@ -163,96 +181,51 @@
 
   <!-- Header -->
   <header>
-    <h1>Profil Singkat Saya</h1>
+    <h1>Rekomendasi Buku</h1>
+    <p>Buku-buku pilihan yang kami rekomendasikan untuk Anda baca</p>
   </header>
 
-  <!-- Konten -->
-  <div class="content-wrapper">
+  <!-- Main Content -->
+  <main>
+    <h2>Daftar Buku Pilihan</h2>
+    <div class="book-container">
+      <!-- Buku 1 -->
+      <div class="book">
+        <a href="https://www.google.co.id/books/edition/Introduction_to_Digital_Libraries/mdMqDgAAQBAJ?hl=en&gbpv=1" target="_blank">
+          <img src="https://media.s-bol.com/VOm5xRZwk665/550x811.jpg" alt="Introduction to Digital Libraries"></a>
+        <h3>Introduction to Digital Libraries</h3>
+        <p>
+          <strong>Penulis:</strong> Gobinda G. Chowdhury, Sudatta Chowdhury<br>
+          <strong>Genre:</strong> Non-fiksi edukatif, Teknologi informasi<br>
+          <strong>Bahasa:</strong> English
+        </p>
+      </div>
 
-    <!-- Tabel Biodata -->
-    <h2>📝 Biodata Singkat</h2>
-    <table>
-      <tr>
-        <th>Data</th>
-        <th>Informasi</th>
-      </tr>
-      <tr>
-        <td>Nama</td>
-        <td>Muthia Sari</td>
-      </tr>
-      <tr>
-        <td>NIM</td>
-        <td>220709002</td>
-      </tr>
-      <tr>
-        <td>Kelas</td>
-        <td>B</td>
-      </tr>
-      <tr>
-        <td>Program Studi</td>
-        <td>Ilmu Perpustakaan dan Sains Informasi</td>
-      </tr>
-      <tr>
-        <td>Fakultas</td>
-        <td>Fakultas Ilmu Budaya</td>
-      </tr>
-      <tr>
-        <td>Universitas</td>
-        <td>Universitas Sumatera Utara</td>
-      </tr>
-    </table>
+      <!-- Buku 2 -->
+      <div class="book">
+        <a href="https://www.google.co.id/books/edition/Moderenisasi_Gaya_Hidup/L_NmEAAAQBAJ?hl=en&gbpv=1" target="_blank">
+          <img src="https://penerbitalineaku.com/wp-content/uploads/2022/08/Modernisasi-Gaya-Hidup-212x300.jpg" alt="Moderenisasi Gaya Hidup"></a>
+        <h3>Moderenisasi Gaya Hidup</h3>
+        <p>
+          <strong>Penulis:</strong> Agus Juliansyah, M. Hipji Rahmani, dan Peserta Kelas Self Publishing Alineaku<br>
+          <strong>Genre:</strong> Non-fiksi edukatif<br>
+          <strong>Bahasa:</strong> Indonesia
+        </p>
+      </div>
 
-    <!-- Tabel Prestasi -->
-    <h2>🏅 Beberapa Prestasi Saya</h2>
-    <table>
-      <tr>
-        <th>Tahun</th>
-        <th>Juara</th>
-        <th>Prestasi yang Dicapai</th>
-      </tr>
-      <tr>
-        <td>2024</td>
-        <td>Juara 1</td>
-        <td>10th Tirak Taekwondo Internasional Tournament 2024</td>
-      </tr>      
-      <tr>
-        <td>2021</td>
-        <td>Juara 2</td>
-        <td>2nd Gewinn Pro League Poomsae Internasional Taekwondo e-Sport</td>
-      </tr>
-      <tr>
-        <td>2018</td>
-        <td>Juara 2</td>
-        <td>6th Daedo Taekwondo Internasional Open Championships</td>
-      </tr>
-      <tr>
-        <td>2023</td>
-        <td>Juara 3</td>
-        <td>Indonesia Taekwondo Championship</td>
-      </tr>
-      <tr>
-        <td>2023</td>
-        <td>Juara 1</td>
-        <td>Kejuaraan Nasional Piala Kemenpora RI & Kejurwil I Sumatera Utara</td>
-      </tr>
-      <tr>
-        <td>2019</td>
-        <td>Juara 1 & Juara 2</td>
-        <td>Kejuaraan Nasional Taekwondo Taragak ka Bukittinggi Memperebutkan Piala Gubernur Sumatera Barat</td>
-      </tr>
-      <tr>
-        <td>2022</td>
-        <td>Juara 1</td>
-        <td>Usu Games 2022</td>
-      </tr>
-      <tr>
-        <td>2023</td>
-        <td>Juara 3</td>
-        <td>Nommensen Games Taekwondo Championship 2023</td>
-      </tr>
-    </table>
-
-  </div>
+      <!-- Buku 3 -->
+      <div class="book">
+        <a href="https://www.google.co.id/books/edition/Ensiklopedia/nR7l61qlzDcC?hl=en&gbpv=1" target="_blank">
+          <img src="https://m.media-amazon.com/images/I/51W14yvO7CL.jpg" alt="Ensiklopedia"></a>
+        <h3>Ensiklopedia</h3>
+        <p>
+          <strong>Penulis:</strong> Temuan Yang Mengubah Dunia<br>
+          <strong>Genre:</strong> Ensiklopedia anak, Sains & Teknologi<br>
+          <strong>Bahasa:</strong> Indonesia
+        </p>
+      </div>
+    </div>
+  </main>
 
   <!-- Footer -->
   <footer>
@@ -265,6 +238,5 @@
       nav.style.display = nav.style.display === "block" ? "none" : "block";
     }
   </script>
-
 </body>
 </html>
