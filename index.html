@@ -7,53 +7,22 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             background-color: #e3f2fd;
             color: #333;
         }
 
         nav {
             background-color: #1e3a8a;
-            padding: 15px 20px;
+            padding: 15px 0;
+            text-align: center;
             position: relative;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .hamburger {
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .language-buttons button {
-            background-color: transparent;
-            border: 1px solid white;
-            color: white;
-            padding: 5px 10px;
-            font-size: 14px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .language-buttons button:hover {
-            background-color: white;
-            color: #1e3a8a;
         }
 
         .nav-links {
             list-style: none;
             padding: 0;
-            margin: 10px 0 0 0;
-            text-align: center;
+            margin: 0;
         }
 
         .nav-links li {
@@ -73,6 +42,18 @@
         .nav-links li a:hover {
             background-color: #3b82f6;
             border-radius: 5px;
+        }
+
+        /* Hamburger default hidden */
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+            user-select: none;
         }
 
         header {
@@ -158,12 +139,16 @@
                 font-size: 18px;
             }
 
+            /* Hamburger shown only on small screen */
             .hamburger {
-                font-size: 28px;
+                display: block;
             }
 
-            .language-buttons button {
-                padding: 8px 14px;
+            header h1 {
+                font-size: 32px; 
+            }
+
+            main p {
                 font-size: 16px;
             }
         }
@@ -173,13 +158,7 @@
 
 <!-- Navbar -->
 <nav>
-    <div class="nav-container">
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
-        <div class="language-buttons">
-            <button onclick="ubahBahasa('id')">ID</button>
-            <button onclick="ubahBahasa('en')">EN</button>
-        </div>
-    </div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
     <ul class="nav-links" id="navMenu">
         <li><a href="index.html">Beranda</a></li>
         <li><a href="about-me.html">Tentang Saya</a></li>
@@ -195,6 +174,13 @@
 
 <!-- Main -->
 <main>
+    <!-- Tombol bahasa -->
+    <div>
+        <button onclick="ubahBahasa('id')">Bahasa Indonesia</button>
+        <button onclick="ubahBahasa('en')">English</button>
+    </div>
+
+    <!-- Konten utama (dinamis berdasarkan bahasa) -->
     <p>Selamat datang di perpustakaan kami!</p>
     <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Website ini berkolaborasi dengan Perpustakaan USU dengan tujuan meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
     <p><a href="https://library.usu.ac.id/" target="_blank">Klik di sini untuk mengunjungi Perpustakaan USU</a></p>
@@ -205,14 +191,16 @@
     <p>@2025 Perpustakaan Muthia Sari</p>
 </footer>
 
-<!-- Script -->
 <script>
     function toggleMenu() {
         var nav = document.getElementById("navMenu");
-        nav.style.display = nav.style.display === "block" ? "none" : "block";
+        if (nav.style.display === "block") {
+            nav.style.display = "none";
+        } else {
+            nav.style.display = "block";
+        }
     }
 
-    // Fungsi untuk menyetel cookie
     function setCookie(nama, nilai, hariKedaluwarsa) {
         const d = new Date();
         d.setTime(d.getTime() + (hariKedaluwarsa * 24 * 60 * 60 * 1000));
@@ -220,7 +208,6 @@
         document.cookie = nama + "=" + nilai + ";" + expires + ";path=/";
     }
 
-    // Fungsi untuk membaca cookie
     function getCookie(nama) {
         let namaCookie = nama + "=";
         let decodedCookie = decodeURIComponent(document.cookie);
@@ -234,7 +221,6 @@
         return "";
     }
 
-    // Fungsi ubah dan tampilkan bahasa
     function ubahBahasa(bahasa) {
         setCookie("bahasa", bahasa, 7);
         tampilkanBahasa(bahasa);
@@ -256,21 +242,7 @@
         }
     }
 
-    // Saat halaman dibuka
     window.onload = function () {
-        // Cookie nama pengunjung
-        let username = getCookie("pengunjung");
-        if (username != "") {
-            alert("Selamat datang kembali, " + username + "!");
-        } else {
-            let nama = prompt("Halo, siapa nama Anda?");
-            if (nama != "" && nama != null) {
-                setCookie("pengunjung", nama, 7);
-                alert("Selamat datang, " + nama + "!");
-            }
-        }
-
-        // Cookie bahasa
         let bahasa = getCookie("bahasa");
         if (bahasa === "") {
             setCookie("bahasa", "id", 7);
