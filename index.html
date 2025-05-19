@@ -1,255 +1,242 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Perpustakaan Muthia Sari</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0; padding: 0;
-            background-color: #e3f2fd;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perpustakaan Muthia Sari</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #e3f2fd;
+      color: #333;
+    }
 
-        nav {
-            background-color: #1e3a8a;
-            padding: 15px 0;
-            text-align: center;
-            position: relative;
-        }
+    nav {
+      background-color: #1e3a8a;
+      padding: 15px 0;
+      text-align: center;
+      position: relative;
+    }
 
-        .nav-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-        .nav-links li {
-            display: inline-block;
-            margin: 0 15px;
-        }
+    .nav-links li {
+      display: inline-block;
+      margin: 0 15px;
+    }
 
-        .nav-links li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 10px 15px;
-            display: inline-block;
-            transition: background 0.3s;
-        }
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 15px;
+      display: inline-block;
+      transition: background 0.3s;
+    }
 
-        .nav-links li a:hover {
-            background-color: #3b82f6;
-            border-radius: 5px;
-        }
+    .nav-links li a:hover {
+      background-color: #3b82f6;
+      border-radius: 5px;
+    }
 
-        /* Hamburger default hidden */
-        .hamburger {
-            display: none;
-            font-size: 24px;
-            color: white;
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            cursor: pointer;
-            user-select: none;
-        }
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      color: white;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      cursor: pointer;
+      user-select: none;
+    }
 
-        header {
-            background-color: #1e3a8a;
-            color: #fff;
-            padding: 40px 0;
-            text-align: center;
-        }
+    .language-buttons {
+      position: absolute;
+      top: 12px;
+      right: 60px;
+    }
 
-        h1 {
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+    .language-buttons button {
+      margin: 0 2px;
+      padding: 6px 10px;
+      font-size: 14px;
+      background-color: #3b82f6;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+    }
 
-        p {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 14px;
-        }
+    .language-buttons button:hover {
+      background-color: #60a5fa;
+    }
 
-        header p {
-            font-size: 18px;
-        }
+    header {
+      background-color: #1e3a8a;
+      color: #fff;
+      padding: 40px 0;
+      text-align: center;
+    }
 
-        main {
-            padding: 50px;
-            text-align: center;
-        }
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
 
-        main h2 {
-            color: #1e3a8a;
-        }
+    main {
+      padding: 50px;
+      text-align: center;
+    }
 
-        main p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
+    main h2 {
+      color: #1e3a8a;
+    }
 
-        footer {
-            background-color: #1e3a8a;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
+    main p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
 
-        button {
-            margin: 10px;
-            padding: 8px 16px;
-            background-color: #1e3a8a;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    footer {
+      background-color: #1e3a8a;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
 
-        button:hover {
-            background-color: #3b82f6;
-        }
+    @media screen and (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #1e3a8a;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        z-index: 100;
+      }
 
-        /* Responsive */
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-                background-color: #1e3a8a;
-                position: absolute;
-                top: 55px;
-                left: 0;
-                z-index: 100;
-            }
+      .nav-links li {
+        display: block;
+        padding: 10px;
+        margin: 0;
+      }
 
-            .nav-links li {
-                display: block;
-                padding: 10px;
-                margin: 0;
-            }
+      .nav-links li a {
+        width: 100%;
+        font-size: 18px;
+      }
 
-            .nav-links li a {
-                width: 100%;
-                font-size: 18px;
-            }
+      .hamburger {
+        display: block;
+      }
 
-            /* Hamburger shown only on small screen */
-            .hamburger {
-                display: block;
-            }
+      header h1 {
+        font-size: 32px;
+      }
 
-            header h1 {
-                font-size: 32px; 
-            }
+      main p {
+        font-size: 16px;
+      }
 
-            main p {
-                font-size: 16px;
-            }
-        }
-    </style>
+      .language-buttons {
+        top: 55px;
+        right: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <!-- Navbar -->
 <nav>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <ul class="nav-links" id="navMenu">
-        <li><a href="index.html">Beranda</a></li>
-        <li><a href="about-me.html">Tentang Saya</a></li>
-        <li><a href="rekomendasi.html">Rekomendasi</a></li>
-        <li><a href="contact.html">Kontak</a></li>
-    </ul>
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <div class="language-buttons">
+    <button onclick="ubahBahasa('id')">ID</button>
+    <button onclick="ubahBahasa('en')">EN</button>
+  </div>
+  <ul class="nav-links" id="navMenu">
+    <li><a href="index.html">Beranda</a></li>
+    <li><a href="about-me.html">Tentang Saya</a></li>
+    <li><a href="rekomendasi.html">Rekomendasi</a></li>
+    <li><a href="contact.html">Kontak</a></li>
+  </ul>
 </nav>
 
 <!-- Header -->
 <header>
-    <h1>Perpustakaan Muthia Sari</h1>
+  <h1>Perpustakaan Muthia Sari</h1>
 </header>
 
 <!-- Main -->
 <main>
-    <!-- Tombol bahasa -->
-    <div>
-        <button onclick="ubahBahasa('id')">Bahasa Indonesia</button>
-        <button onclick="ubahBahasa('en')">English</button>
-    </div>
-
-    <!-- Konten utama (dinamis berdasarkan bahasa) -->
-    <p>Selamat datang di perpustakaan kami!</p>
-    <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Website ini berkolaborasi dengan Perpustakaan USU dengan tujuan meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
-    <p><a href="https://library.usu.ac.id/" target="_blank">Klik di sini untuk mengunjungi Perpustakaan USU</a></p>
+  <p>Selamat datang di perpustakaan kami!</p>
+  <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Website ini berkolaborasi dengan Perpustakaan USU dengan tujuan meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
+  <p><a href="https://library.usu.ac.id/" target="_blank">Klik di sini untuk mengunjungi Perpustakaan USU</a></p>
 </main>
 
 <!-- Footer -->
 <footer>
-    <p>@2025 Perpustakaan Muthia Sari</p>
+  <p>@2025 Perpustakaan Muthia Sari</p>
 </footer>
 
+<!-- Script -->
 <script>
-    function toggleMenu() {
-        var nav = document.getElementById("navMenu");
-        if (nav.style.display === "block") {
-            nav.style.display = "none";
-        } else {
-            nav.style.display = "block";
-        }
+  function toggleMenu() {
+    const nav = document.getElementById("navMenu");
+    nav.style.display = nav.style.display === "block" ? "none" : "block";
+  }
+
+  function setCookie(nama, nilai, hariKedaluwarsa) {
+    const d = new Date();
+    d.setTime(d.getTime() + (hariKedaluwarsa * 24 * 60 * 60 * 1000));
+    document.cookie = `${nama}=${nilai};expires=${d.toUTCString()};path=/`;
+  }
+
+  function getCookie(nama) {
+    let namaCookie = nama + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let c of ca) {
+      c = c.trim();
+      if (c.indexOf(namaCookie) == 0) return c.substring(namaCookie.length);
     }
+    return "";
+  }
 
-    function setCookie(nama, nilai, hariKedaluwarsa) {
-        const d = new Date();
-        d.setTime(d.getTime() + (hariKedaluwarsa * 24 * 60 * 60 * 1000));
-        let expires = "expires=" + d.toUTCString();
-        document.cookie = nama + "=" + nilai + ";" + expires + ";path=/";
+  function ubahBahasa(bahasa) {
+    setCookie("bahasa", bahasa, 7);
+    tampilkanBahasa(bahasa);
+  }
+
+  function tampilkanBahasa(bahasa) {
+    const teks1 = document.querySelectorAll("main p")[0];
+    const teks2 = document.querySelectorAll("main p")[1];
+    const linkText = document.querySelectorAll("main p")[2];
+
+    if (bahasa === "en") {
+      teks1.innerText = "Welcome to our library!";
+      teks2.innerText = "Discover a wide collection of books to support your learning. This website collaborates with the USU Library to enhance information services, expand access to knowledge, and provide greater benefits to the public.";
+      linkText.innerHTML = `<a href="https://library.usu.ac.id/" target="_blank">Click here to visit USU Library</a>`;
+    } else {
+      teks1.innerText = "Selamat datang di perpustakaan kami!";
+      teks2.innerText = "Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Website ini berkolaborasi dengan Perpustakaan USU dengan tujuan meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.";
+      linkText.innerHTML = `<a href="https://library.usu.ac.id/" target="_blank">Klik di sini untuk mengunjungi Perpustakaan USU</a>`;
     }
+  }
 
-    function getCookie(nama) {
-        let namaCookie = nama + "=";
-        let decodedCookie = decodeURIComponent(document.cookie);
-        let ca = decodedCookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i].trim();
-            if (c.indexOf(namaCookie) == 0) {
-                return c.substring(namaCookie.length, c.length);
-            }
-        }
-        return "";
-    }
-
-    function ubahBahasa(bahasa) {
-        setCookie("bahasa", bahasa, 7);
-        tampilkanBahasa(bahasa);
-    }
-
-    function tampilkanBahasa(bahasa) {
-        let teks1 = document.querySelectorAll("main p")[0];
-        let teks2 = document.querySelectorAll("main p")[1];
-        let linkText = document.querySelectorAll("main p")[2];
-
-        if (bahasa === "en") {
-            teks1.innerText = "Welcome to our library!";
-            teks2.innerText = "Discover a wide collection of books to support your learning. This website collaborates with the USU Library to enhance information services, expand access to knowledge, and provide greater benefits to the public.";
-            linkText.innerHTML = `<a href="https://library.usu.ac.id/" target="_blank">Click here to visit USU Library</a>`;
-        } else {
-            teks1.innerText = "Selamat datang di perpustakaan kami!";
-            teks2.innerText = "Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Website ini berkolaborasi dengan Perpustakaan USU dengan tujuan meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.";
-            linkText.innerHTML = `<a href="https://library.usu.ac.id/" target="_blank">Klik di sini untuk mengunjungi Perpustakaan USU</a>`;
-        }
-    }
-
-    window.onload = function () {
-        let bahasa = getCookie("bahasa");
-        if (bahasa === "") {
-            setCookie("bahasa", "id", 7);
-            bahasa = "id";
-        }
-        tampilkanBahasa(bahasa);
-    };
+  window.onload = function () {
+    const bahasa = getCookie("bahasa") || "id";
+    setCookie("bahasa", bahasa, 7);
+    tampilkanBahasa(bahasa);
+  };
 </script>
 
 </body>
