@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Perpustakaan Muthia Sari</title>
     <style>
         body {
@@ -15,15 +15,45 @@
 
         nav {
             background-color: #1e3a8a;
-            padding: 15px 0;
-            text-align: center;
+            padding: 15px 20px;
             position: relative;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .hamburger {
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .language-buttons button {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .language-buttons button:hover {
+            background-color: white;
+            color: #1e3a8a;
         }
 
         .nav-links {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 10px 0 0 0;
+            text-align: center;
         }
 
         .nav-links li {
@@ -43,16 +73,6 @@
         .nav-links li a:hover {
             background-color: #3b82f6;
             border-radius: 5px;
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 24px;
-            color: white;
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            cursor: pointer;
         }
 
         header {
@@ -113,6 +133,7 @@
             background-color: #3b82f6;
         }
 
+        /* Responsive */
         @media screen and (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -138,14 +159,11 @@
             }
 
             .hamburger {
-                display: block;
+                font-size: 28px;
             }
 
-            header h1 {
-                font-size: 32px; 
-            }
-
-            main p {
+            .language-buttons button {
+                padding: 8px 14px;
                 font-size: 16px;
             }
         }
@@ -155,7 +173,13 @@
 
 <!-- Navbar -->
 <nav>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="nav-container">
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <div class="language-buttons">
+            <button onclick="ubahBahasa('id')">ID</button>
+            <button onclick="ubahBahasa('en')">EN</button>
+        </div>
+    </div>
     <ul class="nav-links" id="navMenu">
         <li><a href="index.html">Beranda</a></li>
         <li><a href="about-me.html">Tentang Saya</a></li>
@@ -171,13 +195,6 @@
 
 <!-- Main -->
 <main>
-    <!-- Tombol bahasa -->
-    <div>
-        <button onclick="ubahBahasa('id')">Bahasa Indonesia</button>
-        <button onclick="ubahBahasa('en')">English</button>
-    </div>
-
-    <!-- Konten utama (dinamis berdasarkan bahasa) -->
     <p>Selamat datang di perpustakaan kami!</p>
     <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Website ini berkolaborasi dengan Perpustakaan USU dengan tujuan meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
     <p><a href="https://library.usu.ac.id/" target="_blank">Klik di sini untuk mengunjungi Perpustakaan USU</a></p>
