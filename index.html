@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perpustakaan Muthia Sari</title>
     <style>
-        /* Basic Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -14,7 +13,6 @@
             color: #333;
         }
 
-        /* Navbar */
         nav {
             background-color: #1e3a8a;
             padding: 15px 0;
@@ -57,7 +55,6 @@
             cursor: pointer;
         }
 
-        /* Header */
         header {
             background-color: #1e3a8a;
             color: #fff;
@@ -81,7 +78,6 @@
             font-size: 18px;
         }
 
-        /* Main Section */
         main {
             padding: 50px;
             text-align: center;
@@ -96,7 +92,6 @@
             line-height: 1.6;
         }
 
-        /* Footer */
         footer {
             background-color: #1e3a8a;
             color: #fff;
@@ -104,7 +99,20 @@
             padding: 20px;
         }
 
-        /* Responsiveness */
+        button {
+            margin: 10px;
+            padding: 8px 16px;
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3b82f6;
+        }
+
         @media screen and (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -156,32 +164,103 @@
     </ul>
 </nav>
 
-<!-- Header Section -->
+<!-- Header -->
 <header>
     <h1>Perpustakaan Muthia Sari</h1>
 </header>
 
-<!-- Main Section -->
+<!-- Main -->
 <main>
+    <!-- Tombol bahasa -->
+    <div>
+        <button onclick="ubahBahasa('id')">Bahasa Indonesia</button>
+        <button onclick="ubahBahasa('en')">English</button>
+    </div>
+
+    <!-- Konten utama (dinamis berdasarkan bahasa) -->
     <p>Selamat datang di perpustakaan kami!</p>
     <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Website ini berkolaborasi dengan Perpustakaan USU dengan tujuan meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
     <p><a href="https://library.usu.ac.id/" target="_blank">Klik di sini untuk mengunjungi Perpustakaan USU</a></p>
 </main>
 
-<!-- Footer Section -->
+<!-- Footer -->
 <footer>
     <p>@2025 Perpustakaan Muthia Sari</p>
 </footer>
 
+<!-- Script -->
 <script>
     function toggleMenu() {
         var nav = document.getElementById("navMenu");
-        if (nav.style.display === "block") {
-            nav.style.display = "none";
+        nav.style.display = nav.style.display === "block" ? "none" : "block";
+    }
+
+    // Fungsi untuk menyetel cookie
+    function setCookie(nama, nilai, hariKedaluwarsa) {
+        const d = new Date();
+        d.setTime(d.getTime() + (hariKedaluwarsa * 24 * 60 * 60 * 1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = nama + "=" + nilai + ";" + expires + ";path=/";
+    }
+
+    // Fungsi untuk membaca cookie
+    function getCookie(nama) {
+        let namaCookie = nama + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i].trim();
+            if (c.indexOf(namaCookie) == 0) {
+                return c.substring(namaCookie.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    // Fungsi ubah dan tampilkan bahasa
+    function ubahBahasa(bahasa) {
+        setCookie("bahasa", bahasa, 7);
+        tampilkanBahasa(bahasa);
+    }
+
+    function tampilkanBahasa(bahasa) {
+        let teks1 = document.querySelectorAll("main p")[0];
+        let teks2 = document.querySelectorAll("main p")[1];
+        let linkText = document.querySelectorAll("main p")[2];
+
+        if (bahasa === "en") {
+            teks1.innerText = "Welcome to our library!";
+            teks2.innerText = "Discover a wide collection of books to support your learning. This website collaborates with the USU Library to enhance information services, expand access to knowledge, and provide greater benefits to the public.";
+            linkText.innerHTML = `<a href="https://library.usu.ac.id/" target="_blank">Click here to visit USU Library</a>`;
         } else {
-            nav.style.display = "block";
+            teks1.innerText = "Selamat datang di perpustakaan kami!";
+            teks2.innerText = "Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Website ini berkolaborasi dengan Perpustakaan USU dengan tujuan meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.";
+            linkText.innerHTML = `<a href="https://library.usu.ac.id/" target="_blank">Klik di sini untuk mengunjungi Perpustakaan USU</a>`;
         }
     }
+
+    // Saat halaman dibuka
+    window.onload = function () {
+        // Cookie nama pengunjung
+        let username = getCookie("pengunjung");
+        if (username != "") {
+            alert("Selamat datang kembali, " + username + "!");
+        } else {
+            let nama = prompt("Halo, siapa nama Anda?");
+            if (nama != "" && nama != null) {
+                setCookie("pengunjung", nama, 7);
+                alert("Selamat datang, " + nama + "!");
+            }
+        }
+
+        // Cookie bahasa
+        let bahasa = getCookie("bahasa");
+        if (bahasa === "") {
+            setCookie("bahasa", "id", 7);
+            bahasa = "id";
+        }
+        tampilkanBahasa(bahasa);
+    };
 </script>
 
 </body>
