@@ -1,274 +1,37 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tentang Saya - Perpustakaan Muthia Sari</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #e3f2fd;
-      color: #333;
-    }
-
-    h1 {
-      font-size: 36px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-size: 22px;
-      font-weight: 600;
-      text-align: center;
-      color: #1e3a8a;
-      margin-top: 40px;
-      margin-bottom: 16px;
-    }
-
-    p {
-      font-size: 22px;
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-
-    nav {
-      background-color: #1e3a8a;
-      padding: 15px;
-      text-align: center;
-      position: relative;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 24px;
-      color: white;
-      position: absolute;
-      right: 20px;
-      top: 15px;
-      cursor: pointer;
-    }
-
-    .language-buttons {
-      position: absolute;
-      top: 12px;
-      right: 60px;
-    }
-
-    .language-buttons button {
-      margin: 0 2px;
-      padding: 6px 10px;
-      font-size: 14px;
-      background-color: #3b82f6;
-      border: none;
-      border-radius: 4px;
-      color: white;
-      cursor: pointer;
-    }
-
-    .language-buttons button:hover {
-      background-color: #60a5fa;
-    }
-
-    .nav-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .nav-links li {
-      display: inline-block;
-      margin: 0 15px;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      padding: 10px 15px;
-      display: inline-block;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    .nav-links a:hover {
-      background-color: #3b82f6;
-    }
-
-    header {
-      background-color: #1e3a8a;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .content-wrapper {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .description {
-      text-align: justify;
-      line-height: 1.6;
-      font-size: 22px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 30px auto;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    th, td {
-      border: 2px solid #1e3a8a;
-      padding: 12px;
-      text-align: left;
-    }
-
-    th {
-      background-color: #1e3a8a;
-      color: white;
-      text-align: center;
-    }
-
-    footer {
-      background-color: #1e3a8a;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #1e3a8a;
-        width: 100%;
-        position: absolute;
-        top: 55px;
-        left: 0;
-        z-index: 10;
-      }
-
-      .nav-links li {
-        display: block;
-        padding: 10px 0;
-      }
-
-      .hamburger {
-        display: block;
-      }
-
-      .language-buttons {
-        top: 55px;
-        right: 20px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-<!-- Navbar -->
-<nav>
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
-  <div class="language-buttons">
-    <button onclick="ubahBahasa('id')">ID</button>
-    <button onclick="ubahBahasa('en')">EN</button>
-  </div>
-  <ul class="nav-links">
-    <li><a href="index.html">Beranda</a></li>
-    <li><a href="about-me.html">Tentang Saya</a></li>
-    <li><a href="rekomendasi.html">Rekomendasi</a></li>
-    <li><a href="contact.html">Kontak</a></li>
-  </ul>
-</nav>
-
-<!-- Header -->
-<header>
-  <h1 id="judul">Profil Singkat Saya</h1>
-</header>
-
-<!-- Konten -->
-<div class="content-wrapper">
-
-  <!-- Tabel Biodata -->
-  <h2 id="biodata">📝 Biodata Singkat</h2>
-  <table>
-    <tr><th>Data</th><th>Informasi</th></tr>
-    <tr><td id="nama">Nama</td><td>Muthia Sari</td></tr>
-    <tr><td>NIM</td><td>220709002</td></tr>
-    <tr><td id="kelas">Kelas</td><td>B</td></tr>
-    <tr>
-        <td id="prodi">Program Studi</td>
-        <td id="prodiValue">Ilmu Perpustakaan dan Sains Informasi</td>
-    </tr>
-    <tr>
-        <td id="fakultas">Fakultas</td>
-        <td id="fakultasValue">Fakultas Ilmu Budaya</td>
-    </tr>
-    <tr>
-        <td id="univ">Universitas</td>
-        <td id="univValue">Universitas Sumatera Utara</td>
-    </tr>
-    </table>
-
-  <!-- Tabel Prestasi -->
-  <h2 id="prestasi">🏅 Beberapa Prestasi Saya</h2>
-  <table id="tabel-prestasi">
-    <tr>
-      <th>Tahun</th>
-      <th>Juara</th>
-      <th>Prestasi yang Dicapai</th>
-    </tr>
-    <tr><td>2024</td><td>Juara 1</td><td>10th Tirak Taekwondo Internasional Tournament 2024</td></tr>
-    <tr><td>2021</td><td>Juara 2</td><td>2nd Gewinn Pro League Poomsae Internasional Taekwondo e-Sport</td></tr>
-    <tr><td>2018</td><td>Juara 2</td><td>6th Daedo Taekwondo Internasional Open Championships</td></tr>
-    <tr><td>2023</td><td>Juara 3</td><td>Indonesia Taekwondo Championship</td></tr>
-    <tr><td>2023</td><td>Juara 1</td><td>Kejuaraan Nasional Piala Kemenpora RI & Kejurwil I Sumatera Utara</td></tr>
-    <tr><td>2019</td><td>Juara 1 & Juara 2</td><td>Kejuaraan Nasional Taekwondo Taragak ka Bukittinggi</td></tr>
-    <tr><td>2023</td><td>Juara 3</td><td>Nommensen Games Taekwondo Championship 2023</td></tr>
-    <tr><td>2022</td><td>Juara 1</td><td>Usu Games 2022</td></tr>
-  </table>
-
-</div>
-
-<!-- Footer -->
-<footer>
-  <p>&copy; 2025 Perpustakaan Muthia Sari</p>
-</footer>
-
-<!-- Script -->
+<!-- Tambahkan di akhir sebelum </body> -->
 <script>
-  function toggleMenu() {
-    const nav = document.querySelector(".nav-links");
-    nav.style.display = nav.style.display === "block" ? "none" : "block";
+  function setSiteSettings(name, value) {
+    let settings = getSiteSettings();
+    settings[name] = value;
+    document.cookie = "site_settings=" + JSON.stringify(settings) + "; path=/; max-age=" + (60 * 60 * 24 * 30);
   }
 
-  function setCookie(nama, nilai, hariKadaluarsa) {
-    const d = new Date();
-    d.setTime(d.getTime() + (hariKadaluarsa * 24 * 60 * 60 * 1000));
-    document.cookie = `${nama}=${nilai};expires=${d.toUTCString()};path=/`;
-  }
-
-  function getCookie(nama) {
-    const namaEQ = nama + "=";
-    const ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i].trim();
-      if (c.indexOf(namaEQ) === 0) return c.substring(namaEQ.length);
+  function getSiteSettings() {
+    const cookies = document.cookie.split("; ");
+    const settingCookie = cookies.find(row => row.startsWith("site_settings="));
+    if (settingCookie) {
+      try {
+        return JSON.parse(settingCookie.split("=")[1]);
+      } catch {
+        return {};
+      }
     }
-    return null;
+    return {};
+  }
+
+  function highlightLanguageButton(lang) {
+    const btnId = document.querySelector('button[onclick="ubahBahasa(\'id\')"]');
+    const btnEn = document.querySelector('button[onclick="ubahBahasa(\'en\')"]');
+    btnId.classList.remove('active');
+    btnEn.classList.remove('active');
+    if (lang === 'en') btnEn.classList.add('active');
+    else btnId.classList.add('active');
   }
 
   function ubahBahasa(bahasa) {
-    setCookie("bahasa", bahasa, 7);
+    setSiteSettings("bahasa", bahasa);
     tampilkanBahasa(bahasa);
+    highlightLanguageButton(bahasa);
   }
 
   function tampilkanBahasa(bahasa) {
@@ -300,10 +63,25 @@
   }
 
   window.onload = function () {
-    const bahasa = getCookie("bahasa") || "id";
+    const settings = getSiteSettings();
+
+    if (!settings.nama) {
+      const nama = prompt("Halo, siapa nama Anda?");
+      if (nama) {
+        setSiteSettings("nama", nama);
+      }
+    }
+
+    const bahasa = settings.bahasa || "id";
     tampilkanBahasa(bahasa);
+    highlightLanguageButton(bahasa);
   };
 </script>
 
-</body>
-</html>
+<style>
+  .language-buttons button.active {
+    background-color: #1d4ed8 !important;
+    font-weight: bold;
+    border: 2px solid #fff;
+  }
+</style>
