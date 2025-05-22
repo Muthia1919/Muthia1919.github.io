@@ -72,6 +72,11 @@
       cursor: pointer;
     }
 
+    .language-buttons button.active {
+      background-color: #2563eb;
+      font-weight: bold;
+    }
+
     .language-buttons button:hover {
       background-color: #60a5fa;
     }
@@ -159,8 +164,8 @@
 <nav>
   <div class="hamburger" onclick="toggleMenu()">☰</div>
   <div class="language-buttons">
-    <button onclick="ubahBahasa('id')">ID</button>
-    <button onclick="ubahBahasa('en')">EN</button>
+    <button id="btn-id" onclick="ubahBahasa('id')">ID</button>
+    <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
   </div>
   <ul class="nav-links" id="navMenu">
     <li><a href="index.html">Beranda</a></li>
@@ -177,9 +182,9 @@
 
 <!-- Main -->
 <main>
-  <p>Selamat datang di perpustakaan kami!</p>
-  <p>Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Website ini berkolaborasi dengan Perpustakaan USU dengan tujuan meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
-  <p><a href="https://library.usu.ac.id/" target="_blank">Klik di sini untuk mengunjungi Perpustakaan USU</a></p>
+  <p id="teks1">Selamat datang di perpustakaan kami!</p>
+  <p id="teks2">Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Website ini berkolaborasi dengan Perpustakaan USU dengan tujuan meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.</p>
+  <p id="linkText"><a href="https://library.usu.ac.id/" target="_blank">Klik di sini untuk mengunjungi Perpustakaan USU</a></p>
 </main>
 
 <!-- Footer -->
@@ -194,34 +199,46 @@
     nav.style.display = nav.style.display === "block" ? "none" : "block";
   }
 
-  function setCookie(nama, nilai, hariKedaluwarsa) {
-    const d = new Date();
-    d.setTime(d.getTime() + (hariKedaluwarsa * 24 * 60 * 60 * 1000));
-    document.cookie = `${nama}=${nilai};expires=${d.toUTCString()};path=/`;
-  }
-
-  function getCookie(nama) {
-    let namaCookie = nama + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for (let c of ca) {
-      c = c.trim();
-      if (c.indexOf(namaCookie) == 0) return c.substring(namaCookie.length);
+  function getSiteSettings() {
+    const cookies = document.cookie.split("; ");
+    const settingCookie = cookies.find(row => row.startsWith("site_settings="));
+    if (settingCookie) {
+      try {
+        return JSON.parse(settingCookie.split("=")[1]);
+      } catch {
+        return {};
+      }
     }
-    return "";
+    return {};
   }
 
-  function ubahBahasa(bahasa) {
-    setCookie("bahasa", bahasa, 7);
-    tampilkanBahasa(bahasa);
+  function setSiteSettings(name, value) {
+    const settings = getSiteSettings();
+    settings[name] = value;
+    document.cookie = "site_settings=" + JSON.stringify(settings) + ";path=/;max-age=" + (60 * 60 * 24 * 30);
   }
 
-  function tampilkanBahasa(bahasa) {
-    const teks1 = document.querySelectorAll("main p")[0];
-    const teks2 = document.querySelectorAll("main p")[1];
-    const linkText = document.querySelectorAll("main p")[2];
+  function highlightLanguageButton(lang) {
+    document.getElementById('btn-id').classList.remove('active');
+    document.getElementById('btn-en').classList.remove('active');
+    if (lang === 'en') {
+      document.getElementById('btn-en').classList.add('active');
+    } else {
+      document.getElementById('btn-id').classList.add('active');
+    }
+  }
 
-    if (bahasa === "en") {
+  function ubahBahasa(lang) {
+    setSiteSettings('bahasa', lang);
+    location.reload();
+  }
+
+  function tampilkanBahasa(lang) {
+    const teks1 = document.getElementById("teks1");
+    const teks2 = document.getElementById("teks2");
+    const linkText = document.getElementById("linkText");
+
+    if (lang === "en") {
       teks1.innerText = "Welcome to our library!";
       teks2.innerText = "Discover a wide collection of books to support your learning. This website collaborates with the USU Library to enhance information services, expand access to knowledge, and provide greater benefits to the public.";
       linkText.innerHTML = `<a href="https://library.usu.ac.id/" target="_blank">Click here to visit USU Library</a>`;
@@ -230,12 +247,26 @@
       teks2.innerText = "Temukan berbagai koleksi buku untuk mendukung pembelajaran Anda. Website ini berkolaborasi dengan Perpustakaan USU dengan tujuan meningkatkan layanan informasi, memperluas akses pengetahuan, dan memberikan manfaat yang lebih luas bagi masyarakat.";
       linkText.innerHTML = `<a href="https://library.usu.ac.id/" target="_blank">Klik di sini untuk mengunjungi Perpustakaan USU</a>`;
     }
+
+    highlightLanguageButton(lang);
   }
 
   window.onload = function () {
-    const bahasa = getCookie("bahasa") || "id";
-    setCookie("bahasa", bahasa, 7);
-    tampilkanBahasa(bahasa);
+    let settings = getSiteSettings();
+
+    if (!settings.nama) {
+      const nama = prompt("Halo, siapa nama Anda?");
+      if (nama) {
+        setSiteSettings("nama", nama);
+      }
+    }
+
+    if (!settings.bahasa) {
+      setSiteSettings("bahasa", "id");
+      settings.bahasa = "id";
+    }
+
+    tampilkanBahasa(settings.bahasa);
   };
 </script>
 
