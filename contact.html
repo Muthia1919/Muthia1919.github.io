@@ -70,6 +70,11 @@
             color: white;
         }
 
+        .language-selector button.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
         header {
             background-color: #1e3a8a;
             color: white;
@@ -170,42 +175,6 @@
             .language-selector {
                 right: 60px;
             }
-
-            header {
-                padding: 30px 10px;
-            }
-
-            header h1 {
-                font-size: 26px;
-                padding: 0 10px;
-            }
-
-            main h2 {
-                font-size: 22px;
-                padding: 0 10px;
-            }
-
-            form {
-                padding: 20px;
-                margin: 0 10px;
-                width: auto;
-            }
-
-            label {
-                font-size: 14px;
-            }
-
-            input[type="text"],
-            input[type="tel"],
-            input[type="email"],
-            textarea {
-                font-size: 14px;
-            }
-
-            button[type="submit"] {
-                font-size: 14px;
-                padding: 10px;
-            }
         }
     </style>
 </head>
@@ -215,8 +184,8 @@
     <nav>
         <div class="hamburger" onclick="toggleMenu()">☰</div>
         <div class="language-selector">
-            <button onclick="setLanguage('id')">🇮🇩</button>
-            <button onclick="setLanguage('en')">🇬🇧</button>
+            <button id="btn-id" onclick="setLanguage('id')">🇮🇩</button>
+            <button id="btn-en" onclick="setLanguage('en')">🇬🇧</button>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
@@ -260,6 +229,63 @@
             nav.style.display = nav.style.display === "block" ? "none" : "block";
         }
 
+        // Set dan Get Cookie
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24*60*60*1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i].trim();
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length);
+            }
+            return null;
+        }
+
+        // Bahasa
+        function setLanguage(lang) {
+            setCookie('language', lang, 30);
+            if (lang === 'en') {
+                window.location.href = 'contact-en.html';
+            } else {
+                window.location.href = 'contact.html';
+            }
+        }
+
+        function highlightLanguageButton(lang) {
+            document.getElementById('btn-id').classList.remove('active');
+            document.getElementById('btn-en').classList.remove('active');
+            if (lang === 'en') {
+                document.getElementById('btn-en').classList.add('active');
+            } else {
+                document.getElementById('btn-id').classList.add('active');
+            }
+        }
+
+        // Sambutan awal hanya ditampilkan sekali
+        window.addEventListener('DOMContentLoaded', () => {
+            const lang = getCookie('language') || 'id';
+            highlightLanguageButton(lang);
+
+            const visited = getCookie('visited');
+            if (!visited) {
+                const nama = prompt("Halo, siapa nama Anda?");
+                if (nama) {
+                    setCookie('pengunjung', nama, 7);
+                }
+                setCookie('visited', 'true', 7);
+            }
+        });
+
+        // Form handler
         const form = document.getElementById('contact-form');
         form.addEventListener('submit', async function(event) {
             event.preventDefault();
@@ -281,42 +307,6 @@
             } else {
                 alert("❌ Terjadi kesalahan. Silakan coba lagi.");
             }
-        });
-
-        // Cookie utilities
-        function setCookie(name, value, days) {
-            let expires = "";
-            if (days) {
-                const date = new Date();
-                date.setTime(date.getTime() + (days * 24*60*60*1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "") + expires + "; path=/";
-        }
-
-        function getCookie(name) {
-            const nameEQ = name + "=";
-            const ca = document.cookie.split(';');
-            for(let i = 0; i < ca.length; i++) {
-                let c = ca[i].trim();
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length);
-            }
-            return null;
-        }
-
-        function setLanguage(lang) {
-            setCookie('language', lang, 30);
-            if (lang === 'en') {
-                window.location.href = 'contact-en.html'; // Buat file ini untuk versi Inggris
-            } else {
-                window.location.href = 'contact.html';
-            }
-        }
-
-        // Optional: cek dan redirect otomatis jika ingin
-        window.addEventListener('DOMContentLoaded', () => {
-            const lang = getCookie('language');
-            // Bisa digunakan untuk mengganti konten dinamis juga
         });
     </script>
 
