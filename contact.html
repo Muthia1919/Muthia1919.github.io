@@ -55,11 +55,26 @@
             cursor: pointer;
         }
 
+        .language-selector {
+            position: absolute;
+            top: 15px;
+            right: 60px;
+        }
+
+        .language-selector button {
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            margin-left: 5px;
+            color: white;
+        }
+
         header {
-          background-color: #1e3a8a;
-          color: white;
-          padding: 40px 20px;
-          text-align: center;
+            background-color: #1e3a8a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
         }
 
         main {
@@ -152,6 +167,10 @@
                 display: block;
             }
 
+            .language-selector {
+                right: 60px;
+            }
+
             header {
                 padding: 30px 10px;
             }
@@ -195,6 +214,10 @@
     <!-- Navbar -->
     <nav>
         <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <div class="language-selector">
+            <button onclick="setLanguage('id')">🇮🇩</button>
+            <button onclick="setLanguage('en')">🇬🇧</button>
+        </div>
         <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="about-me.html">Tentang Saya</a></li>
@@ -256,8 +279,44 @@
                 alert(`📬 Terima kasih, ${nama}, pesan Anda telah berhasil dikirim!`);
                 form.reset();
             } else {
-                alert("❌ Terjadi kesalahan. Silakan coba lagi .");
+                alert("❌ Terjadi kesalahan. Silakan coba lagi.");
             }
+        });
+
+        // Cookie utilities
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24*60*60*1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i].trim();
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length);
+            }
+            return null;
+        }
+
+        function setLanguage(lang) {
+            setCookie('language', lang, 30);
+            if (lang === 'en') {
+                window.location.href = 'contact-en.html'; // Buat file ini untuk versi Inggris
+            } else {
+                window.location.href = 'contact.html';
+            }
+        }
+
+        // Optional: cek dan redirect otomatis jika ingin
+        window.addEventListener('DOMContentLoaded', () => {
+            const lang = getCookie('language');
+            // Bisa digunakan untuk mengganti konten dinamis juga
         });
     </script>
 
