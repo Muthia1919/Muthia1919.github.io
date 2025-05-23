@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tentang Saya - Perpustakaan Muthia Sari</title>
   <style>
+    /* Global Style */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -13,6 +14,7 @@
       color: #333;
     }
 
+    /* Ukuran Font Konsisten */
     h1 {
       font-size: 36px;
       font-weight: bold;
@@ -46,7 +48,7 @@
       font-size: 24px;
       color: white;
       position: absolute;
-      right: 60px;
+      right: 20px;
       top: 15px;
       cursor: pointer;
     }
@@ -74,19 +76,6 @@
 
     .nav-links a:hover {
       background-color: #3b82f6;
-    }
-
-    .lang-selector {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-    }
-
-    .lang-selector select {
-      padding: 5px;
-      font-size: 14px;
-      border-radius: 4px;
-      border: none;
     }
 
     header {
@@ -170,48 +159,99 @@
       <li><a href="rekomendasi.html">Rekomendasi</a></li>
       <li><a href="contact.html">Kontak</a></li>
     </ul>
-    <div class="lang-selector">
-      <select id="languageSelect" onchange="setLanguage(this.value)">
-        <option value="id">Indonesia</option>
-        <option value="en">English</option>
-      </select>
-    </div>
   </nav>
 
   <!-- Header -->
   <header>
-    <h1 id="pageTitle">Profil Singkat Saya</h1>
+    <h1>Profil Singkat Saya</h1>
   </header>
 
   <!-- Konten -->
   <div class="content-wrapper">
-    <h2 id="biodataTitle">📝 Biodata Singkat</h2>
-    <table>
-      <tr><th id="dataTh">Data</th><th id="infoTh">Informasi</th></tr>
-      <tr><td>Nama</td><td>Muthia Sari</td></tr>
-      <tr><td>NIM</td><td>220709002</td></tr>
-      <tr><td>Kelas</td><td>B</td></tr>
-      <tr><td>Program Studi</td><td>Ilmu Perpustakaan dan Sains Informasi</td></tr>
-      <tr><td>Fakultas</td><td>Fakultas Ilmu Budaya</td></tr>
-      <tr><td>Universitas</td><td>Universitas Sumatera Utara</td></tr>
-    </table>
 
-    <h2 id="achievementsTitle">🏅 Beberapa Prestasi Saya</h2>
+    <!-- Tabel Biodata -->
+    <h2>📝 Biodata Singkat</h2>
     <table>
       <tr>
-        <th id="yearTh">Tahun</th>
-        <th id="rankTh">Juara</th>
-        <th id="achievementTh">Prestasi yang Dicapai</th>
+        <th>Data</th>
+        <th>Informasi</th>
       </tr>
-      <tr><td>2024</td><td>Juara 1</td><td>10th Tirak Taekwondo Internasional Tournament 2024</td></tr>
-      <tr><td>2021</td><td>Juara 2</td><td>2nd Gewinn Pro League Poomsae Internasional Taekwondo e-Sport</td></tr>
-      <tr><td>2018</td><td>Juara 2</td><td>6th Daedo Taekwondo Internasional Open Championships</td></tr>
-      <tr><td>2023</td><td>Juara 3</td><td>Indonesia Taekwondo Championship</td></tr>
-      <tr><td>2023</td><td>Juara 1</td><td>Kejuaraan Nasional Piala Kemenpora RI & Kejurwil I Sumatera Utara</td></tr>
-      <tr><td>2019</td><td>Juara 1 & Juara 2</td><td>Kejuaraan Nasional Taekwondo Taragak ka Bukittinggi Memperebutkan Piala Gubernur Sumatera Barat</td></tr>
-      <tr><td>2023</td><td>Juara 3</td><td>Nommensen Games Taekwondo Championship 2023</td></tr>
-      <tr><td>2022</td><td>Juara 1</td><td>Usu Games 2022</td></tr>
+      <tr>
+        <td>Nama</td>
+        <td>Muthia Sari</td>
+      </tr>
+      <tr>
+        <td>NIM</td>
+        <td>220709002</td>
+      </tr>
+      <tr>
+        <td>Kelas</td>
+        <td>B</td>
+      </tr>
+      <tr>
+        <td>Program Studi</td>
+        <td>Ilmu Perpustakaan dan Sains Informasi</td>
+      </tr>
+      <tr>
+        <td>Fakultas</td>
+        <td>Fakultas Ilmu Budaya</td>
+      </tr>
+      <tr>
+        <td>Universitas</td>
+        <td>Universitas Sumatera Utara</td>
+      </tr>
     </table>
+
+    <!-- Tabel Prestasi -->
+    <h2>🏅 Beberapa Prestasi Saya</h2>
+    <table>
+      <tr>
+        <th>Tahun</th>
+        <th>Juara</th>
+        <th>Prestasi yang Dicapai</th>
+      </tr>
+      <tr>
+        <td>2024</td>
+        <td>Juara 1</td>
+        <td>10th Tirak Taekwondo Internasional Tournament 2024</td>
+      </tr>      
+      <tr>
+        <td>2021</td>
+        <td>Juara 2</td>
+        <td>2nd Gewinn Pro League Poomsae Internasional Taekwondo e-Sport</td>
+      </tr>
+      <tr>
+        <td>2018</td>
+        <td>Juara 2</td>
+        <td>6th Daedo Taekwondo Internasional Open Championships</td>
+      </tr>
+      <tr>
+        <td>2023</td>
+        <td>Juara 3</td>
+        <td>Indonesia Taekwondo Championship</td>
+      </tr>
+      <tr>
+        <td>2023</td>
+        <td>Juara 1</td>
+        <td>Kejuaraan Nasional Piala Kemenpora RI & Kejurwil I Sumatera Utara</td>
+      </tr>
+      <tr>
+        <td>2019</td>
+        <td>Juara 1 & Juara 2</td>
+        <td>Kejuaraan Nasional Taekwondo Taragak ka Bukittinggi Memperebutkan Piala Gubernur Sumatera Barat</td>
+      </tr> 
+      <tr>
+        <td>2023</td>
+        <td>Juara 3</td>
+        <td>Nommensen Games Taekwondo Championship 2023</td>
+      </tr>
+      <tr>
+        <td>2022</td>
+        <td>Juara 1</td>
+        <td>Usu Games 2022</td>
+      </tr>
+    </table>
+
   </div>
 
   <!-- Footer -->
@@ -224,55 +264,6 @@
       const nav = document.querySelector(".nav-links");
       nav.style.display = nav.style.display === "block" ? "none" : "block";
     }
-
-    function setLanguage(lang) {
-      document.cookie = `lang=${lang}; path=/; max-age=31536000`;
-      applyLanguage(lang);
-    }
-
-    function getCookie(name) {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(';').shift();
-    }
-
-    function applyLanguage(lang) {
-      const text = {
-        id: {
-          pageTitle: "Profil Singkat Saya",
-          biodataTitle: "📝 Biodata Singkat",
-          achievementsTitle: "🏅 Beberapa Prestasi Saya",
-          dataTh: "Data",
-          infoTh: "Informasi",
-          yearTh: "Tahun",
-          rankTh: "Juara",
-          achievementTh: "Prestasi yang Dicapai",
-        },
-        en: {
-          pageTitle: "My Brief Profile",
-          biodataTitle: "📝 Personal Data",
-          achievementsTitle: "🏅 My Achievements",
-          dataTh: "Category",
-          infoTh: "Information",
-          yearTh: "Year",
-          rankTh: "Rank",
-          achievementTh: "Achievement",
-        }
-      };
-
-      const content = text[lang] || text["id"];
-      for (const key in content) {
-        const el = document.getElementById(key);
-        if (el) el.textContent = content[key];
-      }
-
-      document.getElementById("languageSelect").value = lang;
-    }
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const savedLang = getCookie("lang") || "id";
-      applyLanguage(savedLang);
-    });
   </script>
 
 </body>
