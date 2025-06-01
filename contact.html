@@ -64,6 +64,32 @@
             cursor: pointer;
         }
 
+        .language-buttons {
+            position: absolute;
+            top: 12px;
+            right: 60px;
+        }
+
+        .language-buttons button {
+            margin: 0 2px;
+            padding: 6px 10px;
+            font-size: 14px;
+            background-color: #3b82f6;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .language-buttons button.active {
+            background-color: #2563eb;
+            font-weight: bold;
+        }
+
+        .language-buttons button:hover {
+            background-color: #60a5fa;
+        }
+
         header {
             background-color: #1e3a8a;
             color: white;
@@ -160,8 +186,7 @@
             .hamburger {
                 display: block;
             }
-            
-            /* Header Responsif */
+
             header {
                 padding: 30px 10px;
             }
@@ -197,6 +222,11 @@
                 font-size: 14px;
                 padding: 10px;
             }
+
+            .language-buttons {
+                top: 12px;
+                right: 70px;
+            }
         }
     </style>
 </head>
@@ -205,6 +235,10 @@
     <!-- Navbar -->
     <nav>
         <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <div class="language-buttons">
+            <button id="btn-id" onclick="ubahBahasa('id')">ID</button>
+            <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
+        </div>
         <ul class="nav-links">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="about-me.html">Tentang Saya</a></li>
@@ -247,7 +281,52 @@
             nav.style.display = nav.style.display === "block" ? "none" : "block";
         }
 
-        // AJAX untuk mencegah pindah halaman saat kirim
+        // Cookie Utilities
+        function getSiteSettings() {
+            const cookies = document.cookie.split("; ");
+            const settingCookie = cookies.find(row => row.startsWith("site_settings="));
+            if (settingCookie) {
+                try {
+                    return JSON.parse(settingCookie.split("=")[1]);
+                } catch {
+                    return {};
+                }
+            }
+            return {};
+        }
+
+        function setSiteSettings(name, value) {
+            const settings = getSiteSettings();
+            settings[name] = value;
+            document.cookie = "site_settings=" + JSON.stringify(settings) + ";path=/;max-age=" + (60 * 60 * 24 * 30);
+        }
+
+        function highlightLanguageButton(lang) {
+            document.getElementById('btn-id').classList.remove('active');
+            document.getElementById('btn-en').classList.remove('active');
+            if (lang === 'en') {
+                document.getElementById('btn-en').classList.add('active');
+            } else {
+                document.getElementById('btn-id').classList.add('active');
+            }
+        }
+
+        function ubahBahasa(lang) {
+            setSiteSettings('bahasa', lang);
+            location.reload();
+        }
+
+        function tampilkanBahasa(lang) {
+            document.querySelector("h1").innerText = lang === "en" ? "Send Us Your Message" : "Sampaikan Pesan Anda";
+            document.querySelector("main h2").innerText = lang === "en" ? "Contact Us" : "Hubungi Kami";
+            document.querySelector("label[for='nama']").innerText = lang === "en" ? "Name:" : "Nama:";
+            document.querySelector("label[for='email']").innerText = "Email:";
+            document.querySelector("label[for='message']").innerText = lang === "en" ? "Message:" : "Pesan:";
+            document.querySelector("button[type='submit']").innerText = lang === "en" ? "📨 Send Message" : "📨 Kirim Pesan";
+            highlightLanguageButton(lang);
+        }
+
+        // Form Submit
         const form = document.getElementById('contact-form');
         form.addEventListener('submit', async function(event) {
             event.preventDefault();
@@ -268,6 +347,25 @@
                 alert("❌ Terjadi kesalahan. Silakan coba lagi nanti.");
             }
         });
+
+        // Init on Load
+        window.onload = function () {
+            let settings = getSiteSettings();
+
+            if (!settings.nama) {
+                const nama = prompt("Halo, siapa nama Anda?");
+                if (nama) {
+                    setSiteSettings("nama", nama);
+                }
+            }
+
+            if (!settings.bahasa) {
+                setSiteSettings("bahasa", "id");
+                settings.bahasa = "id";
+            }
+
+            tampilkanBahasa(settings.bahasa);
+        };
     </script>
 
 </body>
