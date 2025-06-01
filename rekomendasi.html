@@ -55,6 +55,15 @@
       cursor: pointer;
     }
 
+    .language-toggle {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
     header {
       background-color: #1e3a8a;
       color: white;
@@ -170,6 +179,7 @@
 <body>
   <!-- Navbar -->
   <nav>
+    <div class="language-toggle" onclick="toggleLanguage()">🌐 <span id="langLabel">ID</span></div>
     <div class="hamburger" onclick="toggleMenu()">☰</div>
     <ul class="nav-links">
       <li><a href="index.html">Beranda</a></li>
@@ -181,13 +191,13 @@
 
   <!-- Header -->
   <header>
-    <h1>Rekomendasi Buku</h1>
-    <p>Buku-buku pilihan yang kami rekomendasikan untuk Anda baca</p>
+    <h1 id="judul">Rekomendasi Buku</h1>
+    <p id="deskripsi">Buku-buku pilihan yang kami rekomendasikan untuk Anda baca</p>
   </header>
 
   <!-- Main Content -->
   <main>
-    <h2>Daftar Buku Pilihan</h2>
+    <h2 id="daftar">Daftar Buku Pilihan</h2>
     <div class="book-container">
       <!-- Buku 1 -->
       <div class="book">
@@ -232,11 +242,49 @@
     <p>&copy; 2025 Perpustakaan Muthia Sari</p>
   </footer>
 
+  <!-- JavaScript -->
   <script>
     function toggleMenu() {
       const nav = document.querySelector(".nav-links");
       nav.style.display = nav.style.display === "block" ? "none" : "block";
     }
+
+    function setCookie(name, value, days) {
+      const d = new Date();
+      d.setTime(d.getTime() + (days*24*60*60*1000));
+      document.cookie = `${name}=${value};expires=${d.toUTCString()};path=/`;
+    }
+
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    function toggleLanguage() {
+      const currentLang = getCookie("lang") || "id";
+      const newLang = currentLang === "id" ? "en" : "id";
+      setCookie("lang", newLang, 30);
+      applyLanguage(newLang);
+    }
+
+    function applyLanguage(lang) {
+      document.getElementById("langLabel").innerText = lang.toUpperCase();
+      if (lang === "en") {
+        document.getElementById("judul").innerText = "Book Recommendations";
+        document.getElementById("deskripsi").innerText = "Selected books we recommend for you to read";
+        document.getElementById("daftar").innerText = "Recommended Book List";
+      } else {
+        document.getElementById("judul").innerText = "Rekomendasi Buku";
+        document.getElementById("deskripsi").innerText = "Buku-buku pilihan yang kami rekomendasikan untuk Anda baca";
+        document.getElementById("daftar").innerText = "Daftar Buku Pilihan";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const lang = getCookie("lang") || "id";
+      applyLanguage(lang);
+    });
   </script>
 </body>
 </html>
