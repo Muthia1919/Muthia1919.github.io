@@ -221,46 +221,60 @@
   <main>
     <h2 id="judulDaftar">Daftar Buku Pilihan</h2>
     <div class="book-container">
-      <div class="book-container">
-  <!-- Buku 1 -->
-  <div class="book">
-    <a href="https://www.google.co.id/books/edition/Introduction_to_Digital_Libraries/mdMqDgAAQBAJ?hl=en&gbpv=1" target="_blank">
-      <img src="https://media.s-bol.com/VOm5xRZwk665/550x811.jpg" alt="Introduction to Digital Libraries">
-    </a>
-    <h3>Introduction to Digital Libraries</h3>
-    <p>
-      <strong>Penulis:</strong> Gobinda G. Chowdhury, Sudatta Chowdhury<br>
-      <strong>Genre:</strong> Non-fiksi edukatif, Teknologi informasi<br>
-      <strong>Bahasa:</strong> English
-    </p>
-  </div>
+      <!-- Buku 1 -->
+      <div class="book">
+        <a href="https://www.google.co.id/books/edition/Introduction_to_Digital_Libraries/mdMqDgAAQBAJ?hl=en&gbpv=1" target="_blank">
+          <img src="https://media.s-bol.com/VOm5xRZwk665/550x811.jpg" alt="Introduction to Digital Libraries">
+        </a>
+        <h3>Introduction to Digital Libraries</h3>
+        <p>
+          <strong>Penulis:</strong> Gobinda G. Chowdhury, Sudatta Chowdhury<br>
+          <strong>Genre:</strong> Non-fiksi edukatif, Teknologi informasi<br>
+          <strong>Bahasa:</strong> English
+        </p>
+      </div>
 
-  <!-- Buku 2 -->
-  <div class="book">
-    <a href="https://www.google.co.id/books/edition/Moderenisasi_Gaya_Hidup/L_NmEAAAQBAJ?hl=en&gbpv=1" target="_blank">
-      <img src="https://penerbitalineaku.com/wp-content/uploads/2022/08/Modernisasi-Gaya-Hidup-212x300.jpg" alt="Moderenisasi Gaya Hidup">
-    </a>
-    <h3>Moderenisasi Gaya Hidup</h3>
-    <p>
-      <strong>Penulis:</strong> Agus Juliansyah, M. Hipji Rahmani, dan Peserta Kelas Self Publishing Alineaku<br>
-      <strong>Genre:</strong> Non-fiksi edukatif<br>
-      <strong>Bahasa:</strong> Indonesia
-    </p>
-  </div>
+      <!-- Buku 2 -->
+      <div class="book">
+        <a href="https://www.google.co.id/books/edition/Moderenisasi_Gaya_Hidup/L_NmEAAAQBAJ?hl=en&gbpv=1" target="_blank">
+          <img src="https://penerbitalineaku.com/wp-content/uploads/2022/08/Modernisasi-Gaya-Hidup-212x300.jpg" alt="Moderenisasi Gaya Hidup">
+        </a>
+        <h3>Moderenisasi Gaya Hidup</h3>
+        <p>
+          <strong>Penulis:</strong> Agus Juliansyah, M. Hipji Rahmani, dan Peserta Kelas Self Publishing Alineaku<br>
+          <strong>Genre:</strong> Non-fiksi edukatif<br>
+          <strong>Bahasa:</strong> Indonesia
+        </p>
+      </div>
 
-  <!-- Buku 3 -->
-  <div class="book">
-    <a href="https://www.google.co.id/books/edition/Ensiklopedia/nR7l61qlzDcC?hl=en&gbpv=1" target="_blank">
-      <img src="https://m.media-amazon.com/images/I/51W14yvO7CL.jpg" alt="Ensiklopedia">
-    </a>
-    <h3>Ensiklopedia</h3>
-    <p>
-      <strong>Penulis:</strong> Temuan Yang Mengubah Dunia<br>
-      <strong>Genre:</strong> Ensiklopedia anak, Sains & Teknologi<br>
-      <strong>Bahasa:</strong> Indonesia
-    </p>
-  </div>
-</div>
+      <!-- Buku 3 -->
+      <div class="book">
+        <a href="https://www.google.co.id/books/edition/Ensiklopedia/nR7l61qlzDcC?hl=en&gbpv=1" target="_blank">
+          <img src="https://m.media-amazon.com/images/I/51W14yvO7CL.jpg" alt="Ensiklopedia">
+        </a>
+        <h3>Ensiklopedia</h3>
+        <p>
+          <strong>Penulis:</strong> Temuan Yang Mengubah Dunia<br>
+          <strong>Genre:</strong> Ensiklopedia anak, Sains & Teknologi<br>
+          <strong>Bahasa:</strong> Indonesia
+        </p>
+      </div>
+    </div>
+
+    <!-- Event Instagram -->
+    <h2 id="judulEvent" style="margin-top: 60px;">Event Perpustakaan</h2>
+    <div class="book-container">
+      <div class="book">
+        <a href="https://www.instagram.com/p/DKRne2ySEZ7/?igsh=MTl4eGZ1a2szbjBudA==" target="_blank">
+          <img src="https://via.placeholder.com/250x250?text=Gambar+Event+Instagram" alt="Event Perpustakaan Muthia Sari">
+        </a>
+        <h3>Kegiatan Terbaru</h3>
+        <p>
+          <strong>Lokasi:</strong> Perpustakaan Muthia Sari<br>
+          <strong>Deskripsi:</strong> Dokumentasi kegiatan terbaru kami. Klik gambar untuk melihat langsung di Instagram.<br>
+          <strong>Sumber:</strong> Instagram
+        </p>
+      </div>
     </div>
   </main>
 
@@ -314,15 +328,18 @@
       const judul = document.getElementById("judulHalaman");
       const subjudul = document.getElementById("subJudul");
       const daftar = document.getElementById("judulDaftar");
+      const event = document.getElementById("judulEvent");
 
       if (lang === "en") {
         judul.innerText = "Book Recommendations";
         subjudul.innerText = "Selected books we recommend for you to read";
         daftar.innerText = "Recommended Book List";
+        event.innerText = "Library Event";
       } else {
         judul.innerText = "Rekomendasi Buku";
         subjudul.innerText = "Buku-buku pilihan yang kami rekomendasikan untuk Anda baca";
         daftar.innerText = "Daftar Buku Pilihan";
+        event.innerText = "Event Perpustakaan";
       }
 
       highlightLanguageButton(lang);
