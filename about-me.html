@@ -14,7 +14,6 @@
       color: #333;
     }
 
-    /* Ukuran Font Konsisten */
     h1 {
       font-size: 36px;
       font-weight: bold;
@@ -51,6 +50,32 @@
       right: 20px;
       top: 15px;
       cursor: pointer;
+    }
+
+    .language-buttons {
+      position: absolute;
+      top: 12px;
+      right: 60px;
+    }
+
+    .language-buttons button {
+      margin: 0 2px;
+      padding: 6px 10px;
+      font-size: 14px;
+      background-color: #3b82f6;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .language-buttons button.active {
+      background-color: #2563eb;
+      font-weight: bold;
+    }
+
+    .language-buttons button:hover {
+      background-color: #60a5fa;
     }
 
     .nav-links {
@@ -153,6 +178,10 @@
   <!-- Navbar -->
   <nav>
     <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="language-buttons">
+      <button id="btn-id" onclick="ubahBahasa('id')">ID</button>
+      <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
+    </div>
     <ul class="nav-links">
       <li><a href="index.html">Beranda</a></li>
       <li><a href="about-me.html">Tentang Saya</a></li>
@@ -214,7 +243,7 @@
         <td>2024</td>
         <td>Juara 1</td>
         <td>10th Tirak Taekwondo Internasional Tournament 2024</td>
-      </tr>      
+      </tr>
       <tr>
         <td>2021</td>
         <td>Juara 2</td>
@@ -239,7 +268,7 @@
         <td>2019</td>
         <td>Juara 1 & Juara 2</td>
         <td>Kejuaraan Nasional Taekwondo Taragak ka Bukittinggi Memperebutkan Piala Gubernur Sumatera Barat</td>
-      </tr> 
+      </tr>
       <tr>
         <td>2023</td>
         <td>Juara 3</td>
@@ -259,11 +288,71 @@
     <p>&copy; 2025 Perpustakaan Muthia Sari</p>
   </footer>
 
+  <!-- Script -->
   <script>
     function toggleMenu() {
       const nav = document.querySelector(".nav-links");
       nav.style.display = nav.style.display === "block" ? "none" : "block";
     }
+
+    function getSiteSettings() {
+      const cookies = document.cookie.split("; ");
+      const settingCookie = cookies.find(row => row.startsWith("site_settings="));
+      if (settingCookie) {
+        try {
+          return JSON.parse(settingCookie.split("=")[1]);
+        } catch {
+          return {};
+        }
+      }
+      return {};
+    }
+
+    function setSiteSettings(name, value) {
+      const settings = getSiteSettings();
+      settings[name] = value;
+      document.cookie = "site_settings=" + JSON.stringify(settings) + ";path=/;max-age=" + (60 * 60 * 24 * 30);
+    }
+
+    function highlightLanguageButton(lang) {
+      document.getElementById('btn-id').classList.remove('active');
+      document.getElementById('btn-en').classList.remove('active');
+      if (lang === 'en') {
+        document.getElementById('btn-en').classList.add('active');
+      } else {
+        document.getElementById('btn-id').classList.add('active');
+      }
+    }
+
+    function ubahBahasa(lang) {
+      setSiteSettings('bahasa', lang);
+      location.reload();
+    }
+
+    function tampilkanBahasa(lang) {
+      document.querySelector("header h1").innerText = lang === "en" ? "My Short Profile" : "Profil Singkat Saya";
+      document.querySelectorAll("h2")[0].innerText = lang === "en" ? "📝 Short Biodata" : "📝 Biodata Singkat";
+      document.querySelectorAll("h2")[1].innerText = lang === "en" ? "🏅 My Achievements" : "🏅 Beberapa Prestasi Saya";
+      highlightLanguageButton(lang);
+    }
+
+    window.onload = function () {
+      let settings = getSiteSettings();
+
+      if (!settings.nama) {
+        const nama = prompt("Halo, siapa nama Anda?");
+        if (nama) {
+          setSiteSettings("nama", nama);
+        }
+      }
+
+      if (!settings.bahasa) {
+        setSiteSettings("bahasa", "id");
+        settings.bahasa = "id";
+      }
+
+      tampilkanBahasa(settings.bahasa);
+    };
   </script>
 
 </body>
