@@ -77,10 +77,6 @@
       font-weight: bold;
     }
 
-    .language-buttons button:hover {
-      background-color: #60a5fa;
-    }
-
     header {
       background-color: #1e3a8a;
       color: white;
@@ -174,6 +170,11 @@
         display: block;
       }
 
+      .language-buttons {
+        top: 55px;
+        right: 20px;
+      }
+
       header h1 {
         font-size: 24px;
       }
@@ -190,15 +191,11 @@
         width: 90%;
         margin: auto;
       }
-
-      .language-buttons {
-        top: 55px;
-        right: 20px;
-      }
     }
   </style>
 </head>
 <body>
+
   <!-- Navbar -->
   <nav>
     <div class="hamburger" onclick="toggleMenu()">☰</div>
@@ -216,15 +213,16 @@
 
   <!-- Header -->
   <header>
-    <h1 id="judulRekomendasi">Rekomendasi Buku</h1>
-    <p id="deskripsiRekomendasi">Buku-buku pilihan yang kami rekomendasikan untuk Anda baca</p>
+    <h1 id="judulHalaman">Rekomendasi Buku</h1>
+    <p id="subJudul">Buku-buku pilihan yang kami rekomendasikan untuk Anda baca</p>
   </header>
 
   <!-- Main Content -->
   <main>
-    <h2 id="daftarJudul">Daftar Buku Pilihan</h2>
+    <h2 id="judulDaftar">Daftar Buku Pilihan</h2>
     <div class="book-container">
-      <!-- Buku-buku di sini tetap sama -->
+      <!-- Isi buku tetap -->
+      <!-- ... -->
     </div>
   </main>
 
@@ -233,6 +231,7 @@
     <p>&copy; 2025 Perpustakaan Muthia Sari</p>
   </footer>
 
+  <!-- Script -->
   <script>
     function toggleMenu() {
       const nav = document.querySelector(".nav-links");
@@ -258,6 +257,11 @@
       document.cookie = "site_settings=" + JSON.stringify(settings) + ";path=/;max-age=" + (60 * 60 * 24 * 30);
     }
 
+    function ubahBahasa(lang) {
+      setSiteSettings('bahasa', lang);
+      location.reload();
+    }
+
     function highlightLanguageButton(lang) {
       document.getElementById('btn-id').classList.remove('active');
       document.getElementById('btn-en').classList.remove('active');
@@ -268,336 +272,26 @@
       }
     }
 
-    function ubahBahasa(lang) {
-      setSiteSettings('bahasa', lang);
-      location.reload();
-    }
-
     function tampilkanBahasa(lang) {
-      if (lang === 'en') {
-        document.getElementById("judulRekomendasi").innerText = "Book Recommendations";
-        document.getElementById("deskripsiRekomendasi").innerText = "Books we recommend for your reading";
-        document.getElementById("daftarJudul").innerText = "Recommended Book List";
+      const judul = document.getElementById("judulHalaman");
+      const subjudul = document.getElementById("subJudul");
+      const daftar = document.getElementById("judulDaftar");
+
+      if (lang === "en") {
+        judul.innerText = "Book Recommendations";
+        subjudul.innerText = "Selected books we recommend for you to read";
+        daftar.innerText = "Recommended Book List";
       } else {
-        document.getElementById("judulRekomendasi").innerText = "Rekomendasi Buku";
-        document.getElementById("deskripsiRekomendasi").innerText = "Buku-buku pilihan yang kami rekomendasikan untuk Anda baca";
-        document.getElementById("daftarJudul").innerText = "Daftar Buku Pilihan";
+        judul.innerText = "Rekomendasi Buku";
+        subjudul.innerText = "Buku-buku pilihan yang kami rekomendasikan untuk Anda baca";
+        daftar.innerText = "Daftar Buku Pilihan";
       }
 
       highlightLanguageButton(lang);
     }
 
     window.onload = function () {
-      let settings = getSiteSettings();
-
-      if (!settings.nama) {
-        const nama = prompt("Halo, siapa nama Anda?");
-        if (nama) {
-          setSiteSettings("nama", nama);
-        }
-      }
-
-      if (!settings.bahasa) {
-        setSiteSettings("bahasa", "id");
-        settings.bahasa = "id";
-      }
-
-      tampilkanBahasa(settings.bahasa);
-    };
-  </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rekomendasi - Perpustakaan Muthia Sari</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #e3f2fd;
-      color: #333;
-    }
-
-    nav {
-      background-color: #1e3a8a;
-      padding: 15px;
-      text-align: center;
-      position: relative;
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li {
-      display: inline-block;
-      margin: 0 20px;
-    }
-
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      padding: 10px 20px;
-      background-color: #1e3a8a;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-
-    nav ul li a:hover {
-      background-color: #3b82f6;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 24px;
-      color: white;
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      cursor: pointer;
-    }
-
-    .language-buttons {
-      position: absolute;
-      top: 12px;
-      right: 60px;
-    }
-
-    .language-buttons button {
-      margin: 0 2px;
-      padding: 6px 10px;
-      font-size: 14px;
-      background-color: #3b82f6;
-      border: none;
-      border-radius: 4px;
-      color: white;
-      cursor: pointer;
-    }
-
-    .language-buttons button.active {
-      background-color: #2563eb;
-      font-weight: bold;
-    }
-
-    .language-buttons button:hover {
-      background-color: #60a5fa;
-    }
-
-    header {
-      background-color: #1e3a8a;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 18px;
-      margin: 0;
-    }
-
-    main {
-      padding: 50px 20px;
-      text-align: center;
-    }
-
-    h2 {
-      color: #1e3a8a;
-      font-size: 28px;
-    }
-
-    .book-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    .book {
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      width: 250px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .book img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .book h3 {
-      margin-top: 15px;
-      color: #1e3a8a;
-      font-size: 20px;
-    }
-
-    .book p {
-      font-size: 14px;
-      color: #555;
-      text-align: left;
-      line-height: 1.5;
-      margin-top: 10px;
-    }
-
-    footer {
-      background-color: #1e3a8a;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      margin-top: 50px;
-    }
-
-    @media screen and (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background-color: #1e3a8a;
-        position: absolute;
-        width: 100%;
-        top: 55px;
-        left: 0;
-        z-index: 1000;
-      }
-
-      nav ul li {
-        display: block;
-        padding: 12px 0;
-      }
-
-      .hamburger {
-        display: block;
-      }
-
-      header h1 {
-        font-size: 24px;
-      }
-
-      header p {
-        font-size: 16px;
-      }
-
-      h2 {
-        font-size: 20px;
-      }
-
-      .book {
-        width: 90%;
-        margin: auto;
-      }
-
-      .language-buttons {
-        top: 55px;
-        right: 20px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <div class="language-buttons">
-      <button id="btn-id" onclick="ubahBahasa('id')">ID</button>
-      <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html">Beranda</a></li>
-      <li><a href="about-me.html">Tentang Saya</a></li>
-      <li><a href="rekomendasi.html">Rekomendasi</a></li>
-      <li><a href="contact.html">Kontak</a></li>
-    </ul>
-  </nav>
-
-  <!-- Header -->
-  <header>
-    <h1 id="judulRekomendasi">Rekomendasi Buku</h1>
-    <p id="deskripsiRekomendasi">Buku-buku pilihan yang kami rekomendasikan untuk Anda baca</p>
-  </header>
-
-  <!-- Main Content -->
-  <main>
-    <h2 id="daftarJudul">Daftar Buku Pilihan</h2>
-    <div class="book-container">
-      <!-- Buku-buku di sini tetap sama -->
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Perpustakaan Muthia Sari</p>
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      const nav = document.querySelector(".nav-links");
-      nav.style.display = nav.style.display === "block" ? "none" : "block";
-    }
-
-    function getSiteSettings() {
-      const cookies = document.cookie.split("; ");
-      const settingCookie = cookies.find(row => row.startsWith("site_settings="));
-      if (settingCookie) {
-        try {
-          return JSON.parse(settingCookie.split("=")[1]);
-        } catch {
-          return {};
-        }
-      }
-      return {};
-    }
-
-    function setSiteSettings(name, value) {
       const settings = getSiteSettings();
-      settings[name] = value;
-      document.cookie = "site_settings=" + JSON.stringify(settings) + ";path=/;max-age=" + (60 * 60 * 24 * 30);
-    }
-
-    function highlightLanguageButton(lang) {
-      document.getElementById('btn-id').classList.remove('active');
-      document.getElementById('btn-en').classList.remove('active');
-      if (lang === 'en') {
-        document.getElementById('btn-en').classList.add('active');
-      } else {
-        document.getElementById('btn-id').classList.add('active');
-      }
-    }
-
-    function ubahBahasa(lang) {
-      setSiteSettings('bahasa', lang);
-      location.reload();
-    }
-
-    function tampilkanBahasa(lang) {
-      if (lang === 'en') {
-        document.getElementById("judulRekomendasi").innerText = "Book Recommendations";
-        document.getElementById("deskripsiRekomendasi").innerText = "Books we recommend for your reading";
-        document.getElementById("daftarJudul").innerText = "Recommended Book List";
-      } else {
-        document.getElementById("judulRekomendasi").innerText = "Rekomendasi Buku";
-        document.getElementById("deskripsiRekomendasi").innerText = "Buku-buku pilihan yang kami rekomendasikan untuk Anda baca";
-        document.getElementById("daftarJudul").innerText = "Daftar Buku Pilihan";
-      }
-
-      highlightLanguageButton(lang);
-    }
-
-    window.onload = function () {
-      let settings = getSiteSettings();
 
       if (!settings.nama) {
         const nama = prompt("Halo, siapa nama Anda?");
@@ -614,5 +308,6 @@
       tampilkanBahasa(settings.bahasa);
     };
   </script>
+
 </body>
 </html>
