@@ -2,35 +2,30 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rekomendasi - Perpustakaan Muthia Sari</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       background-color: #e3f2fd;
       color: #333;
     }
-
     nav {
       background-color: #1e3a8a;
       padding: 15px;
       text-align: center;
       position: relative;
     }
-
     nav ul {
       list-style: none;
       margin: 0;
       padding: 0;
     }
-
     nav ul li {
       display: inline-block;
       margin: 0 20px;
     }
-
     nav ul li a {
       color: #fff;
       text-decoration: none;
@@ -40,11 +35,9 @@
       border-radius: 5px;
       transition: background-color 0.3s;
     }
-
     nav ul li a:hover {
       background-color: #3b82f6;
     }
-
     .hamburger {
       display: none;
       font-size: 24px;
@@ -54,56 +47,28 @@
       right: 20px;
       cursor: pointer;
     }
-
-    .language-buttons {
-      position: absolute;
-      top: 12px;
-      right: 60px;
-    }
-
-    .language-buttons button {
-      margin: 0 2px;
-      padding: 6px 10px;
-      font-size: 14px;
-      background-color: #3b82f6;
-      border: none;
-      border-radius: 4px;
-      color: white;
-      cursor: pointer;
-    }
-
-    .language-buttons button.active {
-      background-color: #2563eb;
-      font-weight: bold;
-    }
-
     header {
       background-color: #1e3a8a;
       color: white;
       padding: 40px 20px;
       text-align: center;
     }
-
     header h1 {
       font-size: 36px;
       margin-bottom: 10px;
     }
-
     header p {
       font-size: 18px;
       margin: 0;
     }
-
     main {
       padding: 50px 20px;
       text-align: center;
     }
-
     h2 {
       color: #1e3a8a;
       font-size: 28px;
     }
-
     .book-container {
       display: flex;
       justify-content: center;
@@ -111,7 +76,6 @@
       gap: 30px;
       margin-top: 30px;
     }
-
     .book {
       background-color: #ffffff;
       border-radius: 10px;
@@ -120,19 +84,16 @@
       padding: 20px;
       text-align: center;
     }
-
     .book img {
       width: 100%;
       height: auto;
       border-radius: 8px;
     }
-
     .book h3 {
       margin-top: 15px;
       color: #1e3a8a;
       font-size: 20px;
     }
-
     .book p {
       font-size: 14px;
       color: #555;
@@ -140,7 +101,6 @@
       line-height: 1.5;
       margin-top: 10px;
     }
-
     footer {
       background-color: #1e3a8a;
       color: #fff;
@@ -148,7 +108,6 @@
       padding: 20px;
       margin-top: 50px;
     }
-
     @media screen and (max-width: 768px) {
       nav ul {
         display: none;
@@ -160,49 +119,52 @@
         left: 0;
         z-index: 1000;
       }
-
       nav ul li {
         display: block;
         padding: 12px 0;
       }
-
       .hamburger {
         display: block;
       }
-
-      .language-buttons {
-        top: 55px;
-        right: 20px;
-      }
-
       header h1 {
         font-size: 24px;
       }
-
       header p {
         font-size: 16px;
       }
-
       h2 {
         font-size: 20px;
       }
-
       .book {
         width: 90%;
         margin: auto;
       }
     }
+    /* Tombol Bahasa di kanan atas */
+    #language-switcher {
+      position: absolute;
+      top: 15px;
+      right: 60px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      user-select: none;
+      background: transparent;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    #language-switcher:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
   </style>
 </head>
 <body>
-
   <!-- Navbar -->
   <nav>
+    <button id="language-switcher">EN</button>
     <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <div class="language-buttons">
-      <button id="btn-id" onclick="ubahBahasa('id')">ID</button>
-      <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
-    </div>
     <ul class="nav-links">
       <li><a href="index.html">Beranda</a></li>
       <li><a href="about-me.html">Tentang Saya</a></li>
@@ -213,16 +175,54 @@
 
   <!-- Header -->
   <header>
-    <h1 id="judulHalaman">Rekomendasi Buku</h1>
-    <p id="subJudul">Buku-buku pilihan yang kami rekomendasikan untuk Anda baca</p>
+    <h1 id="header-title">Rekomendasi Buku</h1>
+    <p id="header-desc">Buku-buku pilihan yang kami rekomendasikan untuk Anda baca</p>
   </header>
 
   <!-- Main Content -->
   <main>
-    <h2 id="judulDaftar">Daftar Buku Pilihan</h2>
-    <div class="book-container">
-      <!-- Isi buku tetap -->
-      <!-- ... -->
+    <h2 id="book-list-title">Daftar Buku Pilihan</h2>
+    <div class="book-container" id="bookContainer">
+      <div class="book-container">
+  <!-- Buku 1 -->
+  <div class="book">
+    <a href="https://www.google.co.id/books/edition/Introduction_to_Digital_Libraries/mdMqDgAAQBAJ?hl=en&gbpv=1" target="_blank">
+      <img src="https://media.s-bol.com/VOm5xRZwk665/550x811.jpg" alt="Introduction to Digital Libraries">
+    </a>
+    <h3>Introduction to Digital Libraries</h3>
+    <p>
+      <strong>Penulis:</strong> Gobinda G. Chowdhury, Sudatta Chowdhury<br>
+      <strong>Genre:</strong> Non-fiksi edukatif, Teknologi informasi<br>
+      <strong>Bahasa:</strong> English
+    </p>
+  </div>
+
+  <!-- Buku 2 -->
+  <div class="book">
+    <a href="https://www.google.co.id/books/edition/Moderenisasi_Gaya_Hidup/L_NmEAAAQBAJ?hl=en&gbpv=1" target="_blank">
+      <img src="https://penerbitalineaku.com/wp-content/uploads/2022/08/Modernisasi-Gaya-Hidup-212x300.jpg" alt="Moderenisasi Gaya Hidup">
+    </a>
+    <h3>Moderenisasi Gaya Hidup</h3>
+    <p>
+      <strong>Penulis:</strong> Agus Juliansyah, M. Hipji Rahmani, dan Peserta Kelas Self Publishing Alineaku<br>
+      <strong>Genre:</strong> Non-fiksi edukatif<br>
+      <strong>Bahasa:</strong> Indonesia
+    </p>
+  </div>
+
+  <!-- Buku 3 -->
+  <div class="book">
+    <a href="https://www.google.co.id/books/edition/Ensiklopedia/nR7l61qlzDcC?hl=en&gbpv=1" target="_blank">
+      <img src="https://m.media-amazon.com/images/I/51W14yvO7CL.jpg" alt="Ensiklopedia">
+    </a>
+    <h3>Ensiklopedia</h3>
+    <p>
+      <strong>Penulis:</strong> Temuan Yang Mengubah Dunia<br>
+      <strong>Genre:</strong> Ensiklopedia anak, Sains & Teknologi<br>
+      <strong>Bahasa:</strong> Indonesia
+    </p>
+  </div>
+</div>
     </div>
   </main>
 
@@ -231,19 +231,19 @@
     <p>&copy; 2025 Perpustakaan Muthia Sari</p>
   </footer>
 
-  <!-- Script -->
   <script>
     function toggleMenu() {
       const nav = document.querySelector(".nav-links");
       nav.style.display = nav.style.display === "block" ? "none" : "block";
     }
 
+    // Fungsi baca cookie site_settings
     function getSiteSettings() {
       const cookies = document.cookie.split("; ");
       const settingCookie = cookies.find(row => row.startsWith("site_settings="));
       if (settingCookie) {
         try {
-          return JSON.parse(settingCookie.split("=")[1]);
+          return JSON.parse(decodeURIComponent(settingCookie.split("=")[1]));
         } catch {
           return {};
         }
@@ -251,63 +251,90 @@
       return {};
     }
 
+    // Fungsi set cookie site_settings
     function setSiteSettings(name, value) {
       const settings = getSiteSettings();
       settings[name] = value;
-      document.cookie = "site_settings=" + JSON.stringify(settings) + ";path=/;max-age=" + (60 * 60 * 24 * 30);
+      document.cookie = "site_settings=" + encodeURIComponent(JSON.stringify(settings)) + ";path=/;max-age=" + (60*60*24*30);
     }
 
-    function ubahBahasa(lang) {
-      setSiteSettings('bahasa', lang);
-      location.reload();
+    // Data buku dengan dua bahasa
+    const booksData = [
+      {
+        link: "https://www.google.co.id/books/edition/Introduction_to_Digital_Libraries/mdMqDgAAQBAJ?hl=en&gbpv=1",
+        img: "https://media.s-bol.com/VOm5xRZwk665/550x811.jpg",
+        title: { id: "Introduction to Digital Libraries", en: "Introduction to Digital Libraries" },
+        penulis: { id: "Gobinda G. Chowdhury, Sudatta Chowdhury", en: "Gobinda G. Chowdhury, Sudatta Chowdhury" },
+        genre: { id: "Non-fiksi edukatif, Teknologi informasi", en: "Educational non-fiction, Information Technology" },
+        bahasa: { id: "English", en: "English" }
+      },
+      {
+        link: "https://www.google.co.id/books/edition/Moderenisasi_Gaya_Hidup/L_NmEAAAQBAJ?hl=en&gbpv=1",
+        img: "https://penerbitalineaku.com/wp-content/uploads/2022/08/Modernisasi-Gaya-Hidup-212x300.jpg",
+        title: { id: "Moderenisasi Gaya Hidup", en: "Modernization of Lifestyle" },
+        penulis: { id: "Agus Juliansyah, M. Hipji Rahmani, dan Peserta Kelas Self Publishing Alineaku", en: "Agus Juliansyah, M. Hipji Rahmani, and Alineaku Self Publishing Class Participants" },
+        genre: { id: "Non-fiksi edukatif", en: "Educational non-fiction" },
+        bahasa: { id: "Indonesia", en: "Indonesian" }
+      },
+      {
+        link: "https://www.google.co.id/books/edition/Ensiklopedia/nR7l61qlzDcC?hl=en&gbpv=1",
+        img: "https://m.media-amazon.com/images/I/51W14yvO7CL.jpg",
+        title: { id: "Ensiklopedia", en: "Encyclopedia" },
+        penulis: { id: "Temuan Yang Mengubah Dunia", en: "Discoveries That Changed the World" },
+        genre: { id: "Ensiklopedia anak, Sains & Teknologi", en: "Children's encyclopedia, Science & Technology" },
+        bahasa: { id: "Indonesia", en: "Indonesian" }
+      }
+    ];
+
+    // Fungsi tampilkan konten buku sesuai bahasa
+    function tampilkanBuku(lang) {
+      const container = document.getElementById("bookContainer");
+      container.innerHTML = ""; // kosongkan dulu
+
+      // Label
+      const labelPenulis = (lang === "en") ? "Author:" : "Penulis:";
+      const labelGenre = (lang === "en") ? "Genre:" : "Genre:";
+      const labelBahasa = (lang === "en") ? "Language:" : "Bahasa:";
+
+      booksData.forEach(book => {
+        const div = document.createElement("div");
+        div.className = "book";
+        div.innerHTML = `
+          <a href="${book.link}" target="_blank">
+            <img src="${book.img}" alt="${book.title[lang]}">
+          </a>
+          <h3>${book.title[lang]}</h3>
+          <p>
+            <strong>${labelPenulis}</strong> ${book.penulis[lang]}<br>
+            <strong>${labelGenre}</strong> ${book.genre[lang]}<br>
+            <strong>${labelBahasa}</strong> ${book.bahasa[lang]}
+          </p>
+        `;
+        container.appendChild(div);
+      });
     }
 
-    function highlightLanguageButton(lang) {
-      document.getElementById('btn-id').classList.remove('active');
-      document.getElementById('btn-en').classList.remove('active');
-      if (lang === 'en') {
-        document.getElementById('btn-en').classList.add('active');
+    // Fungsi tampilkan teks header sesuai bahasa
+    function tampilkanHeader(lang) {
+      if(lang === "en") {
+        document.getElementById("header-title").innerText = "Book Recommendations";
+        document.getElementById("header-desc").innerText = "Selected books we recommend you to read";
+        document.getElementById("book-list-title").innerText = "List of Selected Books";
       } else {
-        document.getElementById('btn-id').classList.add('active');
+        document.getElementById("header-title").innerText = "Rekomendasi Buku";
+        document.getElementById("header-desc").innerText = "Buku-buku pilihan yang kami rekomendasikan untuk Anda baca";
+        document.getElementById("book-list-title").innerText = "Daftar Buku Pilihan";
       }
     }
 
-    function tampilkanBahasa(lang) {
-      const judul = document.getElementById("judulHalaman");
-      const subjudul = document.getElementById("subJudul");
-      const daftar = document.getElementById("judulDaftar");
-
-      if (lang === "en") {
-        judul.innerText = "Book Recommendations";
-        subjudul.innerText = "Selected books we recommend for you to read";
-        daftar.innerText = "Recommended Book List";
-      } else {
-        judul.innerText = "Rekomendasi Buku";
-        subjudul.innerText = "Buku-buku pilihan yang kami rekomendasikan untuk Anda baca";
-        daftar.innerText = "Daftar Buku Pilihan";
-      }
-
-      highlightLanguageButton(lang);
-    }
-
-    window.onload = function () {
+    // Load bahasa dari cookie dan set halaman
+    function loadLanguage() {
       const settings = getSiteSettings();
+      let lang = settings.bahasa || "id"; // default bahasa indonesia
 
-      if (!settings.nama) {
-        const nama = prompt("Halo, siapa nama Anda?");
-        if (nama) {
-          setSiteSettings("nama", nama);
-        }
-      }
+      // Update tombol bahasa
+      const btnLang = document.getElementById("language-switcher");
+      btnLang.textContent = (lang === "id") ? "EN" : "ID";
 
-      if (!settings.bahasa) {
-        setSiteSettings("bahasa", "id");
-        settings.bahasa = "id";
-      }
-
-      tampilkanBahasa(settings.bahasa);
-    };
-  </script>
-
-</body>
-</html>
+      tampilkanHeader(lang);
+      tampilkanBuku(lang
