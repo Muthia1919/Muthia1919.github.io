@@ -106,6 +106,12 @@
       margin-left: 5px;
     }
 
+    #hasilPencarian {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+    }
+
     header {
       background-color: #1e3a8a;
       color: #fff;
@@ -205,11 +211,12 @@
 <header>
   <h1>Perpustakaan Muthia Sari</h1>
 
-  <!-- Form Pencarian di bawah H1 -->
-  <form class="search-form" onsubmit="return goToSearchPage()">
+  <!-- Form Pencarian -->
+  <form class="search-form" id="searchForm">
     <input type="text" id="globalSearch" placeholder="Cari...">
     <button type="submit">Cari</button>
   </form>
+  <div id="hasilPencarian"></div>
 </header>
 
 <!-- Main -->
@@ -283,13 +290,17 @@
     highlightLanguageButton(lang);
   }
 
-  function goToSearchPage() {
+  document.getElementById("searchForm").addEventListener("submit", function(e) {
+    e.preventDefault();
     const keyword = document.getElementById("globalSearch").value.trim();
+    const hasilDiv = document.getElementById("hasilPencarian");
+
     if (keyword) {
-      window.location.href = "hasil.html?query=" + encodeURIComponent(keyword);
+      hasilDiv.innerHTML = `Hasil pencarian untuk: <strong>${keyword}</strong><br><em>(Fitur pencarian lanjutan masih dalam pengembangan)</em>`;
+    } else {
+      hasilDiv.innerHTML = "<span style='color:red;'>Silakan masukkan kata kunci terlebih dahulu.</span>";
     }
-    return false;
-  }
+  });
 
   window.onload = function () {
     let settings = getSiteSettings();
