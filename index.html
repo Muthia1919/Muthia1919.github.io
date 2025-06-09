@@ -58,7 +58,7 @@
     .language-buttons {
       position: absolute;
       top: 12px;
-      right: 160px;
+      right: 20px;
     }
 
     .language-buttons button {
@@ -82,26 +82,28 @@
     }
 
     .search-form {
-      position: absolute;
-      top: 10px;
-      right: 20px;
+      text-align: center;
+      margin-top: 20px;
     }
 
     .search-form input[type="text"] {
-      padding: 6px;
-      font-size: 14px;
+      padding: 8px;
+      font-size: 16px;
       border-radius: 4px;
       border: none;
+      width: 250px;
+      max-width: 80%;
     }
 
     .search-form button {
-      padding: 6px 10px;
-      font-size: 14px;
+      padding: 8px 14px;
+      font-size: 16px;
       background-color: #3b82f6;
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      margin-left: 5px;
     }
 
     header {
@@ -114,7 +116,7 @@
     h1 {
       font-size: 36px;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     main {
@@ -178,11 +180,6 @@
         top: 55px;
         right: 20px;
       }
-
-      .search-form {
-        position: static;
-        margin-top: 10px;
-      }
     }
   </style>
 </head>
@@ -196,12 +193,6 @@
     <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
   </div>
 
-  <!-- Form Pencarian -->
-  <form class="search-form" onsubmit="return goToSearchPage()">
-    <input type="text" id="globalSearch" placeholder="Cari...">
-    <button type="submit">Cari</button>
-  </form>
-
   <ul class="nav-links" id="navMenu">
     <li><a href="index.html">Beranda</a></li>
     <li><a href="about-me.html">Tentang Saya</a></li>
@@ -213,6 +204,12 @@
 <!-- Header -->
 <header>
   <h1>Perpustakaan Muthia Sari</h1>
+
+  <!-- Form Pencarian di bawah H1 -->
+  <form class="search-form" onsubmit="return goToSearchPage()">
+    <input type="text" id="globalSearch" placeholder="Cari...">
+    <button type="submit">Cari</button>
+  </form>
 </header>
 
 <!-- Main -->
