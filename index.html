@@ -58,7 +58,7 @@
     .language-buttons {
       position: absolute;
       top: 12px;
-      right: 60px;
+      right: 160px;
     }
 
     .language-buttons button {
@@ -79,6 +79,29 @@
 
     .language-buttons button:hover {
       background-color: #60a5fa;
+    }
+
+    .search-form {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+    }
+
+    .search-form input[type="text"] {
+      padding: 6px;
+      font-size: 14px;
+      border-radius: 4px;
+      border: none;
+    }
+
+    .search-form button {
+      padding: 6px 10px;
+      font-size: 14px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
     }
 
     header {
@@ -155,6 +178,11 @@
         top: 55px;
         right: 20px;
       }
+
+      .search-form {
+        position: static;
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
@@ -167,6 +195,13 @@
     <button id="btn-id" onclick="ubahBahasa('id')">ID</button>
     <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
   </div>
+
+  <!-- Form Pencarian -->
+  <form class="search-form" onsubmit="return goToSearchPage()">
+    <input type="text" id="globalSearch" placeholder="Cari...">
+    <button type="submit">Cari</button>
+  </form>
+
   <ul class="nav-links" id="navMenu">
     <li><a href="index.html">Beranda</a></li>
     <li><a href="about-me.html">Tentang Saya</a></li>
@@ -249,6 +284,14 @@
     }
 
     highlightLanguageButton(lang);
+  }
+
+  function goToSearchPage() {
+    const keyword = document.getElementById("globalSearch").value.trim();
+    if (keyword) {
+      window.location.href = "hasil.html?query=" + encodeURIComponent(keyword);
+    }
+    return false;
   }
 
   window.onload = function () {
