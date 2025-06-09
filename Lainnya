@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Perkalian & Formulir Pendaftaran</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f5f7fa;
+    color: #333;
+  }
+  h1, h2 {
+    color: #1e3a8a;
+  }
+  /* Style untuk tabel perkalian */
+  input[type=number], button {
+    padding: 8px;
+    font-size: 16px;
+  }
+  table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 500px;
+  }
+  th, td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: center;
+  }
+  th {
+    background-color: #1e3a8a;
+    color: white;
+  }
+  td {
+    background-color: #e3f2fd;
+  }
+
+  /* Style untuk form */
+  form {
+    max-width: 400px;
+    margin-top: 50px;
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  }
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  button.submit-btn {
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button.submit-btn:hover {
+    background-color: #2563eb;
+  }
+</style>
+</head>
+<body>
+
+<h1>Tabel Perkalian Dinamis</h1>
+<label for="size">Masukkan ukuran tabel (1-20): </label>
+<input type="number" id="size" min="1" max="20" value="10" />
+<button onclick="buatTabel()">Buat Tabel</button>
+
+<div id="hasil"></div>
+
+<h2>Formulir Pendaftaran</h2>
+<form id="formPendaftaran" onsubmit="return kirimForm()">
+  <label for="nama">Nama Lengkap:</label>
+  <input type="text" id="nama" name="nama" required />
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required />
+
+  <label for="jenisKelamin">Jenis Kelamin:</label>
+  <select id="jenisKelamin" name="jenisKelamin" required>
+    <option value="">-- Pilih --</option>
+    <option value="Laki-laki">Laki-laki</option>
+    <option value="Perempuan">Perempuan</option>
+  </select>
+
+  <label for="alamat">Alamat:</label>
+  <textarea id="alamat" name="alamat" rows="3" required></textarea>
+
+  <button type="submit" class="submit-btn">Daftar</button>
+</form>
+
+<script>
+  function buatTabel() {
+    const size = parseInt(document.getElementById("size").value);
+    if (isNaN(size) || size < 1 || size > 20) {
+      alert("Masukkan angka antara 1 sampai 20.");
+      return;
+    }
+    let html = "<table><tr><th>x</th>";
+    for (let i = 1; i <= size; i++) {
+      html += `<th>${i}</th>`;
+    }
+    html += "</tr>";
+
+    for (let row = 1; row <= size; row++) {
+      html += `<tr><th>${row}</th>`;
+      for (let col = 1; col <= size; col++) {
+        html += `<td>${row * col}</td>`;
+      }
+      html += "</tr>";
+    }
+    html += "</table>";
+
+    document.getElementById("hasil").innerHTML = html;
+  }
+
+  window.onload = buatTabel;
+
+  function kirimForm() {
+    const nama = document.getElementById('nama').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const jenisKelamin = document.getElementById('jenisKelamin').value;
+    const alamat = document.getElementById('alamat').value.trim();
+
+    if (!nama || !email || !jenisKelamin || !alamat) {
+      alert("Harap isi semua data dengan lengkap!");
+      return false;
+    }
+
+    alert(`Terima kasih, ${nama}! Pendaftaran Anda berhasil.`);
+    document.getElementById('formPendaftaran').reset();
+    return false; // mencegah reload halaman
+  }
+</script>
+
+</body>
+</html>
