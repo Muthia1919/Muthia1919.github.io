@@ -1,104 +1,115 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perpustakaan Muthia Sari - Perkalian & Pendaftaran</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perkalian & Formulir Pendaftaran</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #e3f2fd;
+      padding: 30px 20px;
+      background-color: #f5f7fa;
       color: #333;
     }
-    nav {
-      background-color: #1e3a8a;
-      padding: 15px 0;
+
+    h1 {
+      color: #1e3a8a;
       text-align: center;
-      position: relative;
     }
-    .hamburger {
-      display: none;
-      font-size: 24px;
-      color: white;
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      cursor: pointer;
+
+    .tabs {
+      text-align: center;
+      margin-bottom: 20px;
     }
-    .language-buttons {
-      position: absolute;
-      top: 12px;
-      right: 60px;
-    }
-    .language-buttons button {
-      margin: 0 2px;
-      padding: 6px 10px;
-      font-size: 14px;
-      background-color: #3b82f6;
+
+    .tab-btn {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
+      background-color: #3b82f6;
       color: white;
       cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
-    .language-buttons button.active {
+
+    .tab-btn:hover {
       background-color: #2563eb;
+      transform: scale(1.05);
+    }
+
+    .tab-btn.active {
+      background-color: #1e3a8a;
       font-weight: bold;
     }
-    .language-buttons button:hover {
-      background-color: #60a5fa;
+
+    .tab-content {
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      right: 0;
     }
-    .nav-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+
+    .tab-content.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      position: relative;
     }
-    .nav-links li {
-      display: inline-block;
-      margin: 0 15px;
+
+    /* Tabel Perkalian */
+    input[type=number], button {
+      padding: 8px;
+      font-size: 16px;
+      margin-top: 10px;
     }
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      padding: 10px 15px;
-      display: inline-block;
+
+    table {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 100%;
     }
-    .nav-links a:hover {
-      background-color: #3b82f6;
-      border-radius: 5px;
-    }
-    header {
-      background-color: #1e3a8a;
-      color: white;
-      padding: 40px 10px;
+
+    th, td {
+      border: 1px solid #333;
+      padding: 8px;
       text-align: center;
     }
-    main {
-      padding: 30px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+
+    th {
+      background-color: #1e3a8a;
+      color: white;
     }
-    h2 {
-      color: #1e3a8a;
+
+    td {
+      background-color: #e3f2fd;
     }
-    form, #hasil {
-      width: 100%;
-      max-width: 600px;
-      background-color: white;
-      padding: 20px;
+
+    /* Formulir */
+    form {
+      background: white;
+      padding: 25px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-top: 30px;
+      margin-top: 20px;
     }
+
     label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
     }
-    input, select, textarea, button {
+
+    input, select, textarea {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
@@ -107,117 +118,71 @@
       font-size: 14px;
       box-sizing: border-box;
     }
+
     button.submit-btn {
+      margin-top: 20px;
+      padding: 10px 15px;
+      font-size: 16px;
       background-color: #1e3a8a;
       color: white;
-      font-weight: bold;
+      border: none;
+      border-radius: 4px;
       cursor: pointer;
     }
+
     button.submit-btn:hover {
       background-color: #2563eb;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-    th, td {
-      border: 1px solid #333;
-      padding: 8px;
-      text-align: center;
-    }
-    th {
-      background-color: #1e3a8a;
-      color: white;
-    }
-    td {
-      background-color: #e3f2fd;
-    }
-    footer {
-      background-color: #1e3a8a;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-    @media screen and (max-width: 768px) {
-      .nav-links {
-        display: none;
-        background-color: #1e3a8a;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-      }
-      .nav-links li {
-        display: block;
-        margin: 10px 0;
-      }
-      .hamburger {
-        display: block;
-      }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <div class="language-buttons">
-      <button id="btn-id" onclick="ubahBahasa('id')">ID</button>
-      <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#">Beranda</a></li>
-      <li><a href="#">Tentang</a></li>
-      <li><a href="#">Kontak</a></li>
-    </ul>
-  </nav>
 
-  <header>
-    <h1 id="judul">Tabel Perkalian & Pendaftaran</h1>
-  </header>
+  <h1>Perkalian & Formulir Pendaftaran</h1>
 
-  <main>
-    <section>
-      <h2 id="judulTabel">Tabel Perkalian Dinamis</h2>
-      <label for="size">Masukkan ukuran tabel (1-20):</label>
-      <input type="number" id="size" min="1" max="20" value="10">
-      <button onclick="buatTabel()">Buat Tabel</button>
-      <div id="hasil"></div>
-    </section>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('perkalian')">Tabel Perkalian</button>
+    <button class="tab-btn" onclick="showTab('formulir')">Formulir Pendaftaran</button>
+  </div>
 
-    <section>
-      <h2 id="judulForm">Formulir Pendaftaran</h2>
-      <form id="formPendaftaran" onsubmit="return kirimForm()">
-        <label for="nama">Nama Lengkap:</label>
-        <input type="text" id="nama" required>
+  <div id="perkalian" class="tab-content active">
+    <label for="size">Masukkan ukuran tabel (1-20): </label>
+    <input type="number" id="size" min="1" max="20" value="10" />
+    <button onclick="buatTabel()">Buat Tabel</button>
+    <div id="hasil"></div>
+  </div>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" required>
+  <div id="formulir" class="tab-content">
+    <form id="formPendaftaran" onsubmit="return kirimForm()">
+      <label for="nama">Nama Lengkap:</label>
+      <input type="text" id="nama" name="nama" required />
 
-        <label for="jenisKelamin">Jenis Kelamin:</label>
-        <select id="jenisKelamin" required>
-          <option value="">-- Pilih --</option>
-          <option value="Laki-laki">Laki-laki</option>
-          <option value="Perempuan">Perempuan</option>
-        </select>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
 
-        <label for="alamat">Alamat:</label>
-        <textarea id="alamat" rows="3" required></textarea>
+      <label for="jenisKelamin">Jenis Kelamin:</label>
+      <select id="jenisKelamin" name="jenisKelamin" required>
+        <option value="">-- Pilih --</option>
+        <option value="Laki-laki">Laki-laki</option>
+        <option value="Perempuan">Perempuan</option>
+      </select>
 
-        <button type="submit" class="submit-btn">Daftar</button>
-      </form>
-    </section>
-  </main>
+      <label for="alamat">Alamat:</label>
+      <textarea id="alamat" name="alamat" rows="3" required></textarea>
 
-  <footer>
-    <p>&copy; 2025 Perpustakaan Muthia Sari</p>
-  </footer>
+      <button type="submit" class="submit-btn">Daftar</button>
+    </form>
+  </div>
 
   <script>
-    function toggleMenu() {
-      const nav = document.querySelector(".nav-links");
-      nav.style.display = nav.style.display === "block" ? "none" : "block";
+    function showTab(id) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-btn');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(id).classList.add('active');
+      document.querySelector(`.tab-btn[onclick*="${id}"]`).classList.add('active');
     }
 
     function buatTabel() {
@@ -227,18 +192,22 @@
         return;
       }
       let html = "<table><tr><th>x</th>";
-      for (let i = 1; i <= size; i++) html += `<th>${i}</th>`;
+      for (let i = 1; i <= size; i++) {
+        html += `<th>${i}</th>`;
+      }
       html += "</tr>";
+
       for (let row = 1; row <= size; row++) {
         html += `<tr><th>${row}</th>`;
         for (let col = 1; col <= size; col++) {
           html += `<td>${row * col}</td>`;
         }
-        html += "</tr>";
+        html += "</tr>`;
       }
       html += "</table>";
       document.getElementById("hasil").innerHTML = html;
     }
+
     window.onload = buatTabel;
 
     function kirimForm() {
@@ -246,29 +215,17 @@
       const email = document.getElementById('email').value.trim();
       const jenisKelamin = document.getElementById('jenisKelamin').value;
       const alamat = document.getElementById('alamat').value.trim();
+
       if (!nama || !email || !jenisKelamin || !alamat) {
         alert("Harap isi semua data dengan lengkap!");
         return false;
       }
+
       alert(`Terima kasih, ${nama}! Pendaftaran Anda berhasil.`);
       document.getElementById('formPendaftaran').reset();
       return false;
     }
-
-    function ubahBahasa(lang) {
-      document.getElementById('btn-id').classList.remove('active');
-      document.getElementById('btn-en').classList.remove('active');
-      document.getElementById(`btn-${lang}`).classList.add('active');
-      if (lang === 'en') {
-        document.getElementById('judul').innerText = "Multiplication Table & Registration";
-        document.getElementById('judulTabel').innerText = "Dynamic Multiplication Table";
-        document.getElementById('judulForm').innerText = "Registration Form";
-      } else {
-        document.getElementById('judul').innerText = "Tabel Perkalian & Pendaftaran";
-        document.getElementById('judulTabel').innerText = "Tabel Perkalian Dinamis";
-        document.getElementById('judulForm').innerText = "Formulir Pendaftaran";
-      }
-    }
   </script>
+
 </body>
 </html>
