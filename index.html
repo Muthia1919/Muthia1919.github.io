@@ -290,17 +290,32 @@
     highlightLanguageButton(lang);
   }
 
-  document.getElementById("searchForm").addEventListener("submit", function(e) {
+  // Fungsi pencarian dengan pengalihan halaman sesuai keyword
+  function handleSearchSubmit(e) {
     e.preventDefault();
-    const keyword = document.getElementById("globalSearch").value.trim();
+    const keyword = document.getElementById("globalSearch").value.trim().toLowerCase();
     const hasilDiv = document.getElementById("hasilPencarian");
 
-    if (keyword) {
-      hasilDiv.innerHTML = `Hasil pencarian untuk: <strong>${keyword}</strong><br><em>(Fitur pencarian lanjutan masih dalam pengembangan)</em>`;
-    } else {
+    if (!keyword) {
       hasilDiv.innerHTML = "<span style='color:red;'>Silakan masukkan kata kunci terlebih dahulu.</span>";
+      return;
     }
-  });
+
+    if (["kontak", "contact", "hubungi", "kontact"].includes(keyword)) {
+      window.location.href = "contact.html";
+    } else if (["biodata", "tentang", "about"].includes(keyword)) {
+      window.location.href = "about-me.html";
+    } else if (["buku", "event", "rekomendasi"].includes(keyword)) {
+      window.location.href = "rekomendasi.html";
+    } else {
+      // Tampilkan hasil pencarian sementara jika kata kunci lain
+      if (hasilDiv) {
+        hasilDiv.innerHTML = `Hasil pencarian untuk: <strong>${keyword}</strong><br><em>(Fitur pencarian lanjutan masih dalam pengembangan)</em>`;
+      } else {
+        window.location.href = "hasil.html?query=" + encodeURIComponent(keyword);
+      }
+    }
+  }
 
   window.onload = function () {
     let settings = getSiteSettings();
@@ -318,6 +333,12 @@
     }
 
     tampilkanBahasa(settings.bahasa);
+
+    // Pasang event listener pencarian
+    const form = document.getElementById("searchForm");
+    if (form) {
+      form.addEventListener("submit", handleSearchSubmit);
+    }
   };
 </script>
 
