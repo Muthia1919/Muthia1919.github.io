@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perpustakaan Muthia Sari - Kontak</title>
+    <title>Perpustakaan Muthia Sari - Belajar Perkalian</title>
     <style>
-        /* Basic Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -14,44 +13,11 @@
             color: #333;
         }
 
-        /* Navbar */
         nav {
             background-color: #1e3a8a;
             padding: 15px 0;
             text-align: center;
             position: relative;
-        }
-
-        .logo {
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            display: block;
-        }
-
-        .nav-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .nav-links li {
-            display: inline-block;
-            margin: 0 15px;
-        }
-
-        .nav-links li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 10px 15px;
-            display: inline-block;
-            transition: background 0.3s;
-        }
-
-        .nav-links li a:hover {
-            background-color: #3b82f6;
-            border-radius: 5px;
         }
 
         .hamburger {
@@ -90,6 +56,31 @@
             background-color: #60a5fa;
         }
 
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .nav-links li a:hover {
+            background-color: #3b82f6;
+            border-radius: 5px;
+        }
+
         header {
             background-color: #1e3a8a;
             color: white;
@@ -98,65 +89,74 @@
         }
 
         main {
-            padding: 50px 20px;
+            padding: 30px 20px;
         }
 
-        main h2 {
-            color: #1e3a8a;
+        h2 {
             text-align: center;
-            margin-bottom: 30px;
+            color: #1e3a8a;
         }
 
-        form {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 25px;
-            border: 2px solid #1e3a8a;
-            border-radius: 10px;
-            background-color: #ffffff;
+        .tab-buttons {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        label {
-            display: block;
-            text-align: left;
-            margin-top: 15px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="tel"],
-        input[type="email"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        button[type="submit"] {
-            background-color: #1e3a8a;
-            color: white;
-            padding: 12px 20px;
+        .tab-buttons button {
+            margin: 0 5px;
+            padding: 10px 15px;
             border: none;
-            cursor: pointer;
+            background-color: #3b82f6;
+            color: white;
             border-radius: 5px;
-            transition: background-color 0.3s;
-            display: block;
-            width: 100%;
-            margin-top: 20px;
-            font-size: 16px;
+            cursor: pointer;
         }
 
-        button[type="submit"]:hover {
-            background-color: #3b82f6;
+        .tab-buttons button.active {
+            background-color: #1e3a8a;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table, th, td {
+            border: 1px solid #1e3a8a;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        input.answer {
+            width: 60px;
+            padding: 5px;
+        }
+
+        .correct {
+            background-color: #c8f7c5;
+        }
+
+        .wrong {
+            background-color: #f8d7da;
         }
 
         footer {
@@ -186,53 +186,10 @@
             .hamburger {
                 display: block;
             }
-
-            header {
-                padding: 30px 10px;
-            }
-
-            header h1 {
-                font-size: 22px;
-                padding: 0 10px;
-            }
-
-            main h2 {
-                font-size: 20px;
-                padding: 0 10px;
-            }
-
-            form {
-                padding: 20px;
-                margin: 0 10px;
-                width: auto;
-            }
-
-            label {
-                font-size: 14px;
-            }
-
-            input[type="text"],
-            input[type="tel"],
-            input[type="email"],
-            textarea {
-                font-size: 14px;
-            }
-
-            button[type="submit"] {
-                font-size: 14px;
-                padding: 10px;
-            }
-
-            .language-buttons {
-                top: 12px;
-                right: 70px;
-            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Navbar -->
     <nav>
         <div class="hamburger" onclick="toggleMenu()">☰</div>
         <div class="language-buttons">
@@ -240,134 +197,145 @@
             <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="about-me.html">Tentang Saya</a></li>
-            <li><a href="rekomendasi.html">Rekomendasi</a></li>
-            <li><a href="contact.html">Kontak</a></li>
-            <li><a href="Lainnya.html">Lainnya</a></li>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Tentang</a></li>
+            <li><a href="#">Kontak</a></li>
         </ul>
     </nav>
 
-    <!-- Header -->
     <header>
-        <h1>Sampaikan Pesan Anda</h1>
+        <h1>Belajar Perkalian</h1>
     </header>
 
-    <!-- Contact Form -->
     <main>
-        <h2>Hubungi Kami</h2>
-        <form id="contact-form">
-            <label for="nama">Nama:</label>
-            <input type="text" name="nama" id="nama" required>
+        <div class="tab-buttons">
+            <button onclick="showTab('tabel')">Tabel Perkalian</button>
+            <button onclick="showTab('latihan')">Latihan</button>
+            <button onclick="showTab('kalkulator')">Kalkulator</button>
+        </div>
 
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required>
+        <div id="tabel" class="tab-content active">
+            <h2>Tabel Perkalian</h2>
+            <table id="multiplication-table"></table>
+        </div>
 
-            <label for="message">Pesan:</label>
-            <textarea name="message" id="message" required></textarea>
+        <div id="latihan" class="tab-content">
+            <h2>Latihan Perkalian</h2>
+            <p id="timer">Waktu: 60 detik</p>
+            <table id="quiz-table"></table>
+        </div>
 
-            <button type="submit">📨 Kirim Pesan</button>
-        </form>
+        <div id="kalkulator" class="tab-content">
+            <h2>Kalkulator</h2>
+            <input id="calc1" type="number"> × 
+            <input id="calc2" type="number">
+            <button onclick="hitung()">=</button>
+            <span id="hasil"></span>
+        </div>
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Perpustakaan Muthia Sari</p>
     </footer>
 
-    <!-- Scripts -->
     <script>
         function toggleMenu() {
             const nav = document.querySelector(".nav-links");
             nav.style.display = nav.style.display === "block" ? "none" : "block";
         }
 
-        // Cookie Utilities
-        function getSiteSettings() {
-            const cookies = document.cookie.split("; ");
-            const settingCookie = cookies.find(row => row.startsWith("site_settings="));
-            if (settingCookie) {
-                try {
-                    return JSON.parse(settingCookie.split("=")[1]);
-                } catch {
-                    return {};
+        function showTab(id) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function hitung() {
+            const a = parseInt(document.getElementById("calc1").value);
+            const b = parseInt(document.getElementById("calc2").value);
+            document.getElementById("hasil").innerText = isNaN(a * b) ? "" : a * b;
+        }
+
+        function buatTabelPerkalian() {
+            const table = document.getElementById("multiplication-table");
+            let html = '<tr><th>x</th>';
+            for (let i = 1; i <= 10; i++) html += `<th>${i}</th>`;
+            html += '</tr>';
+            for (let i = 1; i <= 10; i++) {
+                html += `<tr><th>${i}</th>`;
+                for (let j = 1; j <= 10; j++) {
+                    html += `<td>${i * j}</td>`;
                 }
+                html += '</tr>';
             }
-            return {};
+            table.innerHTML = html;
         }
 
-        function setSiteSettings(name, value) {
-            const settings = getSiteSettings();
-            settings[name] = value;
-            document.cookie = "site_settings=" + JSON.stringify(settings) + ";path=/;max-age=" + (60 * 60 * 24 * 30);
+        function buatLatihan() {
+            const table = document.getElementById("quiz-table");
+            let html = "";
+            for (let i = 0; i < 10; i++) {
+                const a = Math.floor(Math.random() * 10 + 1);
+                const b = Math.floor(Math.random() * 10 + 1);
+                html += `<tr><td>${a} × ${b}</td><td><input class='answer' data-answer='${a * b}' onblur='cekJawaban(this)'></td></tr>`;
+            }
+            table.innerHTML = html;
         }
 
-        function highlightLanguageButton(lang) {
-            document.getElementById('btn-id').classList.remove('active');
-            document.getElementById('btn-en').classList.remove('active');
-            if (lang === 'en') {
-                document.getElementById('btn-en').classList.add('active');
-            } else {
-                document.getElementById('btn-id').classList.add('active');
+        function cekJawaban(input) {
+            const jawaban = parseInt(input.value);
+            const benar = parseInt(input.dataset.answer);
+            input.classList.remove("correct", "wrong");
+            if (!isNaN(jawaban)) {
+                input.classList.add(jawaban === benar ? "correct" : "wrong");
             }
         }
 
-        function ubahBahasa(lang) {
-            setSiteSettings('bahasa', lang);
-            location.reload();
-        }
-
-        function tampilkanBahasa(lang) {
-            document.querySelector("h1").innerText = lang === "en" ? "Send Us Your Message" : "Sampaikan Pesan Anda";
-            document.querySelector("main h2").innerText = lang === "en" ? "Contact Us" : "Hubungi Kami";
-            document.querySelector("label[for='nama']").innerText = lang === "en" ? "Name:" : "Nama:";
-            document.querySelector("label[for='email']").innerText = "Email:";
-            document.querySelector("label[for='message']").innerText = lang === "en" ? "Message:" : "Pesan:";
-            document.querySelector("button[type='submit']").innerText = lang === "en" ? "📨 Send Message" : "📨 Kirim Pesan";
-            highlightLanguageButton(lang);
-        }
-
-        // Form Submit
-        const form = document.getElementById('contact-form');
-        form.addEventListener('submit', async function(event) {
-            event.preventDefault();
-
-            const formData = new FormData(form);
-            const response = await fetch("https://formspree.io/f/xldbnavz", {
-                method: "POST",
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
+        let timerInterval;
+        function mulaiTimer() {
+            let detik = 60;
+            const timer = document.getElementById("timer");
+            timer.innerText = `Waktu: ${detik} detik`;
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                detik--;
+                timer.innerText = `Waktu: ${detik} detik`;
+                if (detik <= 0) {
+                    clearInterval(timerInterval);
+                    timer.innerText = "Waktu habis!";
                 }
-            });
+            }, 1000);
+        }
 
-            if (response.ok) {
-                alert("📬 Pesan berhasil dikirim! Terima kasih telah menghubungi kami.");
-                form.reset();
-            } else {
-                alert("❌ Terjadi kesalahan. Silakan coba lagi nanti.");
+        function setCookie(name, value, days) {
+            const expires = new Date(Date.now() + days * 864e5).toUTCString();
+            document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+        }
+
+        function getCookie(name) {
+            return document.cookie.split('; ').reduce((r, v) => {
+                const parts = v.split('=');
+                return parts[0] === name ? decodeURIComponent(parts[1]) : r
+            }, '');
+        }
+
+        function ubahBahasa(bahasa) {
+            setCookie("bahasa", bahasa, 30);
+            document.getElementById("btn-id").classList.remove("active");
+            document.getElementById("btn-en").classList.remove("active");
+            if (bahasa === "id") {
+                document.getElementById("btn-id").classList.add("active");
+            } else if (bahasa === "en") {
+                document.getElementById("btn-en").classList.add("active");
             }
-        });
+        }
 
-        // Init on Load
         window.onload = function () {
-            let settings = getSiteSettings();
-
-            if (!settings.nama) {
-                const nama = prompt("Halo, siapa nama Anda?");
-                if (nama) {
-                    setSiteSettings("nama", nama);
-                }
-            }
-
-            if (!settings.bahasa) {
-                setSiteSettings("bahasa", "id");
-                settings.bahasa = "id";
-            }
-
-            tampilkanBahasa(settings.bahasa);
+            buatTabelPerkalian();
+            buatLatihan();
+            mulaiTimer();
+            const bahasa = getCookie("bahasa") || "id";
+            ubahBahasa(bahasa);
         };
     </script>
-
 </body>
 </html>
