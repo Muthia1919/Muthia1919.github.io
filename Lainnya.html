@@ -3,228 +3,209 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Perkalian & Formulir Pendaftaran</title>
+  <title>Halaman Interaktif</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 30px 20px;
-      background-color: #f5f7fa;
+      padding: 20px;
+      background: #f9f9f9;
       color: #333;
     }
 
     h1 {
-      color: #1e3a8a;
       text-align: center;
+      color: #2c3e50;
     }
 
-    .tabs {
+    .tab-buttons {
       text-align: center;
       margin-bottom: 20px;
     }
 
-    .tab-btn {
-      padding: 10px 20px;
-      margin: 0 10px;
-      font-size: 16px;
-      border: none;
-      border-radius: 6px;
-      background-color: #3b82f6;
+    .tab-buttons button {
+      background-color: #3498db;
       color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
       cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s, transform 0.3s;
     }
 
-    .tab-btn:hover {
-      background-color: #2563eb;
+    .tab-buttons button:hover {
+      background-color: #2980b9;
       transform: scale(1.05);
     }
 
-    .tab-btn.active {
-      background-color: #1e3a8a;
+    .tab-buttons button.active {
+      background-color: #2c3e50;
       font-weight: bold;
     }
 
-    .tab-content {
-      max-width: 700px;
-      margin: 0 auto;
+    .tab {
       opacity: 0;
-      visibility: hidden;
-      transform: translateY(20px);
-      transition: all 0.5s ease;
-      position: absolute;
-      width: 100%;
-      left: 0;
-      right: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      display: none;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    .tab-content.active {
+    .tab.active {
+      display: block;
       opacity: 1;
-      visibility: visible;
       transform: translateY(0);
-      position: relative;
-    }
-
-    /* Tabel Perkalian */
-    input[type=number], button {
-      padding: 8px;
-      font-size: 16px;
-      margin-top: 10px;
     }
 
     table {
-      margin-top: 20px;
-      border-collapse: collapse;
       width: 100%;
-      max-width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
     }
 
     th, td {
-      border: 1px solid #333;
+      border: 1px solid #ccc;
       padding: 8px;
       text-align: center;
     }
 
     th {
-      background-color: #1e3a8a;
+      background-color: #3498db;
       color: white;
     }
 
     td {
-      background-color: #e3f2fd;
+      background-color: #ecf0f1;
     }
 
-    /* Formulir */
     form {
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-top: 20px;
     }
 
     label {
       display: block;
       margin-top: 15px;
-      font-weight: bold;
     }
 
     input, select, textarea {
       width: 100%;
-      padding: 10px;
+      padding: 8px;
       margin-top: 5px;
-      border-radius: 5px;
       border: 1px solid #ccc;
-      font-size: 14px;
+      border-radius: 4px;
       box-sizing: border-box;
     }
 
-    button.submit-btn {
+    button.submit {
       margin-top: 20px;
-      padding: 10px 15px;
-      font-size: 16px;
-      background-color: #1e3a8a;
+      background-color: #2c3e50;
       color: white;
       border: none;
+      padding: 10px 15px;
       border-radius: 4px;
       cursor: pointer;
     }
 
-    button.submit-btn:hover {
-      background-color: #2563eb;
+    button.submit:hover {
+      background-color: #1a252f;
     }
   </style>
 </head>
 <body>
 
-  <h1>Perkalian & Formulir Pendaftaran</h1>
+  <h1>Selamat Datang</h1>
 
-  <div class="tabs">
-    <button class="tab-btn active" onclick="showTab('perkalian')">Tabel Perkalian</button>
-    <button class="tab-btn" onclick="showTab('formulir')">Formulir Pendaftaran</button>
+  <div class="tab-buttons">
+    <button onclick="showTab('perkalian')" class="active">Tabel Perkalian</button>
+    <button onclick="showTab('formulir')">Formulir Pendaftaran</button>
   </div>
 
-  <div id="perkalian" class="tab-content active">
-    <label for="size">Masukkan ukuran tabel (1-20): </label>
+  <div id="perkalian" class="tab active">
+    <label for="size">Ukuran Tabel (1–20):</label>
     <input type="number" id="size" min="1" max="20" value="10" />
     <button onclick="buatTabel()">Buat Tabel</button>
     <div id="hasil"></div>
   </div>
 
-  <div id="formulir" class="tab-content">
-    <form id="formPendaftaran" onsubmit="return kirimForm()">
+  <div id="formulir" class="tab">
+    <form onsubmit="return kirimForm()">
       <label for="nama">Nama Lengkap:</label>
-      <input type="text" id="nama" name="nama" required />
+      <input type="text" id="nama" required />
 
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
+      <input type="email" id="email" required />
 
-      <label for="jenisKelamin">Jenis Kelamin:</label>
-      <select id="jenisKelamin" name="jenisKelamin" required>
+      <label for="gender">Jenis Kelamin:</label>
+      <select id="gender" required>
         <option value="">-- Pilih --</option>
         <option value="Laki-laki">Laki-laki</option>
         <option value="Perempuan">Perempuan</option>
       </select>
 
       <label for="alamat">Alamat:</label>
-      <textarea id="alamat" name="alamat" rows="3" required></textarea>
+      <textarea id="alamat" rows="3" required></textarea>
 
-      <button type="submit" class="submit-btn">Daftar</button>
+      <button type="submit" class="submit">Daftar</button>
     </form>
   </div>
 
   <script>
     function showTab(id) {
-      const tabs = document.querySelectorAll('.tab-content');
-      const buttons = document.querySelectorAll('.tab-btn');
-
-      tabs.forEach(tab => tab.classList.remove('active'));
-      buttons.forEach(btn => btn.classList.remove('active'));
-
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-buttons button').forEach(btn => {
+        btn.classList.remove('active');
+      });
       document.getElementById(id).classList.add('active');
-      document.querySelector(`.tab-btn[onclick*="${id}"]`).classList.add('active');
+      document.querySelector(`.tab-buttons button[onclick*="${id}"]`).classList.add('active');
     }
 
     function buatTabel() {
-      const size = parseInt(document.getElementById("size").value);
+      const size = parseInt(document.getElementById('size').value);
       if (isNaN(size) || size < 1 || size > 20) {
         alert("Masukkan angka antara 1 sampai 20.");
         return;
       }
-      let html = "<table><tr><th>x</th>";
+
+      let html = '<table><tr><th>x</th>';
+      for (let i = 1; i <= size; i++) html += `<th>${i}</th>`;
+      html += '</tr>';
+
       for (let i = 1; i <= size; i++) {
-        html += `<th>${i}</th>`;
-      }
-      html += "</tr>";
-
-      for (let row = 1; row <= size; row++) {
-        html += `<tr><th>${row}</th>`;
-        for (let col = 1; col <= size; col++) {
-          html += `<td>${row * col}</td>`;
+        html += `<tr><th>${i}</th>`;
+        for (let j = 1; j <= size; j++) {
+          html += `<td>${i * j}</td>`;
         }
-        html += "</tr>`;
+        html += '</tr>';
       }
-      html += "</table>";
-      document.getElementById("hasil").innerHTML = html;
-    }
 
-    window.onload = buatTabel;
+      html += '</table>';
+      document.getElementById('hasil').innerHTML = html;
+    }
 
     function kirimForm() {
       const nama = document.getElementById('nama').value.trim();
       const email = document.getElementById('email').value.trim();
-      const jenisKelamin = document.getElementById('jenisKelamin').value;
+      const gender = document.getElementById('gender').value;
       const alamat = document.getElementById('alamat').value.trim();
 
-      if (!nama || !email || !jenisKelamin || !alamat) {
-        alert("Harap isi semua data dengan lengkap!");
+      if (!nama || !email || !gender || !alamat) {
+        alert("Harap isi semua kolom!");
         return false;
       }
 
-      alert(`Terima kasih, ${nama}! Pendaftaran Anda berhasil.`);
-      document.getElementById('formPendaftaran').reset();
+      alert(`Terima kasih ${nama}, data Anda telah dikirim!`);
+      document.querySelector('form').reset();
       return false;
     }
+
+    window.onload = buatTabel;
   </script>
 
 </body>
