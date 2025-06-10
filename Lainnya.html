@@ -206,29 +206,29 @@
     </nav>
 
     <header>
-        <h1>Belajar Perkalian</h1>
+        <h1 id="judul-halaman">Halaman Interaktif Perkalian & Anggota Baru</h1>
     </header>
 
     <main>
         <div class="tab-buttons">
-            <button onclick="showTab('tabel')">Tabel Perkalian</button>
-            <button onclick="showTab('latihan')">Latihan</button>
-            <button onclick="showTab('kalkulator')">Kalkulator</button>
+            <button onclick="showTab('tabel')" id="btn-tabel">Tabel Perkalian</button>
+            <button onclick="showTab('latihan')" id="btn-latihan">Latihan</button>
+            <button onclick="showTab('kalkulator')" id="btn-kalkulator">Kalkulator</button>
         </div>
 
         <div id="tabel" class="tab-content active">
-            <h2>Tabel Perkalian</h2>
+            <h2 id="judul-tabel">Tabel Perkalian</h2>
             <table id="multiplication-table"></table>
         </div>
 
         <div id="latihan" class="tab-content">
-            <h2>Latihan Perkalian</h2>
+            <h2 id="judul-latihan">Latihan Perkalian</h2>
             <p id="timer">Waktu: 60 detik</p>
             <table id="quiz-table"></table>
         </div>
 
         <div id="kalkulator" class="tab-content">
-            <h2>Kalkulator</h2>
+            <h2 id="judul-kalkulator">Kalkulator</h2>
             <input id="calc1" type="number"> × 
             <input id="calc2" type="number">
             <button onclick="hitung()">=</button>
@@ -324,10 +324,29 @@
             setCookie("bahasa", bahasa, 30);
             document.getElementById("btn-id").classList.remove("active");
             document.getElementById("btn-en").classList.remove("active");
+
             if (bahasa === "id") {
                 document.getElementById("btn-id").classList.add("active");
-            } else if (bahasa === "en") {
+                document.title = "Perpustakaan Muthia Sari - Halaman Interaktif Perkalian & Anggota Baru";
+                document.getElementById("judul-halaman").innerText = "Belajar Perkalian";
+                document.getElementById("btn-tabel").innerText = "Tabel Perkalian";
+                document.getElementById("btn-latihan").innerText = "Latihan";
+                document.getElementById("btn-kalkulator").innerText = "Kalkulator";
+                document.getElementById("judul-tabel").innerText = "Tabel Perkalian";
+                document.getElementById("judul-latihan").innerText = "Latihan Perkalian";
+                document.getElementById("judul-kalkulator").innerText = "Kalkulator";
+                document.getElementById("timer").innerText = "Waktu: 60 detik";
+            } else {
                 document.getElementById("btn-en").classList.add("active");
+                document.title = "Muthia Sari Library - Interactive Multiplication Page & New Members";
+                document.getElementById("judul-halaman").innerText = "Multiplication Learning";
+                document.getElementById("btn-tabel").innerText = "Multiplication Table";
+                document.getElementById("btn-latihan").innerText = "Practice";
+                document.getElementById("btn-kalkulator").innerText = "Calculator";
+                document.getElementById("judul-tabel").innerText = "Multiplication Table";
+                document.getElementById("judul-latihan").innerText = "Multiplication Practice";
+                document.getElementById("judul-kalkulator").innerText = "Calculator";
+                document.getElementById("timer").innerText = "Time: 60 seconds";
             }
         }
 
