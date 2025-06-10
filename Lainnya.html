@@ -190,173 +190,179 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
-        <div class="language-buttons">
-            <button id="btn-id" onclick="ubahBahasa('id')">ID</button>
-            <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="about-me.html">Tentang Saya</a></li>
-            <li><a href="rekomendasi.html">Rekomendasi</a></li>
-            <li><a href="contact.html">Kontak</a></li>
-            <li><a href="Lainnya.html">Lainnya</a></li>
-        </ul>
-    </nav>
+  <nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="language-buttons">
+      <button id="btn-id" onclick="ubahBahasa('id')">ID</button>
+      <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="about-me.html">Tentang Saya</a></li>
+      <li><a href="rekomendasi.html">Rekomendasi</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+      <li><a href="Lainnya.html">Lainnya</a></li>
+    </ul>
+  </nav>
 
-    <header>
-        <h1 id="judul-halaman">Halaman Interaktif Perkalian & Anggota Baru</h1>
-    </header>
+  <header>
+    <h1 id="judul-halaman">Halaman Interaktif Perkalian & Anggota Baru</h1>
+  </header>
 
-    <main>
-        <div class="tab-buttons">
-            <button onclick="showTab('tabel')" id="btn-tabel">Tabel Perkalian</button>
-            <button onclick="showTab('latihan')" id="btn-latihan">Latihan</button>
-            <button onclick="showTab('kalkulator')" id="btn-kalkulator">Kalkulator</button>
-        </div>
+  <main>
+    <div class="tab-buttons">
+      <button onclick="showTab('tabel')" id="btn-tabel">Tabel Perkalian</button>
+      <button onclick="showTab('latihan')" id="btn-latihan">Latihan</button>
+      <button onclick="showTab('kalkulator')" id="btn-kalkulator">Kalkulator</button>
+    </div>
 
-        <div id="tabel" class="tab-content active">
-            <h2 id="judul-tabel">Tabel Perkalian</h2>
-            <table id="multiplication-table"></table>
-        </div>
+    <div id="tabel" class="tab-content active">
+      <h2 id="judul-tabel">Tabel Perkalian</h2>
+      <table id="multiplication-table"></table>
+    </div>
 
-        <div id="latihan" class="tab-content">
-            <h2 id="judul-latihan">Latihan Perkalian</h2>
-            <p id="timer">Waktu: 60 detik</p>
-            <table id="quiz-table"></table>
-        </div>
+    <div id="latihan" class="tab-content">
+      <h2 id="judul-latihan">Latihan Perkalian</h2>
+      <button id="mulai-latihan" onclick="mulaiLatihan()">Mulai Latihan</button>
+      <p id="timer">Waktu: 60 detik</p>
+      <table id="quiz-table"></table>
+    </div>
 
-        <div id="kalkulator" class="tab-content">
-            <h2 id="judul-kalkulator">Kalkulator</h2>
-            <input id="calc1" type="number"> × 
-            <input id="calc2" type="number">
-            <button onclick="hitung()">=</button>
-            <span id="hasil"></span>
-        </div>
-    </main>
+    <div id="kalkulator" class="tab-content">
+      <h2 id="judul-kalkulator">Kalkulator</h2>
+      <input id="calc1" type="number" /> ×
+      <input id="calc2" type="number" />
+      <button onclick="hitung()">=</button>
+      <span id="hasil"></span>
+    </div>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Perpustakaan Muthia Sari</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 Perpustakaan Muthia Sari</p>
+  </footer>
 
-    <script>
-        function toggleMenu() {
-            const nav = document.querySelector(".nav-links");
-            nav.style.display = nav.style.display === "block" ? "none" : "block";
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector(".nav-links");
+      nav.style.display = nav.style.display === "block" ? "none" : "block";
+    }
+
+    function showTab(id) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function hitung() {
+      const a = parseInt(document.getElementById("calc1").value);
+      const b = parseInt(document.getElementById("calc2").value);
+      document.getElementById("hasil").innerText = isNaN(a * b) ? "" : a * b;
+    }
+
+    function buatTabelPerkalian() {
+      const table = document.getElementById("multiplication-table");
+      let html = '<tr><th>x</th>';
+      for (let i = 1; i <= 10; i++) html += `<th>${i}</th>`;
+      html += '</tr>';
+      for (let i = 1; i <= 10; i++) {
+        html += `<tr><th>${i}</th>`;
+        for (let j = 1; j <= 10; j++) {
+          html += `<td>${i * j}</td>`;
         }
+        html += '</tr>';
+      }
+      table.innerHTML = html;
+    }
 
-        function showTab(id) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
+    function buatLatihan() {
+      const table = document.getElementById("quiz-table");
+      let html = "";
+      for (let i = 0; i < 10; i++) {
+        const a = Math.floor(Math.random() * 10 + 1);
+        const b = Math.floor(Math.random() * 10 + 1);
+        html += `<tr><td>${a} × ${b}</td><td><input class='answer' data-answer='${a * b}' onblur='cekJawaban(this)'></td></tr>`;
+      }
+      table.innerHTML = html;
+    }
+
+    function cekJawaban(input) {
+      const jawaban = parseInt(input.value);
+      const benar = parseInt(input.dataset.answer);
+      input.classList.remove("correct", "wrong");
+      if (!isNaN(jawaban)) {
+        input.classList.add(jawaban === benar ? "correct" : "wrong");
+      }
+    }
+
+    let timerInterval;
+    function mulaiTimer() {
+      let detik = 60;
+      const timer = document.getElementById("timer");
+      timer.innerText = `Waktu: ${detik} detik`;
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        detik--;
+        timer.innerText = `Waktu: ${detik} detik`;
+        if (detik <= 0) {
+          clearInterval(timerInterval);
+          timer.innerText = "Waktu habis!";
         }
+      }, 1000);
+    }
 
-        function hitung() {
-            const a = parseInt(document.getElementById("calc1").value);
-            const b = parseInt(document.getElementById("calc2").value);
-            document.getElementById("hasil").innerText = isNaN(a * b) ? "" : a * b;
-        }
+    function mulaiLatihan() {
+      buatLatihan();
+      mulaiTimer();
+    }
 
-        function buatTabelPerkalian() {
-            const table = document.getElementById("multiplication-table");
-            let html = '<tr><th>x</th>';
-            for (let i = 1; i <= 10; i++) html += `<th>${i}</th>`;
-            html += '</tr>';
-            for (let i = 1; i <= 10; i++) {
-                html += `<tr><th>${i}</th>`;
-                for (let j = 1; j <= 10; j++) {
-                    html += `<td>${i * j}</td>`;
-                }
-                html += '</tr>';
-            }
-            table.innerHTML = html;
-        }
+    function setCookie(name, value, days) {
+      const expires = new Date(Date.now() + days * 864e5).toUTCString();
+      document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+    }
 
-        function buatLatihan() {
-            const table = document.getElementById("quiz-table");
-            let html = "";
-            for (let i = 0; i < 10; i++) {
-                const a = Math.floor(Math.random() * 10 + 1);
-                const b = Math.floor(Math.random() * 10 + 1);
-                html += `<tr><td>${a} × ${b}</td><td><input class='answer' data-answer='${a * b}' onblur='cekJawaban(this)'></td></tr>`;
-            }
-            table.innerHTML = html;
-        }
+    function getCookie(name) {
+      return document.cookie.split('; ').reduce((r, v) => {
+        const parts = v.split('=');
+        return parts[0] === name ? decodeURIComponent(parts[1]) : r
+      }, '');
+    }
 
-        function cekJawaban(input) {
-            const jawaban = parseInt(input.value);
-            const benar = parseInt(input.dataset.answer);
-            input.classList.remove("correct", "wrong");
-            if (!isNaN(jawaban)) {
-                input.classList.add(jawaban === benar ? "correct" : "wrong");
-            }
-        }
+    function ubahBahasa(bahasa) {
+      setCookie("bahasa", bahasa, 30);
+      document.getElementById("btn-id").classList.remove("active");
+      document.getElementById("btn-en").classList.remove("active");
 
-        let timerInterval;
-        function mulaiTimer() {
-            let detik = 60;
-            const timer = document.getElementById("timer");
-            timer.innerText = `Waktu: ${detik} detik`;
-            clearInterval(timerInterval);
-            timerInterval = setInterval(() => {
-                detik--;
-                timer.innerText = `Waktu: ${detik} detik`;
-                if (detik <= 0) {
-                    clearInterval(timerInterval);
-                    timer.innerText = "Waktu habis!";
-                }
-            }, 1000);
-        }
+      if (bahasa === "id") {
+        document.getElementById("btn-id").classList.add("active");
+        document.title = "Perpustakaan Muthia Sari - Halaman Interaktif Perkalian & Anggota Baru";
+        document.getElementById("judul-halaman").innerText = "Halaman Interaktif Perkalian & Anggota Baru";
+        document.getElementById("btn-tabel").innerText = "Tabel Perkalian";
+        document.getElementById("btn-latihan").innerText = "Latihan";
+        document.getElementById("btn-kalkulator").innerText = "Kalkulator";
+        document.getElementById("judul-tabel").innerText = "Tabel Perkalian";
+        document.getElementById("judul-latihan").innerText = "Latihan Perkalian";
+        document.getElementById("judul-kalkulator").innerText = "Kalkulator";
+        document.getElementById("timer").innerText = "Waktu: 60 detik";
+        document.getElementById("mulai-latihan").innerText = "Mulai Latihan";
+      } else {
+        document.getElementById("btn-en").classList.add("active");
+        document.title = "Muthia Sari Library - Interactive Multiplication Page & New Members";
+        document.getElementById("judul-halaman").innerText = "Interactive Multiplication Page & New Members";
+        document.getElementById("btn-tabel").innerText = "Multiplication Table";
+        document.getElementById("btn-latihan").innerText = "Practice";
+        document.getElementById("btn-kalkulator").innerText = "Calculator";
+        document.getElementById("judul-tabel").innerText = "Multiplication Table";
+        document.getElementById("judul-latihan").innerText = "Multiplication Practice";
+        document.getElementById("judul-kalkulator").innerText = "Calculator";
+        document.getElementById("timer").innerText = "Time: 60 seconds";
+        document.getElementById("mulai-latihan").innerText = "Start Practice";
+      }
+    }
 
-        function setCookie(name, value, days) {
-            const expires = new Date(Date.now() + days * 864e5).toUTCString();
-            document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
-        }
-
-        function getCookie(name) {
-            return document.cookie.split('; ').reduce((r, v) => {
-                const parts = v.split('=');
-                return parts[0] === name ? decodeURIComponent(parts[1]) : r
-            }, '');
-        }
-
-        function ubahBahasa(bahasa) {
-            setCookie("bahasa", bahasa, 30);
-            document.getElementById("btn-id").classList.remove("active");
-            document.getElementById("btn-en").classList.remove("active");
-
-            if (bahasa === "id") {
-                document.getElementById("btn-id").classList.add("active");
-                document.title = "Perpustakaan Muthia Sari - Halaman Interaktif Perkalian & Anggota Baru";
-                document.getElementById("judul-halaman").innerText = "Halaman Interaktif Perkalian & Anggota Baru";
-                document.getElementById("btn-tabel").innerText = "Tabel Perkalian";
-                document.getElementById("btn-latihan").innerText = "Latihan";
-                document.getElementById("btn-kalkulator").innerText = "Kalkulator";
-                document.getElementById("judul-tabel").innerText = "Tabel Perkalian";
-                document.getElementById("judul-latihan").innerText = "Latihan Perkalian";
-                document.getElementById("judul-kalkulator").innerText = "Kalkulator";
-                document.getElementById("timer").innerText = "Waktu: 60 detik";
-            } else {
-                document.getElementById("btn-en").classList.add("active");
-                document.title = "Muthia Sari Library - Interactive Multiplication Page & New Members";
-                document.getElementById("judul-halaman").innerText = "Interactive Multiplication Page & New Members";
-                document.getElementById("btn-tabel").innerText = "Multiplication Table";
-                document.getElementById("btn-latihan").innerText = "Practice";
-                document.getElementById("btn-kalkulator").innerText = "Calculator";
-                document.getElementById("judul-tabel").innerText = "Multiplication Table";
-                document.getElementById("judul-latihan").innerText = "Multiplication Practice";
-                document.getElementById("judul-kalkulator").innerText = "Calculator";
-                document.getElementById("timer").innerText = "Time: 60 seconds";
-            }
-        }
-
-        window.onload = function () {
-            buatTabelPerkalian();
-            buatLatihan();
-            mulaiTimer();
-            const bahasa = getCookie("bahasa") || "id";
-            ubahBahasa(bahasa);
-        };
-    </script>
+    window.onload = function () {
+      buatTabelPerkalian();
+      const bahasa = getCookie("bahasa") || "id";
+      ubahBahasa(bahasa);
+    };
+  </script>
 </body>
 </html>
