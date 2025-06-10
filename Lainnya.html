@@ -1,161 +1,343 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Belajar Perkalian & Anggota Baru</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #f4f4f4;
-    }
-    .tabs {
-      display: flex;
-      margin-bottom: 20px;
-    }
-    .tab-button {
-      flex: 1;
-      padding: 10px;
-      cursor: pointer;
-      background-color: #ddd;
-      border: 1px solid #ccc;
-      text-align: center;
-    }
-    .tab-button.active {
-      background-color: #fff;
-      border-bottom: none;
-    }
-    .tab-content {
-      display: none;
-      background-color: #fff;
-      padding: 20px;
-      border: 1px solid #ccc;
-    }
-    .tab-content.active {
-      display: block;
-    }
-    table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
-      padding: 5px;
-      text-align: center;
-    }
-    button {
-      padding: 10px 15px;
-      margin-top: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpustakaan Muthia Sari - Belajar Perkalian</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3f2fd;
+            color: #333;
+        }
+
+        nav {
+            background-color: #1e3a8a;
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .language-buttons {
+            position: absolute;
+            top: 12px;
+            right: 60px;
+        }
+
+        .language-buttons button {
+            margin: 0 2px;
+            padding: 6px 10px;
+            font-size: 14px;
+            background-color: #3b82f6;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .language-buttons button.active {
+            background-color: #2563eb;
+            font-weight: bold;
+        }
+
+        .language-buttons button:hover {
+            background-color: #60a5fa;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .nav-links li a:hover {
+            background-color: #3b82f6;
+            border-radius: 5px;
+        }
+
+        header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        main {
+            padding: 30px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #1e3a8a;
+        }
+
+        .tab-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tab-buttons button {
+            margin: 0 5px;
+            padding: 10px 15px;
+            border: none;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .tab-buttons button.active {
+            background-color: #1e3a8a;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table, th, td {
+            border: 1px solid #1e3a8a;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        input.answer {
+            width: 60px;
+            padding: 5px;
+        }
+
+        .correct {
+            background-color: #c8f7c5;
+        }
+
+        .wrong {
+            background-color: #f8d7da;
+        }
+
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                text-align: center;
+                background-color: #1e3a8a;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                z-index: 1000;
+            }
+
+            .nav-links li {
+                display: block;
+                padding: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <div class="tabs">
-    <div class="tab-button active" onclick="showTab('perkalian')">Belajar Perkalian</div>
-    <div class="tab-button" onclick="showTab('formulir')">Anggota Baru</div>
-  </div>
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <div class="language-buttons">
+            <button id="btn-id" onclick="ubahBahasa('id')">ID</button>
+            <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="about-me.html">Tentang Saya</a></li>
+            <li><a href="rekomendasi.html">Rekomendasi</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="Lainnya.html">Lainnya</a></li>
+        </ul>
+    </nav>
 
-  <div id="perkalian" class="tab-content active">
-    <h2>Perkalian</h2>
-    <label for="angka">Masukkan angka:</label>
-    <input type="number" id="angka" />
-    <button onclick="tampilkanPerkalian()">Tampilkan Tabel</button>
-    <div id="hasil"></div>
-    <br>
-    <h3>Latihan Soal</h3>
-    <div id="soal"></div>
-    <input type="number" id="jawaban" />
-    <button onclick="periksaJawaban()">Periksa</button>
-    <p id="feedback"></p>
-  </div>
+    <header>
+        <h1>Belajar Perkalian</h1>
+    </header>
 
-  <div id="formulir" class="tab-content">
-    <h2>Formulir Anggota Baru</h2>
-    <form onsubmit="event.preventDefault(); alert('Formulir berhasil dikirim!');">
-      <table style="width: 100%; max-width: 600px; margin: auto; background: white; border-collapse: collapse;">
-        <tr>
-          <td style="padding: 8px;">Nama Lengkap:</td>
-          <td style="padding: 8px;"><input type="text" name="nama" required></td>
-        </tr>
-        <tr>
-          <td style="padding: 8px;">NIM:</td>
-          <td style="padding: 8px;"><input type="text" name="nim" required></td>
-        </tr>
-        <tr>
-          <td style="padding: 8px;">Jenis Kelamin:</td>
-          <td style="padding: 8px;">
-            <select name="gender" required>
-              <option value="">-- Pilih --</option>
-              <option value="Laki-laki">Laki-laki</option>
-              <option value="Perempuan">Perempuan</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td style="padding: 8px;">Tanggal Lahir:</td>
-          <td style="padding: 8px;"><input type="date" name="tgl_lahir" required></td>
-        </tr>
-        <tr>
-          <td style="padding: 8px;">Alamat:</td>
-          <td style="padding: 8px;"><textarea name="alamat" rows="3" required></textarea></td>
-        </tr>
-        <tr>
-          <td style="padding: 8px;">Nomor Telepon:</td>
-          <td style="padding: 8px;"><input type="tel" name="telepon" required></td>
-        </tr>
-        <tr>
-          <td style="padding: 8px;">Email:</td>
-          <td style="padding: 8px;"><input type="email" name="email" required></td>
-        </tr>
-        <tr>
-          <td colspan="2" style="text-align: center; padding: 12px;">
-            <button type="submit">Kirim</button>
-          </td>
-        </tr>
-      </table>
-    </form>
-  </div>
+    <main>
+        <div class="tab-buttons">
+            <button onclick="showTab('tabel')">Tabel Perkalian</button>
+            <button onclick="showTab('latihan')">Latihan</button>
+            <button onclick="showTab('kalkulator')">Kalkulator</button>
+        </div>
 
-  <script>
-    function showTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(tab => {
-        tab.classList.remove('active');
-      });
-      document.querySelectorAll('.tab-button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      document.getElementById(tabId).classList.add('active');
-      event.target.classList.add('active');
-    }
+        <div id="tabel" class="tab-content active">
+            <h2>Tabel Perkalian</h2>
+            <table id="multiplication-table"></table>
+        </div>
 
-    function tampilkanPerkalian() {
-      const angka = parseInt(document.getElementById('angka').value);
-      let hasil = '<table><tr><th>Perkalian</th><th>Hasil</th></tr>';
-      for (let i = 1; i <= 10; i++) {
-        hasil += `<tr><td>${angka} x ${i}</td><td>${angka * i}</td></tr>`;
-      }
-      hasil += '</table>';
-      document.getElementById('hasil').innerHTML = hasil;
-    }
+        <div id="latihan" class="tab-content">
+            <h2>Latihan Perkalian</h2>
+            <p id="timer">Waktu: 60 detik</p>
+            <table id="quiz-table"></table>
+        </div>
 
-    let a = Math.floor(Math.random() * 10) + 1;
-    let b = Math.floor(Math.random() * 10) + 1;
-    document.getElementById('soal').innerText = `Berapakah ${a} x ${b}?`;
+        <div id="kalkulator" class="tab-content">
+            <h2>Kalkulator</h2>
+            <input id="calc1" type="number"> × 
+            <input id="calc2" type="number">
+            <button onclick="hitung()">=</button>
+            <span id="hasil"></span>
+        </div>
+    </main>
 
-    function periksaJawaban() {
-      const jawaban = parseInt(document.getElementById('jawaban').value);
-      const benar = a * b;
-      const feedback = document.getElementById('feedback');
-      if (jawaban === benar) {
-        feedback.innerText = 'Jawaban Anda benar!';
-        feedback.style.color = 'green';
-      } else {
-        feedback.innerText = `Jawaban salah. Yang benar adalah ${benar}.`;
-        feedback.style.color = 'red';
-      }
-    }
-  </script>
+    <footer>
+        <p>&copy; 2025 Perpustakaan Muthia Sari</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector(".nav-links");
+            nav.style.display = nav.style.display === "block" ? "none" : "block";
+        }
+
+        function showTab(id) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function hitung() {
+            const a = parseInt(document.getElementById("calc1").value);
+            const b = parseInt(document.getElementById("calc2").value);
+            document.getElementById("hasil").innerText = isNaN(a * b) ? "" : a * b;
+        }
+
+        function buatTabelPerkalian() {
+            const table = document.getElementById("multiplication-table");
+            let html = '<tr><th>x</th>';
+            for (let i = 1; i <= 10; i++) html += `<th>${i}</th>`;
+            html += '</tr>';
+            for (let i = 1; i <= 10; i++) {
+                html += `<tr><th>${i}</th>`;
+                for (let j = 1; j <= 10; j++) {
+                    html += `<td>${i * j}</td>`;
+                }
+                html += '</tr>';
+            }
+            table.innerHTML = html;
+        }
+
+        function buatLatihan() {
+            const table = document.getElementById("quiz-table");
+            let html = "";
+            for (let i = 0; i < 10; i++) {
+                const a = Math.floor(Math.random() * 10 + 1);
+                const b = Math.floor(Math.random() * 10 + 1);
+                html += `<tr><td>${a} × ${b}</td><td><input class='answer' data-answer='${a * b}' onblur='cekJawaban(this)'></td></tr>`;
+            }
+            table.innerHTML = html;
+        }
+
+        function cekJawaban(input) {
+            const jawaban = parseInt(input.value);
+            const benar = parseInt(input.dataset.answer);
+            input.classList.remove("correct", "wrong");
+            if (!isNaN(jawaban)) {
+                input.classList.add(jawaban === benar ? "correct" : "wrong");
+            }
+        }
+
+        let timerInterval;
+        function mulaiTimer() {
+            let detik = 60;
+            const timer = document.getElementById("timer");
+            timer.innerText = `Waktu: ${detik} detik`;
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                detik--;
+                timer.innerText = `Waktu: ${detik} detik`;
+                if (detik <= 0) {
+                    clearInterval(timerInterval);
+                    timer.innerText = "Waktu habis!";
+                }
+            }, 1000);
+        }
+
+        function setCookie(name, value, days) {
+            const expires = new Date(Date.now() + days * 864e5).toUTCString();
+            document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+        }
+
+        function getCookie(name) {
+            return document.cookie.split('; ').reduce((r, v) => {
+                const parts = v.split('=');
+                return parts[0] === name ? decodeURIComponent(parts[1]) : r
+            }, '');
+        }
+
+        function ubahBahasa(bahasa) {
+            setCookie("bahasa", bahasa, 30);
+            document.getElementById("btn-id").classList.remove("active");
+            document.getElementById("btn-en").classList.remove("active");
+            if (bahasa === "id") {
+                document.getElementById("btn-id").classList.add("active");
+            } else if (bahasa === "en") {
+                document.getElementById("btn-en").classList.add("active");
+            }
+        }
+
+        window.onload = function () {
+            buatTabelPerkalian();
+            buatLatihan();
+            mulaiTimer();
+            const bahasa = getCookie("bahasa") || "id";
+            ubahBahasa(bahasa);
+        };
+    </script>
 </body>
-
 </html>
