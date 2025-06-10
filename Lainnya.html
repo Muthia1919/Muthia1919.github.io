@@ -1,199 +1,343 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tabel & Latihan Perkalian</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: #f2f2f2;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpustakaan Muthia Sari - Belajar Perkalian</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e3f2fd;
+            color: #333;
+        }
 
-    h1 {
-      text-align: center;
-      color: #2c3e50;
-    }
+        nav {
+            background-color: #1e3a8a;
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
+        }
 
-    .tab-buttons {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: white;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+        }
 
-    .tab-buttons button {
-      background-color: #3498db;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      margin: 5px;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 16px;
-      transition: background-color 0.3s;
-    }
+        .language-buttons {
+            position: absolute;
+            top: 12px;
+            right: 60px;
+        }
 
-    .tab-buttons button:hover {
-      background-color: #2980b9;
-    }
+        .language-buttons button {
+            margin: 0 2px;
+            padding: 6px 10px;
+            font-size: 14px;
+            background-color: #3b82f6;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+        }
 
-    .tab-buttons button.active {
-      background-color: #2c3e50;
-    }
+        .language-buttons button.active {
+            background-color: #2563eb;
+            font-weight: bold;
+        }
 
-    .tab {
-      display: none;
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      transition: all 0.5s ease;
-    }
+        .language-buttons button:hover {
+            background-color: #60a5fa;
+        }
 
-    .tab.active {
-      display: block;
-    }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
+        .nav-links li {
+            display: inline-block;
+            margin: 0 15px;
+        }
 
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: center;
-    }
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
 
-    th {
-      background-color: #3498db;
-      color: white;
-    }
+        .nav-links li a:hover {
+            background-color: #3b82f6;
+            border-radius: 5px;
+        }
 
-    td {
-      background-color: #ecf0f1;
-    }
+        header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
 
-    input[type="number"] {
-      width: 60px;
-      padding: 5px;
-      text-align: center;
-    }
+        main {
+            padding: 30px 20px;
+        }
 
-    .check-button {
-      background-color: #27ae60;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      margin-top: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+        h2 {
+            text-align: center;
+            color: #1e3a8a;
+        }
 
-    .check-button:hover {
-      background-color: #1e8449;
-    }
+        .tab-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    .result {
-      margin-top: 10px;
-    }
-  </style>
+        .tab-buttons button {
+            margin: 0 5px;
+            padding: 10px 15px;
+            border: none;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .tab-buttons button.active {
+            background-color: #1e3a8a;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        table, th, td {
+            border: 1px solid #1e3a8a;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        input.answer {
+            width: 60px;
+            padding: 5px;
+        }
+
+        .correct {
+            background-color: #c8f7c5;
+        }
+
+        .wrong {
+            background-color: #f8d7da;
+        }
+
+        footer {
+            background-color: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                text-align: center;
+                background-color: #1e3a8a;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                z-index: 1000;
+            }
+
+            .nav-links li {
+                display: block;
+                padding: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
+    <nav>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <div class="language-buttons">
+            <button id="btn-id" onclick="ubahBahasa('id')">ID</button>
+            <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="about-me.html">Tentang Saya</a></li>
+            <li><a href="rekomendasi.html">Rekomendasi</a></li>
+            <li><a href="contact.html">Kontak</a></li>
+            <li><a href="Lainnya.html">Lainnya</a></li>
+        </ul>
+    </nav>
 
-  <h1>Perkalian Interaktif</h1>
+    <header>
+        <h1>Belajar Perkalian</h1>
+    </header>
 
-  <div class="tab-buttons">
-    <button onclick="showTab('tabel')" class="active">Tabel Perkalian</button>
-    <button onclick="showTab('latihan')">Latihan Perkalian</button>
-  </div>
+    <main>
+        <div class="tab-buttons">
+            <button onclick="showTab('tabel')">Tabel Perkalian</button>
+            <button onclick="showTab('latihan')">Latihan</button>
+            <button onclick="showTab('kalkulator')">Kalkulator</button>
+        </div>
 
-  <!-- Tab Tabel Perkalian -->
-  <div id="tabel" class="tab active">
-    <label for="ukuranTabel">Ukuran Tabel (1–12):</label>
-    <input type="number" id="ukuranTabel" min="1" max="12" value="10" />
-    <button onclick="buatTabel()">Buat Tabel</button>
-    <div id="hasilTabel"></div>
-  </div>
+        <div id="tabel" class="tab-content active">
+            <h2>Tabel Perkalian</h2>
+            <table id="multiplication-table"></table>
+        </div>
 
-  <!-- Tab Latihan -->
-  <div id="latihan" class="tab">
-    <label for="jumlahSoal">Jumlah Soal (1–20):</label>
-    <input type="number" id="jumlahSoal" min="1" max="20" value="5" />
-    <button onclick="buatLatihan()">Mulai Latihan</button>
-    <form id="latihanForm" onsubmit="return periksaJawaban()"></form>
-    <div class="result" id="hasilLatihan"></div>
-  </div>
+        <div id="latihan" class="tab-content">
+            <h2>Latihan Perkalian</h2>
+            <p id="timer">Waktu: 60 detik</p>
+            <table id="quiz-table"></table>
+        </div>
 
-  <script>
-    function showTab(id) {
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.tab-buttons button').forEach(b => b.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      document.querySelector(`.tab-buttons button[onclick*="${id}"]`).classList.add('active');
-    }
+        <div id="kalkulator" class="tab-content">
+            <h2>Kalkulator</h2>
+            <input id="calc1" type="number"> × 
+            <input id="calc2" type="number">
+            <button onclick="hitung()">=</button>
+            <span id="hasil"></span>
+        </div>
+    </main>
 
-    function buatTabel() {
-      const ukuran = parseInt(document.getElementById('ukuranTabel').value);
-      if (ukuran < 1 || ukuran > 12) {
-        alert("Ukuran harus antara 1 dan 12.");
-        return;
-      }
-      let html = '<table><tr><th>x</th>';
-      for (let i = 1; i <= ukuran; i++) html += `<th>${i}</th>`;
-      html += '</tr>';
+    <footer>
+        <p>&copy; 2025 Perpustakaan Muthia Sari</p>
+    </footer>
 
-      for (let i = 1; i <= ukuran; i++) {
-        html += `<tr><th>${i}</th>`;
-        for (let j = 1; j <= ukuran; j++) {
-          html += `<td>${i * j}</td>`;
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector(".nav-links");
+            nav.style.display = nav.style.display === "block" ? "none" : "block";
         }
-        html += '</tr>';
-      }
 
-      html += '</table>';
-      document.getElementById('hasilTabel').innerHTML = html;
-    }
+        function showTab(id) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
 
-    function buatLatihan() {
-      const jumlah = parseInt(document.getElementById('jumlahSoal').value);
-      if (jumlah < 1 || jumlah > 20) {
-        alert("Jumlah soal harus antara 1 dan 20.");
-        return;
-      }
+        function hitung() {
+            const a = parseInt(document.getElementById("calc1").value);
+            const b = parseInt(document.getElementById("calc2").value);
+            document.getElementById("hasil").innerText = isNaN(a * b) ? "" : a * b;
+        }
 
-      let html = '';
-      for (let i = 1; i <= jumlah; i++) {
-        const a = Math.floor(Math.random() * 12) + 1;
-        const b = Math.floor(Math.random() * 12) + 1;
-        html += `<div>
-          ${i}. Berapa hasil dari <strong>${a} × ${b}</strong>? 
-          <input type="number" name="jawaban${i}" data-kunci="${a * b}" required />
-        </div><br>`;
-      }
+        function buatTabelPerkalian() {
+            const table = document.getElementById("multiplication-table");
+            let html = '<tr><th>x</th>';
+            for (let i = 1; i <= 10; i++) html += `<th>${i}</th>`;
+            html += '</tr>';
+            for (let i = 1; i <= 10; i++) {
+                html += `<tr><th>${i}</th>`;
+                for (let j = 1; j <= 10; j++) {
+                    html += `<td>${i * j}</td>`;
+                }
+                html += '</tr>';
+            }
+            table.innerHTML = html;
+        }
 
-      html += '<button class="check-button" type="submit">Periksa Jawaban</button>';
-      document.getElementById('latihanForm').innerHTML = html;
-      document.getElementById('hasilLatihan').innerHTML = '';
-    }
+        function buatLatihan() {
+            const table = document.getElementById("quiz-table");
+            let html = "";
+            for (let i = 0; i < 10; i++) {
+                const a = Math.floor(Math.random() * 10 + 1);
+                const b = Math.floor(Math.random() * 10 + 1);
+                html += `<tr><td>${a} × ${b}</td><td><input class='answer' data-answer='${a * b}' onblur='cekJawaban(this)'></td></tr>`;
+            }
+            table.innerHTML = html;
+        }
 
-    function periksaJawaban() {
-      const inputs = document.querySelectorAll('#latihanForm input[type="number"]');
-      let benar = 0;
-      inputs.forEach(input => {
-        const kunci = parseInt(input.dataset.kunci);
-        const isi = parseInt(input.value);
-        if (isi === kunci) benar++;
-      });
-      document.getElementById('hasilLatihan').innerHTML = `<strong>Benar: ${benar} dari ${inputs.length} soal.</strong>`;
-      return false;
-    }
+        function cekJawaban(input) {
+            const jawaban = parseInt(input.value);
+            const benar = parseInt(input.dataset.answer);
+            input.classList.remove("correct", "wrong");
+            if (!isNaN(jawaban)) {
+                input.classList.add(jawaban === benar ? "correct" : "wrong");
+            }
+        }
 
-    window.onload = buatTabel;
-  </script>
+        let timerInterval;
+        function mulaiTimer() {
+            let detik = 60;
+            const timer = document.getElementById("timer");
+            timer.innerText = `Waktu: ${detik} detik`;
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                detik--;
+                timer.innerText = `Waktu: ${detik} detik`;
+                if (detik <= 0) {
+                    clearInterval(timerInterval);
+                    timer.innerText = "Waktu habis!";
+                }
+            }, 1000);
+        }
 
+        function setCookie(name, value, days) {
+            const expires = new Date(Date.now() + days * 864e5).toUTCString();
+            document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+        }
+
+        function getCookie(name) {
+            return document.cookie.split('; ').reduce((r, v) => {
+                const parts = v.split('=');
+                return parts[0] === name ? decodeURIComponent(parts[1]) : r
+            }, '');
+        }
+
+        function ubahBahasa(bahasa) {
+            setCookie("bahasa", bahasa, 30);
+            document.getElementById("btn-id").classList.remove("active");
+            document.getElementById("btn-en").classList.remove("active");
+            if (bahasa === "id") {
+                document.getElementById("btn-id").classList.add("active");
+            } else if (bahasa === "en") {
+                document.getElementById("btn-en").classList.add("active");
+            }
+        }
+
+        window.onload = function () {
+            buatTabelPerkalian();
+            buatLatihan();
+            mulaiTimer();
+            const bahasa = getCookie("bahasa") || "id";
+            ubahBahasa(bahasa);
+        };
+    </script>
 </body>
 </html>
