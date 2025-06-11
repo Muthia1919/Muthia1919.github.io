@@ -199,11 +199,17 @@
 
     <main>
         <div class="tab-buttons">
+            <button onclick="showTab('Formulir Anggota Baru')">Formulir Anggota Baru</button>
             <button onclick="showTab('tabel')">Tabel Perkalian</button>
             <button onclick="showTab('latihan')">Latihan</button>
             <button onclick="showTab('kalkulator')">Kalkulator</button>
         </div>
 
+        <div id="Formuli Anggota Baru" class="tab-content">
+            <h2 id="judul-Formuli Anggota Baru">Formuli Anggota Baru</h2>
+            <table id="table"></table>
+        </div>
+        
         <div id="tabel" class="tab-content active">
             <h2 id="judul-tabel">Tabel Perkalian</h2>
             <table id="multiplication-table"></table>
@@ -221,10 +227,6 @@
             <input id="calc2" type="number">
             <button onclick="hitung()">=</button>
             <span id="hasil"></span>
-        </div>
-
-        <div class="button-container">
-            <a href="formulir.html" class="daftar-button" id="btn-daftar">Formulir Anggota Baru</a>
         </div>
     </main>
 
