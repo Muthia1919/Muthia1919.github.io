@@ -10,6 +10,7 @@
       margin: 0; padding: 0;
       background-color: #e3f2fd;
       color: #333;
+      overflow-x: hidden;
     }
 
     nav {
@@ -117,6 +118,33 @@
       color: #fff;
       padding: 40px 0;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ANIMASI: Teks Fade In */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ANIMASI: Buku Jatuh */
+    .buku-jatuh {
+      position: fixed;
+      top: -40px;
+      font-size: 24px;
+      animation: jatuh 5s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes jatuh {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
     }
 
     h1 {
@@ -165,11 +193,6 @@
         margin: 0;
       }
 
-      .nav-links li a {
-        width: 100%;
-        font-size: 18px;
-      }
-
       .hamburger {
         display: block;
       }
@@ -210,9 +233,7 @@
 
 <!-- Header -->
 <header>
-  <h1>Perpustakaan Muthia Sari</h1>
-
-  <!-- Form Pencarian -->
+  <h1 class="fade-in">Perpustakaan Muthia Sari</h1>
   <form class="search-form" id="searchForm">
     <input type="text" id="globalSearch" placeholder="Cari...">
     <button type="submit">Cari</button>
@@ -291,7 +312,6 @@
     highlightLanguageButton(lang);
   }
 
-  // Fungsi pencarian dengan pengalihan halaman sesuai keyword
   function handleSearchSubmit(e) {
     e.preventDefault();
     const keyword = document.getElementById("globalSearch").value.trim().toLowerCase();
@@ -309,7 +329,6 @@
     } else if (["buku", "event", "rekomendasi"].includes(keyword)) {
       window.location.href = "rekomendasi.html";
     } else {
-      // Tampilkan hasil pencarian sementara jika kata kunci lain
       if (hasilDiv) {
         hasilDiv.innerHTML = `Hasil pencarian untuk: <strong>${keyword}</strong><br><em>(Fitur pencarian lanjutan masih dalam pengembangan)</em>`;
       } else {
@@ -335,10 +354,20 @@
 
     tampilkanBahasa(settings.bahasa);
 
-    // Pasang event listener pencarian
     const form = document.getElementById("searchForm");
     if (form) {
       form.addEventListener("submit", handleSearchSubmit);
+    }
+
+    // ANIMASI: Tambahkan buku jatuh
+    for (let i = 0; i < 20; i++) {
+      const buku = document.createElement("div");
+      buku.className = "buku-jatuh";
+      buku.textContent = "📚";
+      buku.style.left = Math.random() * window.innerWidth + "px";
+      buku.style.animationDuration = (3 + Math.random() * 5) + "s";
+      buku.style.fontSize = (20 + Math.random() * 15) + "px";
+      document.body.appendChild(buku);
     }
   };
 </script>
