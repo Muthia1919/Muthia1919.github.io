@@ -206,7 +206,7 @@
     </nav>
 
     <header>
-        <h1 id="judul-halaman">Belajar Perkalian</h1>
+        <h1 id="judul-halaman">Halaman Interaktif Perkalian & Anggota Baru</h1>
     </header>
 
     <main>
@@ -249,6 +249,11 @@
         function showTab(id) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.getElementById(id).classList.add('active');
+
+            if (id === "latihan") {
+                buatLatihan();
+                mulaiTimer();
+            }
         }
 
         function hitung() {
@@ -296,11 +301,11 @@
         function mulaiTimer() {
             let detik = 60;
             const timer = document.getElementById("timer");
-            timer.innerText = `Waktu: ${detik} detik`;
+            const bahasa = getCookie("bahasa") || "id";
+            timer.innerText = bahasa === "en" ? `Time: ${detik} seconds` : `Waktu: ${detik} detik`;
             clearInterval(timerInterval);
             timerInterval = setInterval(() => {
                 detik--;
-                const bahasa = getCookie("bahasa") || "id";
                 timer.innerText = bahasa === "en" ? `Time: ${detik} seconds` : `Waktu: ${detik} detik`;
                 if (detik <= 0) {
                     clearInterval(timerInterval);
@@ -327,14 +332,14 @@
             document.getElementById("btn-en").classList.remove("active");
             if (bahasa === "id") {
                 document.getElementById("btn-id").classList.add("active");
-                document.getElementById("judul-halaman").innerText = "Belajar Perkalian";
+                document.getElementById("judul-halaman").innerText = "Halaman Interaktif Perkalian & Anggota Baru";
                 document.getElementById("judul-tabel").innerText = "Tabel Perkalian";
                 document.getElementById("judul-latihan").innerText = "Latihan Perkalian";
                 document.getElementById("judul-kalkulator").innerText = "Kalkulator";
                 document.getElementById("timer").innerText = "Waktu: 60 detik";
             } else {
                 document.getElementById("btn-en").classList.add("active");
-                document.getElementById("judul-halaman").innerText = "Learn Multiplication";
+                document.getElementById("judul-halaman").innerText = "Interactive Multiplication Page & New Members";
                 document.getElementById("judul-tabel").innerText = "Multiplication Table";
                 document.getElementById("judul-latihan").innerText = "Multiplication Practice";
                 document.getElementById("judul-kalkulator").innerText = "Calculator";
@@ -344,8 +349,6 @@
 
         window.onload = function () {
             buatTabelPerkalian();
-            buatLatihan();
-            mulaiTimer();
             const bahasa = getCookie("bahasa") || "id";
             ubahBahasa(bahasa);
         };
