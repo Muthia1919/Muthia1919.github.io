@@ -178,167 +178,207 @@
     </style>
 </head>
 <body>
-    <nav>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
-        <div class="language-buttons">
-            <button id="btn-id" onclick="ubahBahasa('id')">ID</button>
-            <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="about-me.html">Tentang Saya</a></li>
-            <li><a href="rekomendasi.html">Rekomendasi</a></li>
-            <li><a href="contact.html">Kontak</a></li>
-            <li><a href="Lainnya.html">Lainnya</a></li>
-        </ul>
-    </nav>
+  <nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="language-buttons">
+      <button id="btn-id" onclick="ubahBahasa('id')">ID</button>
+      <button id="btn-en" onclick="ubahBahasa('en')">EN</button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="about-me.html">Tentang Saya</a></li>
+      <li><a href="rekomendasi.html">Rekomendasi</a></li>
+      <li><a href="contact.html">Kontak</a></li>
+      <li><a href="Lainnya.html">Lainnya</a></li>
+    </ul>
+  </nav>
 
-    <header>
-        <h1 id="judul-halaman">Halaman Interaktif Perkalian & Anggota Baru</h1>
-    </header>
+  <header>
+    <h1 id="judul-halaman">Halaman Interaktif Perkalian & Anggota Baru</h1>
+  </header>
 
-    <main>
-        <div class="tab-buttons">
-            <button onclick="showTab('Formulir Anggota Baru')">Formulir Anggota Baru</button>
-            <button onclick="showTab('tabel')">Tabel Perkalian</button>
-            <button onclick="showTab('latihan')">Latihan</button>
-            <button onclick="showTab('kalkulator')">Kalkulator</button>
-        </div>
+  <main>
+    <div class="tab-buttons">
+      <button onclick="showTab('Formulir Anggota Baru')">Formulir Anggota Baru</button>
+      <button onclick="showTab('tabel')">Tabel Perkalian</button>
+      <button onclick="showTab('latihan')">Latihan</button>
+      <button onclick="showTab('kalkulator')">Kalkulator</button>
+    </div>
 
-        <div id="Formuli Anggota Baru" class="tab-content">
-            <h2 id="judul-Formuli Anggota Baru">Formuli Anggota Baru</h2>
-            <table id="table"></table>
-        </div>
-        
-        <div id="tabel" class="tab-content active">
-            <h2 id="judul-tabel">Tabel Perkalian</h2>
-            <table id="multiplication-table"></table>
-        </div>
+    <div id="Formulir Anggota Baru" class="tab-content">
+        <h2 id="judul-Formuli Anggota Baru">Formulir Anggota Baru</h2>
+        <form action="https://formspree.io/f/mnnvpygr" method="POST">
+            <table>
+                <tr><td>Nama Lengkap</td><td><input type="text" name="Nama Lengkap" required></td></tr>
+                <tr><td>NIM</td><td><input type="text" name="NIM" required></td></tr>
+                <tr><td>Fakultas</td><td><input type="text" name="Fakultas" required></td></tr>
+                <tr><td>Program Studi</td><td><input type="text" name="Program Studi" required></td></tr>
+                <tr><td>Gender</td>
+                    <td>
+                        <select name="Gender" required>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr><td>Tanggal Lahir</td><td><input type="date" name="Tanggal Lahir" required></td></tr>
+                <tr><td>No HP</td><td><input type="tel" name="No HP" required></td></tr>
+                <tr><td>Email</td><td><input type="email" name="Email" required></td></tr>
+            </table>
+            <div class="button-container">
+                <button type="submit" class="daftar-button" id="btn-daftar">Formulir Anggota Baru</button>
+            </div>
+        </form>
+    </div>
 
-        <div id="latihan" class="tab-content">
-            <h2 id="judul-latihan">Latihan Perkalian</h2>
-            <p id="timer">Waktu: 60 detik</p>
-            <table id="quiz-table"></table>
-        </div>
+    <div id="tabel" class="tab-content active">
+      <h2 id="judul-tabel">Tabel Perkalian</h2>
+      <table id="multiplication-table"></table>
+    </div>
 
-        <div id="kalkulator" class="tab-content">
-            <h2 id="judul-kalkulator">Kalkulator</h2>
-            <input id="calc1" type="number"> × 
-            <input id="calc2" type="number">
-            <button onclick="hitung()">=</button>
-            <span id="hasil"></span>
-        </div>
-    </main>
+    <div id="latihan" class="tab-content">
+      <h2 id="judul-latihan">Latihan Perkalian</h2>
+      <p id="timer">Waktu: 60 detik</p>
+      <table id="quiz-table"></table>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Perpustakaan Muthia Sari</p>
-    </footer>
+    <div id="kalkulator" class="tab-content">
+      <h2 id="judul-kalkulator">Kalkulator</h2>
+      <input id="calc1" type="number"> × 
+      <input id="calc2" type="number">
+      <button onclick="hitung()">=</button>
+      <span id="hasil"></span>
+    </div>
+  </main>
 
-    <script>
-        function toggleMenu() {
-            const nav = document.querySelector(".nav-links");
-            nav.style.display = nav.style.display === "block" ? "none" : "block";
+  <footer>
+    <p>&copy; 2025 Perpustakaan Muthia Sari</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector(".nav-links");
+      nav.style.display = nav.style.display === "block" ? "none" : "block";
+    }
+
+    function showTab(id) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      if (id === "latihan") {
+        buatLatihan();
+        mulaiTimer();
+      }
+    }
+
+    function hitung() {
+      const a = parseInt(document.getElementById("calc1").value);
+      const b = parseInt(document.getElementById("calc2").value);
+      document.getElementById("hasil").innerText = isNaN(a * b) ? "" : a * b;
+    }
+
+    function buatTabelPerkalian() {
+      const table = document.getElementById("multiplication-table");
+      let html = '<tr><th>x</th>';
+      for (let i = 1; i <= 10; i++) html += `<th>${i}</th>`;
+      html += '</tr>';
+      for (let i = 1; i <= 10; i++) {
+        html += `<tr><th>${i}</th>`;
+        for (let j = 1; j <= 10; j++) {
+          html += `<td>${i * j}</td>`;
         }
+        html += '</tr>';
+      }
+      table.innerHTML = html;
+    }
 
-        function showTab(id) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            if (id === "latihan") {
-                buatLatihan();
-                mulaiTimer();
-            }
+    function buatLatihan() {
+      const table = document.getElementById("quiz-table");
+      let html = "";
+      for (let i = 0; i < 10; i++) {
+        const a = Math.floor(Math.random() * 10 + 1);
+        const b = Math.floor(Math.random() * 10 + 1);
+        html += `<tr><td>${a} × ${b}</td><td><input class='answer' data-answer='${a * b}' onblur='cekJawaban(this)'></td></tr>`;
+      }
+      table.innerHTML = html;
+    }
+
+    function cekJawaban(input) {
+      const jawaban = parseInt(input.value);
+      const benar = parseInt(input.dataset.answer);
+      input.classList.remove("correct", "wrong");
+      if (!isNaN(jawaban)) {
+        input.classList.add(jawaban === benar ? "correct" : "wrong");
+      }
+    }
+
+    let timerInterval;
+    function mulaiTimer() {
+      let detik = 60;
+      const timer = document.getElementById("timer");
+      const bahasa = getCookie("bahasa") || "id";
+      timer.innerText = bahasa === "en" ? `Time: ${detik} seconds` : `Waktu: ${detik} detik`;
+      clearInterval(timerInterval);
+      timerInterval = setInterval(() => {
+        detik--;
+        timer.innerText = bahasa === "en" ? `Time: ${detik} seconds` : `Waktu: ${detik} detik`;
+        if (detik <= 0) {
+          clearInterval(timerInterval);
+          timer.innerText = bahasa === "en" ? "Time's up!" : "Waktu habis!";
         }
+      }, 1000);
+    }
 
-        function hitung() {
-            const a = parseInt(document.getElementById("calc1").value);
-            const b = parseInt(document.getElementById("calc2").value);
-            document.getElementById("hasil").innerText = isNaN(a * b) ? "" : a * b;
-        }
+    function setCookie(name, value, days) {
+      const expires = new Date(Date.now() + days * 864e5).toUTCString();
+      document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+    }
 
-        function buatTabelPerkalian() {
-            const table = document.getElementById("multiplication-table");
-            let html = '<tr><th>x</th>';
-            for (let i = 1; i <= 10; i++) html += `<th>${i}</th>`;
-            html += '</tr>';
-            for (let i = 1; i <= 10; i++) {
-                html += `<tr><th>${i}</th>`;
-                for (let j = 1; j <= 10; j++) {
-                    html += `<td>${i * j}</td>`;
-                }
-                html += '</tr>';
-            }
-            table.innerHTML = html;
-        }
+    function getCookie(name) {
+      return document.cookie.split('; ').reduce((r, v) => {
+        const parts = v.split('=');
+        return parts[0] === name ? decodeURIComponent(parts[1]) : r
+      }, '');
+    }
 
-        function buatLatihan() {
-            const table = document.getElementById("quiz-table");
-            let html = "";
-            for (let i = 0; i < 10; i++) {
-                const a = Math.floor(Math.random() * 10 + 1);
-                const b = Math.floor(Math.random() * 10 + 1);
-                html += `<tr><td>${a} × ${b}</td><td><input class='answer' data-answer='${a * b}' onblur='cekJawaban(this)'></td></tr>`;
-            }
-            table.innerHTML = html;
-        }
+    function ubahBahasa(bahasa) {
+      setCookie("bahasa", bahasa, 30);
+      document.getElementById("btn-id").classList.remove("active");
+      document.getElementById("btn-en").classList.remove("active");
 
-        function cekJawaban(input) {
-            const jawaban = parseInt(input.value);
-            const benar = parseInt(input.dataset.answer);
-            input.classList.remove("correct", "wrong");
-            if (!isNaN(jawaban)) {
-                input.classList.add(jawaban === benar ? "correct" : "wrong");
-            }
-        }
+      const isID = bahasa === "id";
+      document.getElementById("btn-" + bahasa).classList.add("active");
+      document.getElementById("judul-halaman").innerText = isID ? "Halaman Interaktif Perkalian & Anggota Baru" : "Interactive Multiplication Page & New Members";
+      document.getElementById("judul-tabel").innerText = isID ? "Tabel Perkalian" : "Multiplication Table";
+      document.getElementById("judul-latihan").innerText = isID ? "Latihan Perkalian" : "Multiplication Practice";
+      document.getElementById("judul-kalkulator").innerText = isID ? "Kalkulator" : "Calculator";
+      document.getElementById("judul-Formulir Anggota Baru").innerText = isID ? "Formulir Anggota Baru" : "New Member Form";
+      document.getElementById("timer").innerText = isID ? "Waktu: 60 detik" : "Time: 60 seconds";
 
-        let timerInterval;
-        function mulaiTimer() {
-            let detik = 60;
-            const timer = document.getElementById("timer");
-            const bahasa = getCookie("bahasa") || "id";
-            timer.innerText = bahasa === "en" ? `Time: ${detik} seconds` : `Waktu: ${detik} detik`;
-            clearInterval(timerInterval);
-            timerInterval = setInterval(() => {
-                detik--;
-                timer.innerText = bahasa === "en" ? `Time: ${detik} seconds` : `Waktu: ${detik} detik`;
-                if (detik <= 0) {
-                    clearInterval(timerInterval);
-                    timer.innerText = bahasa === "en" ? "Time's up!" : "Waktu habis!";
-                }
-            }, 1000);
-        }
+      // Ubah teks formulir
+      const labels = document.querySelectorAll("#Formulir\\ Anggota\\ Baru form label");
+      if (labels.length >= 4) {
+        document.getElementById("judul-Formulir-Anggota-Baru").innerText = isID ? "Formulir Anggota Baru" : "New Member Form";
+        document.getElementById("label-nama").innerText = isID ? "Nama Lengkap" : "Full Name";
+        document.getElementById("label-nim").innerText = "NIM"; // biasanya tidak diterjemahkan
+        document.getElementById("label-fakultas").innerText = isID ? "Fakultas" : "Faculty";
+        document.getElementById("label-prodi").innerText = isID ? "Program Studi" : "Study Program";
+        document.getElementById("label-gender").innerText = isID ? "Gender" : "Gender";
+        document.getElementById("gender-laki").innerText = isID ? "Laki-laki" : "Male";
+        document.getElementById("gender-perempuan").innerText = isID ? "Perempuan" : "Female";
+        document.getElementById("label-lahir").innerText = isID ? "Tanggal Lahir" : "Date of Birth";
+        document.getElementById("label-hp").innerText = isID ? "No HP" : "Phone Number";
+        document.getElementById("label-email").innerText = "Email"; // tidak perlu diterjemahkan
+        document.getElementById("btn-daftar").innerText = isID ? "Formulir Anggota Baru" : "Submit New Member Form";
+      }
+      const tombol = document.querySelector("#Formulir\\ Anggota\\ Baru form button");
+      if (tombol) tombol.innerText = isID ? "Kirim" : "Submit";
+    }
 
-        function setCookie(name, value, days) {
-            const expires = new Date(Date.now() + days * 864e5).toUTCString();
-            document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
-        }
-
-        function getCookie(name) {
-            return document.cookie.split('; ').reduce((r, v) => {
-                const parts = v.split('=');
-                return parts[0] === name ? decodeURIComponent(parts[1]) : r
-            }, '');
-        }
-
-        function ubahBahasa(bahasa) {
-            setCookie("bahasa", bahasa, 30);
-            document.getElementById("btn-id").classList.remove("active");
-            document.getElementById("btn-en").classList.remove("active");
-
-            const isID = bahasa === "id";
-            document.getElementById("btn-" + bahasa).classList.add("active");
-            document.getElementById("judul-halaman").innerText = isID ? "Halaman Interaktif Perkalian & Anggota Baru" : "Interactive Multiplication Page & New Members";
-            document.getElementById("judul-tabel").innerText = isID ? "Tabel Perkalian" : "Multiplication Table";
-            document.getElementById("judul-latihan").innerText = isID ? "Latihan Perkalian" : "Multiplication Practice";
-            document.getElementById("judul-kalkulator").innerText = isID ? "Kalkulator" : "Calculator";
-            document.getElementById("btn-daftar").innerText = isID ? "Formulir Anggota Baru" : "New Member Form";
-            document.getElementById("timer").innerText = isID ? "Waktu: 60 detik" : "Time: 60 seconds";
-        }
-
-        window.onload = function () {
-            buatTabelPerkalian();
-            const bahasa = getCookie("bahasa") || "id";
-            ubahBahasa(bahasa);
-        };
-    </script>
+    window.onload = function () {
+      buatTabelPerkalian();
+      const bahasa = getCookie("bahasa") || "id";
+      ubahBahasa(bahasa);
+    };
+  </script>
 </body>
 </html>
