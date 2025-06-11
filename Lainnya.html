@@ -241,6 +241,32 @@
     </footer>
 
     <script>
+        function ubahBahasa(bahasa) {
+    setCookie("bahasa", bahasa, 30);
+
+    // Ganti kelas tombol
+    document.getElementById("btn-id").classList.remove("active");
+    document.getElementById("btn-en").classList.remove("active");
+    if (bahasa === "id") {
+        document.getElementById("btn-id").classList.add("active");
+
+        // Ubah isi teks ke Bahasa Indonesia
+        document.getElementById("judul-halaman").innerText = "Belajar Perkalian";
+        document.getElementById("judul-tabel").innerText = "Tabel Perkalian";
+        document.getElementById("judul-latihan").innerText = "Latihan Perkalian";
+        document.getElementById("judul-kalkulator").innerText = "Kalkulator";
+        document.getElementById("timer").innerText = "Waktu: 60 detik";
+    } else if (bahasa === "en") {
+        document.getElementById("btn-en").classList.add("active");
+
+        // Ubah isi teks ke Bahasa Inggris
+        document.getElementById("judul-halaman").innerText = "Learn Multiplication";
+        document.getElementById("judul-tabel").innerText = "Multiplication Table";
+        document.getElementById("judul-latihan").innerText = "Multiplication Practice";
+        document.getElementById("judul-kalkulator").innerText = "Calculator";
+        document.getElementById("timer").innerText = "Time: 60 seconds";
+    }
+}
         function toggleMenu() {
             const nav = document.querySelector(".nav-links");
             nav.style.display = nav.style.display === "block" ? "none" : "block";
