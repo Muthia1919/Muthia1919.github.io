@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tentang Saya - Perpustakaan Muthia Sari</title>
   <style>
-    /* Global Style */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -170,6 +169,16 @@
       nav .hamburger {
         display: block;
       }
+     .fade-in {
+        opacity: 0;
+        animation: fadeIn 2s ease-in-out forwards;
+      }
+      
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
     }
   </style>
 </head>
@@ -193,7 +202,7 @@
 
   <!-- Header -->
   <header>
-    <h1>Profil Singkat Saya</h1>
+    <h1 class="fade-in">Profil Singkat Saya</h1>
   </header>
 
   <!-- Konten -->
@@ -331,7 +340,11 @@
     }
 
     function tampilkanBahasa(lang) {
-      document.querySelector("header h1").innerText = lang === "en" ? "My Short Profile" : "Profil Singkat Saya";
+      const headerTitle = document.querySelector("header h1");
+      headerTitle.classList.remove("fade-in");
+      void headerTitle.offsetWidth; // Memicu ulang animasi
+      headerTitle.innerText = lang === "en" ? "My Short Profile" : "Profil Singkat Saya";
+      headerTitle.classList.add("fade-in"); 
       document.querySelectorAll("h2")[0].innerText = lang === "en" ? "📝 Short Biodata" : "📝 Biodata Singkat";
       document.querySelectorAll("h2")[1].innerText = lang === "en" ? "🏅 My Achievements" : "🏅 Beberapa Prestasi Saya";
       highlightLanguageButton(lang);
