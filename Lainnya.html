@@ -206,7 +206,7 @@
     </nav>
 
     <header>
-        <h1>Belajar Perkalian</h1>
+        <h1 id="judul-halaman">Belajar Perkalian</h1>
     </header>
 
     <main>
@@ -217,18 +217,18 @@
         </div>
 
         <div id="tabel" class="tab-content active">
-            <h2>Tabel Perkalian</h2>
+            <h2 id="judul-tabel">Tabel Perkalian</h2>
             <table id="multiplication-table"></table>
         </div>
 
         <div id="latihan" class="tab-content">
-            <h2>Latihan Perkalian</h2>
+            <h2 id="judul-latihan">Latihan Perkalian</h2>
             <p id="timer">Waktu: 60 detik</p>
             <table id="quiz-table"></table>
         </div>
 
         <div id="kalkulator" class="tab-content">
-            <h2>Kalkulator</h2>
+            <h2 id="judul-kalkulator">Kalkulator</h2>
             <input id="calc1" type="number"> × 
             <input id="calc2" type="number">
             <button onclick="hitung()">=</button>
@@ -241,32 +241,6 @@
     </footer>
 
     <script>
-        function ubahBahasa(bahasa) {
-    setCookie("bahasa", bahasa, 30);
-
-    // Ganti kelas tombol
-    document.getElementById("btn-id").classList.remove("active");
-    document.getElementById("btn-en").classList.remove("active");
-    if (bahasa === "id") {
-        document.getElementById("btn-id").classList.add("active");
-
-        // Ubah isi teks ke Bahasa Indonesia
-        document.getElementById("judul-halaman").innerText = "Belajar Perkalian";
-        document.getElementById("judul-tabel").innerText = "Tabel Perkalian";
-        document.getElementById("judul-latihan").innerText = "Latihan Perkalian";
-        document.getElementById("judul-kalkulator").innerText = "Kalkulator";
-        document.getElementById("timer").innerText = "Waktu: 60 detik";
-    } else if (bahasa === "en") {
-        document.getElementById("btn-en").classList.add("active");
-
-        // Ubah isi teks ke Bahasa Inggris
-        document.getElementById("judul-halaman").innerText = "Learn Multiplication";
-        document.getElementById("judul-tabel").innerText = "Multiplication Table";
-        document.getElementById("judul-latihan").innerText = "Multiplication Practice";
-        document.getElementById("judul-kalkulator").innerText = "Calculator";
-        document.getElementById("timer").innerText = "Time: 60 seconds";
-    }
-}
         function toggleMenu() {
             const nav = document.querySelector(".nav-links");
             nav.style.display = nav.style.display === "block" ? "none" : "block";
@@ -326,10 +300,11 @@
             clearInterval(timerInterval);
             timerInterval = setInterval(() => {
                 detik--;
-                timer.innerText = `Waktu: ${detik} detik`;
+                const bahasa = getCookie("bahasa") || "id";
+                timer.innerText = bahasa === "en" ? `Time: ${detik} seconds` : `Waktu: ${detik} detik`;
                 if (detik <= 0) {
                     clearInterval(timerInterval);
-                    timer.innerText = "Waktu habis!";
+                    timer.innerText = bahasa === "en" ? "Time's up!" : "Waktu habis!";
                 }
             }, 1000);
         }
@@ -352,8 +327,18 @@
             document.getElementById("btn-en").classList.remove("active");
             if (bahasa === "id") {
                 document.getElementById("btn-id").classList.add("active");
-            } else if (bahasa === "en") {
+                document.getElementById("judul-halaman").innerText = "Belajar Perkalian";
+                document.getElementById("judul-tabel").innerText = "Tabel Perkalian";
+                document.getElementById("judul-latihan").innerText = "Latihan Perkalian";
+                document.getElementById("judul-kalkulator").innerText = "Kalkulator";
+                document.getElementById("timer").innerText = "Waktu: 60 detik";
+            } else {
                 document.getElementById("btn-en").classList.add("active");
+                document.getElementById("judul-halaman").innerText = "Learn Multiplication";
+                document.getElementById("judul-tabel").innerText = "Multiplication Table";
+                document.getElementById("judul-latihan").innerText = "Multiplication Practice";
+                document.getElementById("judul-kalkulator").innerText = "Calculator";
+                document.getElementById("timer").innerText = "Time: 60 seconds";
             }
         }
 
