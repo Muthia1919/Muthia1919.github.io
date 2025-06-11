@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Perpustakaan Muthia Sari - Halaman Interaktif Perkalian & Anggota Baru</title>
     <style>
         body {
@@ -12,14 +12,12 @@
             background-color: #e3f2fd;
             color: #333;
         }
-
         nav {
             background-color: #1e3a8a;
             padding: 15px 0;
             text-align: center;
             position: relative;
         }
-
         .hamburger {
             display: none;
             font-size: 24px;
@@ -29,13 +27,11 @@
             right: 20px;
             cursor: pointer;
         }
-
         .language-buttons {
             position: absolute;
             top: 12px;
             right: 60px;
         }
-
         .language-buttons button {
             margin: 0 2px;
             padding: 6px 10px;
@@ -46,27 +42,22 @@
             color: white;
             cursor: pointer;
         }
-
         .language-buttons button.active {
             background-color: #2563eb;
             font-weight: bold;
         }
-
         .language-buttons button:hover {
             background-color: #60a5fa;
         }
-
         .nav-links {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-
         .nav-links li {
             display: inline-block;
             margin: 0 15px;
         }
-
         .nav-links li a {
             color: white;
             text-decoration: none;
@@ -75,33 +66,27 @@
             display: inline-block;
             transition: background 0.3s;
         }
-
         .nav-links li a:hover {
             background-color: #3b82f6;
             border-radius: 5px;
         }
-
         header {
             background-color: #1e3a8a;
             color: white;
             padding: 50px 0;
             text-align: center;
         }
-
         main {
             padding: 30px 20px;
         }
-
         h2 {
             text-align: center;
             color: #1e3a8a;
         }
-
         .tab-buttons {
             text-align: center;
             margin-bottom: 20px;
         }
-
         .tab-buttons button {
             margin: 0 5px;
             padding: 10px 15px;
@@ -111,61 +96,66 @@
             border-radius: 5px;
             cursor: pointer;
         }
-
         .tab-buttons button.active {
             background-color: #1e3a8a;
         }
-
         .tab-content {
             display: none;
             animation: fadeIn 0.5s ease-in-out;
         }
-
         .tab-content.active {
             display: block;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
             background: white;
         }
-
         table, th, td {
             border: 1px solid #1e3a8a;
         }
-
         th, td {
             padding: 10px;
             text-align: center;
         }
-
         input.answer {
             width: 60px;
             padding: 5px;
         }
-
         .correct {
             background-color: #c8f7c5;
         }
-
         .wrong {
             background-color: #f8d7da;
         }
-
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .daftar-button {
+            background-color: #16a34a;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .daftar-button:hover {
+            background-color: #15803d;
+        }
         footer {
             background-color: #1e3a8a;
             color: white;
             text-align: center;
             padding: 20px;
         }
-
         @media screen and (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -177,12 +167,10 @@
                 left: 0;
                 z-index: 1000;
             }
-
             .nav-links li {
                 display: block;
                 padding: 10px 0;
             }
-
             .hamburger {
                 display: block;
             }
@@ -234,6 +222,10 @@
             <button onclick="hitung()">=</button>
             <span id="hasil"></span>
         </div>
+
+        <div class="button-container">
+            <a href="formulir.html" class="daftar-button" id="btn-daftar">Formulir Anggota Baru</a>
+        </div>
     </main>
 
     <footer>
@@ -249,7 +241,6 @@
         function showTab(id) {
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.getElementById(id).classList.add('active');
-
             if (id === "latihan") {
                 buatLatihan();
                 mulaiTimer();
@@ -330,21 +321,15 @@
             setCookie("bahasa", bahasa, 30);
             document.getElementById("btn-id").classList.remove("active");
             document.getElementById("btn-en").classList.remove("active");
-            if (bahasa === "id") {
-                document.getElementById("btn-id").classList.add("active");
-                document.getElementById("judul-halaman").innerText = "Halaman Interaktif Perkalian & Anggota Baru";
-                document.getElementById("judul-tabel").innerText = "Tabel Perkalian";
-                document.getElementById("judul-latihan").innerText = "Latihan Perkalian";
-                document.getElementById("judul-kalkulator").innerText = "Kalkulator";
-                document.getElementById("timer").innerText = "Waktu: 60 detik";
-            } else {
-                document.getElementById("btn-en").classList.add("active");
-                document.getElementById("judul-halaman").innerText = "Interactive Multiplication Page & New Members";
-                document.getElementById("judul-tabel").innerText = "Multiplication Table";
-                document.getElementById("judul-latihan").innerText = "Multiplication Practice";
-                document.getElementById("judul-kalkulator").innerText = "Calculator";
-                document.getElementById("timer").innerText = "Time: 60 seconds";
-            }
+
+            const isID = bahasa === "id";
+            document.getElementById("btn-" + bahasa).classList.add("active");
+            document.getElementById("judul-halaman").innerText = isID ? "Halaman Interaktif Perkalian & Anggota Baru" : "Interactive Multiplication Page & New Members";
+            document.getElementById("judul-tabel").innerText = isID ? "Tabel Perkalian" : "Multiplication Table";
+            document.getElementById("judul-latihan").innerText = isID ? "Latihan Perkalian" : "Multiplication Practice";
+            document.getElementById("judul-kalkulator").innerText = isID ? "Kalkulator" : "Calculator";
+            document.getElementById("btn-daftar").innerText = isID ? "Formulir Anggota Baru" : "New Member Form";
+            document.getElementById("timer").innerText = isID ? "Waktu: 60 detik" : "Time: 60 seconds";
         }
 
         window.onload = function () {
